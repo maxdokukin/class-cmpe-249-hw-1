@@ -1,0 +1,757 @@
+{
+  "pred": "gdino_t__coco_val200__n60",
+  "split": "coco_val200",
+  "model": "gdino_t",
+  "n_images": 60,
+  "variant": {
+    "min_score": 0.3
+  },
+  "coco": {
+    "iou_thrs": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "mAP": 0.5627275739457546,
+    "AP50": 0.6915339756490263,
+    "AP75": 0.6066539589190326,
+    "AP_small": 0.39449350667805144,
+    "AP_medium": 0.6096051624105997,
+    "AP_large": 0.6860665781418928,
+    "AR@1": 0.45371214910897445,
+    "AR@10": 0.6075670229241658,
+    "AR@100": 0.6138841053126767,
+    "AR_small": 0.43056703249560396,
+    "AR_medium": 0.6246585648148149,
+    "AR_large": 0.7305949966193374,
+    "per_class": {
+      "person": {
+        "AP": 0.5900265513380853,
+        "AR": 0.6533333333333334,
+        "AP50": 0.7767642375552174,
+        "AP_small": 0.43239803197590976,
+        "AP_medium": 0.7350597741743299,
+        "AP_large": 0.8425496068479279,
+        "n_gt": 135
+      },
+      "bicycle": {
+        "AP": 0.602970297029703,
+        "AR": 0.6,
+        "AP50": 1.0,
+        "AP_small": 0.602970297029703,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 2
+      },
+      "car": {
+        "AP": 0.5072607260726073,
+        "AR": 0.5375,
+        "AP50": 0.7524752475247525,
+        "AP_small": 0.503960396039604,
+        "AP_medium": 0.5673267326732673,
+        "AP_large": 0.49999999999999994,
+        "n_gt": 8
+      },
+      "motorcycle": {
+        "AP": 0.45445544554455436,
+        "AR": 0.45,
+        "AP50": 0.5049504950495048,
+        "AP_small": 0.0,
+        "AP_medium": NaN,
+        "AP_large": 0.8999999999999999,
+        "n_gt": 2
+      },
+      "airplane": {
+        "AP": 0.8673267326732673,
+        "AR": 0.8666666666666668,
+        "AP50": 1.0,
+        "AP_small": 0.7999999999999999,
+        "AP_medium": NaN,
+        "AP_large": 0.900990099009901,
+        "n_gt": 3
+      },
+      "bus": {
+        "AP": 0.9999999999999998,
+        "AR": 1.0,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.9999999999999998,
+        "n_gt": 1
+      },
+      "train": {
+        "AP": 0.8381188118811881,
+        "AR": 0.85,
+        "AP50": 1.0,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.8381188118811881,
+        "n_gt": 4
+      },
+      "truck": {
+        "AP": 0.36633663366336633,
+        "AR": 0.4666666666666666,
+        "AP50": 0.6633663366336634,
+        "AP_small": 0.0,
+        "AP_medium": 0.39999999999999997,
+        "AP_large": 0.9999999999999998,
+        "n_gt": 3
+      },
+      "boat": {
+        "AP": 0.033663366336633666,
+        "AR": 0.1,
+        "AP50": 0.1122112211221122,
+        "AP_small": 0.29999999999999993,
+        "AP_medium": 0.0,
+        "AP_large": NaN,
+        "n_gt": 3
+      },
+      "traffic light": {
+        "AP": 0.5186418641864187,
+        "AR": 0.5928571428571427,
+        "AP50": 0.7610261026102612,
+        "AP_small": 0.39055162659123055,
+        "AP_medium": 0.8504950495049505,
+        "AP_large": 0.7884488448844884,
+        "n_gt": 14
+      },
+      "fire hydrant": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "stop sign": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "parking meter": {
+        "AP": 0.0,
+        "AR": 0.0,
+        "AP50": 0.0,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.0,
+        "n_gt": 2
+      },
+      "bench": {
+        "AP": 0.3622065063649222,
+        "AR": 0.3909090909090909,
+        "AP50": 0.6336633663366337,
+        "AP_small": 0.4491749174917492,
+        "AP_medium": 0.08415841584158416,
+        "AP_large": 0.6999999999999998,
+        "n_gt": 11
+      },
+      "bird": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "cat": {
+        "AP": 0.6287128712871287,
+        "AR": 0.625,
+        "AP50": 0.7524752475247525,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.6287128712871287,
+        "n_gt": 4
+      },
+      "dog": {
+        "AP": 0.9336633663366337,
+        "AR": 0.95,
+        "AP50": 1.0,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.9336633663366337,
+        "n_gt": 4
+      },
+      "horse": {
+        "AP": 0.5168316831683168,
+        "AR": 0.6200000000000001,
+        "AP50": 0.7227722772277227,
+        "AP_small": NaN,
+        "AP_medium": 0.6602310231023102,
+        "AP_large": 0.43465346534653465,
+        "n_gt": 5
+      },
+      "sheep": {
+        "AP": 0.8999999999999999,
+        "AR": 0.9,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": 0.8999999999999999,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "cow": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "elephant": {
+        "AP": 0.5,
+        "AR": 1.0,
+        "AP50": 0.5,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.5,
+        "n_gt": 1
+      },
+      "bear": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "zebra": {
+        "AP": 0.8176803394625177,
+        "AR": 0.8857142857142856,
+        "AP50": 1.0,
+        "AP_small": NaN,
+        "AP_medium": 0.9999999999999998,
+        "AP_large": 0.7993399339933994,
+        "n_gt": 7
+      },
+      "giraffe": {
+        "AP": 1.0,
+        "AR": 1.0,
+        "AP50": 1.0,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 1.0,
+        "n_gt": 2
+      },
+      "backpack": {
+        "AP": 0.2103960396039604,
+        "AR": 0.25,
+        "AP50": 0.4628712871287129,
+        "AP_small": 0.18316831683168316,
+        "AP_medium": 0.49999999999999994,
+        "AP_large": NaN,
+        "n_gt": 6
+      },
+      "umbrella": {
+        "AP": 0.595049504950495,
+        "AR": 0.675,
+        "AP50": 0.7524752475247525,
+        "AP_small": 0.0,
+        "AP_medium": 0.899009900990099,
+        "AP_large": NaN,
+        "n_gt": 4
+      },
+      "handbag": {
+        "AP": 0.20415841584158415,
+        "AR": 0.3625,
+        "AP50": 0.2792079207920792,
+        "AP_small": 0.20415841584158415,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 8
+      },
+      "tie": {
+        "AP": 0.6999999999999998,
+        "AR": 0.7,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": 0.6999999999999998,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "suitcase": {
+        "AP": 0.5049504950495048,
+        "AR": 0.5,
+        "AP50": 0.5049504950495048,
+        "AP_small": 0.0,
+        "AP_medium": 0.9999999999999998,
+        "AP_large": NaN,
+        "n_gt": 2
+      },
+      "frisbee": {
+        "AP": 0.8999999999999999,
+        "AR": 0.9,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": 0.8999999999999999,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "skis": {
+        "AP": 0.5848184818481847,
+        "AR": 0.6200000000000001,
+        "AP50": 0.7623762376237624,
+        "AP_small": 0.5111386138613861,
+        "AP_medium": 0.9,
+        "AP_large": NaN,
+        "n_gt": 5
+      },
+      "snowboard": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "sports ball": {
+        "AP": 0.4102310231023102,
+        "AR": 0.44000000000000006,
+        "AP50": 0.6039603960396039,
+        "AP_small": 0.4102310231023102,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 5
+      },
+      "kite": {
+        "AP": 0.5317574834406518,
+        "AR": 0.5642857142857143,
+        "AP50": 0.8056359482102058,
+        "AP_small": 0.4988671944117489,
+        "AP_medium": NaN,
+        "AP_large": 0.8999999999999999,
+        "n_gt": 14
+      },
+      "baseball bat": {
+        "AP": 0.6326732673267327,
+        "AR": 0.7,
+        "AP50": 0.9158415841584159,
+        "AP_small": 0.6504950495049505,
+        "AP_medium": 0.7999999999999999,
+        "AP_large": NaN,
+        "n_gt": 3
+      },
+      "baseball glove": {
+        "AP": 0.28415841584158413,
+        "AR": 0.28,
+        "AP50": 0.40594059405940597,
+        "AP_small": 0.23564356435643558,
+        "AP_medium": 0.35346534653465334,
+        "AP_large": NaN,
+        "n_gt": 5
+      },
+      "skateboard": {
+        "AP": 0.9999999999999998,
+        "AR": 1.0,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": 0.9999999999999998,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "surfboard": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "tennis racket": {
+        "AP": 0.0,
+        "AR": 0.0,
+        "AP50": 0.0,
+        "AP_small": 0.0,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 2
+      },
+      "bottle": {
+        "AP": 0.655985021579081,
+        "AR": 0.775,
+        "AP50": 0.7644706778370144,
+        "AP_small": 0.15351249410655352,
+        "AP_medium": 0.8891089108910891,
+        "AP_large": NaN,
+        "n_gt": 8
+      },
+      "wine glass": {
+        "AP": 0.597029702970297,
+        "AR": 0.6,
+        "AP50": 0.6633663366336634,
+        "AP_small": 0.9,
+        "AP_medium": NaN,
+        "AP_large": 0.0,
+        "n_gt": 3
+      },
+      "cup": {
+        "AP": 0.34732673267326736,
+        "AR": 0.3615384615384616,
+        "AP50": 0.46534653465346537,
+        "AP_small": 0.28217821782178215,
+        "AP_medium": 0.4039603960396039,
+        "AP_large": 0.8999999999999999,
+        "n_gt": 13
+      },
+      "fork": {
+        "AP": 0.8999999999999999,
+        "AR": 0.9,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": 0.8999999999999999,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "knife": {
+        "AP": 0.7158415841584158,
+        "AR": 0.7333333333333333,
+        "AP50": 1.0,
+        "AP_small": 0.7019801980198019,
+        "AP_medium": NaN,
+        "AP_large": 0.7999999999999999,
+        "n_gt": 3
+      },
+      "spoon": {
+        "AP": 0.5306930693069307,
+        "AR": 0.5333333333333333,
+        "AP50": 0.6633663366336634,
+        "AP_small": 0.8,
+        "AP_medium": 0.0,
+        "AP_large": NaN,
+        "n_gt": 3
+      },
+      "bowl": {
+        "AP": 0.6669966996699671,
+        "AR": 0.6833333333333333,
+        "AP50": 1.0,
+        "AP_small": 0.6732673267326733,
+        "AP_medium": 0.6999999999999998,
+        "AP_large": NaN,
+        "n_gt": 6
+      },
+      "banana": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "apple": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "sandwich": {
+        "AP": 0.9999999999999998,
+        "AR": 1.0,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.9999999999999998,
+        "n_gt": 1
+      },
+      "orange": {
+        "AP": 0.39900990099009903,
+        "AR": 0.4,
+        "AP50": 0.6633663366336634,
+        "AP_small": 0.39900990099009903,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 3
+      },
+      "broccoli": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "carrot": {
+        "AP": 0.0,
+        "AR": 0.0,
+        "AP50": 0.0,
+        "AP_small": NaN,
+        "AP_medium": 0.0,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "hot dog": {
+        "AP": 0.8999999999999999,
+        "AR": 0.9,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": 0.8999999999999999,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "pizza": {
+        "AP": 0.9,
+        "AR": 0.9,
+        "AP50": 1.0,
+        "AP_small": NaN,
+        "AP_medium": 0.8999999999999999,
+        "AP_large": 0.8999999999999999,
+        "n_gt": 2
+      },
+      "donut": {
+        "AP": 0.7643564356435644,
+        "AR": 0.7666666666666667,
+        "AP50": 1.0,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.7643564356435644,
+        "n_gt": 3
+      },
+      "cake": {
+        "AP": 0.3333333333333333,
+        "AR": 0.9,
+        "AP50": 0.5,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.55,
+        "n_gt": 1
+      },
+      "chair": {
+        "AP": 0.47542780962403364,
+        "AR": 0.5833333333333334,
+        "AP50": 0.6534079661226045,
+        "AP_small": 0.43669586189388176,
+        "AP_medium": 0.602970297029703,
+        "AP_large": 0.5918163602074493,
+        "n_gt": 24
+      },
+      "couch": {
+        "AP": 0.9999999999999998,
+        "AR": 1.0,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": 0.9999999999999998,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "potted plant": {
+        "AP": 0.7425742574257426,
+        "AR": 0.74,
+        "AP50": 0.801980198019802,
+        "AP_small": 0.0,
+        "AP_medium": 0.9,
+        "AP_large": 0.9999999999999998,
+        "n_gt": 5
+      },
+      "bed": {
+        "AP": 0.400990099009901,
+        "AR": 0.39999999999999997,
+        "AP50": 0.6633663366336634,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.400990099009901,
+        "n_gt": 3
+      },
+      "dining table": {
+        "AP": 0.19430300172874423,
+        "AR": 0.3727272727272727,
+        "AP50": 0.253025302530253,
+        "AP_small": 0.5524752475247525,
+        "AP_medium": 0.0,
+        "AP_large": 0.2291089108910891,
+        "n_gt": 11
+      },
+      "toilet": {
+        "AP": 0.45445544554455436,
+        "AR": 0.45,
+        "AP50": 0.5049504950495048,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 0.45445544554455436,
+        "n_gt": 2
+      },
+      "tv": {
+        "AP": 0.8504950495049505,
+        "AR": 0.85,
+        "AP50": 1.0,
+        "AP_small": 0.7999999999999999,
+        "AP_medium": 0.8999999999999999,
+        "AP_large": NaN,
+        "n_gt": 2
+      },
+      "laptop": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "mouse": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "remote": {
+        "AP": 0.15148514851485148,
+        "AR": 0.3,
+        "AP50": 0.16831683168316833,
+        "AP_small": 0.3029702970297029,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 3
+      },
+      "keyboard": {
+        "AP": 0.8999999999999999,
+        "AR": 0.9,
+        "AP50": 0.9999999999999999,
+        "AP_small": 0.8999999999999999,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "cell phone": {
+        "AP": 0.0,
+        "AR": 0.0,
+        "AP50": 0.0,
+        "AP_small": 0.0,
+        "AP_medium": NaN,
+        "AP_large": 0.0,
+        "n_gt": 2
+      },
+      "microwave": {
+        "AP": 0.8999999999999999,
+        "AR": 0.9,
+        "AP50": 0.9999999999999999,
+        "AP_small": NaN,
+        "AP_medium": 0.8999999999999999,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "oven": {
+        "AP": 0.35,
+        "AR": 0.7,
+        "AP50": 0.5,
+        "AP_small": NaN,
+        "AP_medium": 0.6999999999999998,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "toaster": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "sink": {
+        "AP": 0.23514851485148514,
+        "AR": 0.325,
+        "AP50": 0.38118811881188114,
+        "AP_small": 0.11782178217821782,
+        "AP_medium": NaN,
+        "AP_large": 0.5999999999999999,
+        "n_gt": 4
+      },
+      "refrigerator": {
+        "AP": 1.0,
+        "AR": 1.0,
+        "AP50": 1.0,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": 1.0,
+        "n_gt": 2
+      },
+      "book": {
+        "AP": 0.0,
+        "AR": 0.0,
+        "AP50": 0.0,
+        "AP_small": NaN,
+        "AP_medium": 0.0,
+        "AP_large": NaN,
+        "n_gt": 1
+      },
+      "clock": {
+        "AP": 0.313069306930693,
+        "AR": 0.44000000000000006,
+        "AP50": 0.4455445544554454,
+        "AP_small": 0.6146039603960396,
+        "AP_medium": 0.0,
+        "AP_large": 0.49999999999999994,
+        "n_gt": 5
+      },
+      "vase": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "scissors": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "teddy bear": {
+        "AP": 0.7772277227722773,
+        "AR": 0.78,
+        "AP50": 0.801980198019802,
+        "AP_small": NaN,
+        "AP_medium": 0.0,
+        "AP_large": 0.969059405940594,
+        "n_gt": 5
+      },
+      "hair drier": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      },
+      "toothbrush": {
+        "AP": NaN,
+        "AR": NaN,
+        "AP50": NaN,
+        "AP_small": NaN,
+        "AP_medium": NaN,
+        "AP_large": NaN,
+        "n_gt": 0
+      }
+    }
+  }
+}

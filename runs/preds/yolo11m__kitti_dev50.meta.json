@@ -1,0 +1,70 @@
+{
+  "name": "yolo11m__kitti_dev50",
+  "model": "yolo11m",
+  "split": "kitti_dev50",
+  "n_images": 50,
+  "vocabulary": null,
+  "detector_config": {
+    "name": "yolo11m",
+    "open_vocab": false,
+    "device": "cpu",
+    "dtype": "float32",
+    "score_thresh": 0.001,
+    "max_det": 100,
+    "versions": {
+      "python": "3.12.16",
+      "torch": "2.14.1+cpu",
+      "torchvision": "0.29.1+cpu",
+      "ultralytics": "8.4.190",
+      "transformers": "5.21.0"
+    },
+    "checkpoint": "/home/user/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt",
+    "input": "letterbox, long side 640, minimal stride-32 padding (predict-style, rect)",
+    "nms_iou": 0.7,
+    "head": "one2many + NMS",
+    "timing_note": "stage split from ultralytics Results.speed; total_ms includes RGB->BGR copy"
+  },
+  "latency": {
+    "warmup_images": 3,
+    "burst": {
+      "n": 47,
+      "median_ms": 314.6443460136652,
+      "p90_ms": 396.1729049915448,
+      "mean_ms": 324.36336731498545,
+      "fps_median": 3.1781915444193913,
+      "preprocess_median_ms": 1.454222947359085,
+      "forward_median_ms": 305.1801179535687,
+      "postprocess_median_ms": 1.4068179298192263
+    },
+    "sustained": {
+      "n": 47,
+      "median_ms": 314.6443460136652,
+      "p90_ms": 396.1729049915448,
+      "mean_ms": 324.36336731498545,
+      "fps_median": 3.1781915444193913,
+      "preprocess_median_ms": 1.454222947359085,
+      "forward_median_ms": 305.1801179535687,
+      "postprocess_median_ms": 1.4068179298192263
+    }
+  },
+  "memory": {
+    "kind": "cpu_rss",
+    "samples": 50,
+    "process_rss_peak_mb": 611.2,
+    "peak_mb": 611.2
+  },
+  "boxes_per_image_mean": 69.12,
+  "wall_s": 17.5,
+  "mps_fallback_warnings": [],
+  "env": {
+    "host": "code",
+    "platform": "Linux-7.0.14-23-pve-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "src_hash": "5282fe3d7a00",
+  "command": "python -m hw1.run --model yolo11m --split kitti_dev50 --device cpu --warmup 3",
+  "finished_utc": "2026-10-27T18:20:51+00:00",
+  "pred_file": "runs/preds/yolo11m__kitti_dev50.jsonl.gz"
+}

@@ -1,0 +1,8 @@
+data/
+.venv/
+weights/
+runs/cache/
+runs/smoke/
+runs/preds/*.jsonl.gz
+*.pt
+*.tgz

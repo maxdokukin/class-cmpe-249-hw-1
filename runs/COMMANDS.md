@@ -1,0 +1,7 @@
+- `python -m hw1.run --model yolo11m --split coco_val200 --device cpu --warmup 5`  (2026-10-27T18:11:46+00:00, code, cpu, 64.0 s)
+- `python -m hw1.run --model rtdetr_r50 --split coco_val200 --max-images 200 --device cpu --warmup 3`  (2026-10-27T18:15:31+00:00, code, cpu, 176.6 s)
+- `python -m hw1.run --model yolo11m --split kitti_dev50 --device cpu --warmup 3`  (2026-10-27T18:20:51+00:00, code, cpu, 17.5 s)
+- `python -m hw1.run --model gdino_t --split coco_val200 --max-images 60 --device cpu --warmup 3`  (2026-10-27T18:28:52+00:00, code, cpu, 784.7 s)
+- `python -m hw1.run --model owlv2 --split coco_val200 --max-images 3 --device cpu --warmup 1`  (2026-10-27T18:31:30+00:00, code, cpu, 55.4 s)
+- `python -m hw1.run --model owlv2 --split coco_val200 --max-images 30 --device cpu --warmup 2`  (2026-10-27T18:40:52+00:00, code, cpu, 540.8 s)
+- `python -m hw1.run --model yolo11m --split coco_val200 --max-images 20 --device cpu --warmup 2 --tag parity_cpu`  (2026-10-27T20:24:02+00:00, code, cpu, 6.5 s)
