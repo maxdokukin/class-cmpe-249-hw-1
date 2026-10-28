@@ -9,7 +9,8 @@ model = sys.argv[1]
 maps = {}
 for dev in ("cpu", "mps"):
     pred = Path(f"runs/preds/{model}__coco_val200__parity_{dev}__n20.jsonl.gz")
-    if not pred.exists():
+    meta = pred.with_name(pred.name.replace(".jsonl.gz", ".meta.json"))
+    if not (pred.exists() and meta.exists()):  # meta is written last, so a missing one means an interrupted run
         subprocess.run([sys.executable, "-m", "hw1.run", "--model", model, "--split", "coco_val200", "--max-images", "20",
                         "--device", dev, "--warmup", "2", "--tag", f"parity_{dev}"], check=True)
     maps[dev] = score(pred)["coco"]["mAP"]

@@ -24,8 +24,12 @@ stage_parity() {  # MPS vs CPU on 20 images per model; a model that disagrees ru
     log "parity $m"
     out=$(py scripts/parity.py "$m" 2>&1 | tee -a runs/logs/parity.log | tail -1)
     [[ -n ${DRY_RUN:-} ]] && { echo "$out"; continue; }
+    case $out in
+      *"PARITY OK"*) echo mps > "runs/parity/$m.device" ;;
+      *"PARITY FAIL"*) echo cpu > "runs/parity/$m.device" ;;
+      *) log "  parity $m errored (see runs/logs/parity.log); undecided, will retry next run, using $DEV"; continue ;;
+    esac
     echo "$out" > "runs/parity/$m.txt"
-    if [[ $out == *"PARITY OK"* ]]; then echo mps > "runs/parity/$m.device"; else echo cpu > "runs/parity/$m.device"; fi
     log "  $out -> $(cat "runs/parity/$m.device")"
   done
 }
@@ -47,6 +51,9 @@ stage_e1() {
   run yolo26m kitti_test nms --set end2end=false
   run yolo11m kitti_test img1280 --set imgsz=1280
   for m in owlv2 gdino_t; do run $m coco_val1k; run $m kitti_test; done
+  # latency on the parity-chosen device; gdino_t's main runs went to CPU after an interrupted parity check
+  run gdino_t coco_val200 lat
+  run gdino_t kitti_test200 lat
 }
 
 stage_cache() {  # OWLv2 image features: dev for the agent loop, test (sharded) for scoring the agent's arms
