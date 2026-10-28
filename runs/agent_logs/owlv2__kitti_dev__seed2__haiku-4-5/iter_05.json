@@ -1,0 +1,72 @@
+{
+ "iter": 5,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person walking": 3,
+  "standing person": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Back to simpler cyclist prompt \"cyclist\" alone; this was better at avoiding high FP rates despite low recall.",
+ "mAP": 0.22593181358241987,
+ "per_class": {
+  "car": {
+   "AP": 0.3726210094203513,
+   "AP50": 0.7424856660412773,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3117666912588884,
+   "AP50": 0.5687140479900417,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19365311838247518,
+   "AP50": 0.47353993509455133,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015780708448321714,
+   "AP50": 0.08709574027076009,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23583754040206273,
+   "AP50": 0.5326913748931429,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3208
+  },
+  "cyclist": {
+   "correct": 32,
+   "false_pos": 707
+  },
+  "person walking": {
+   "correct": 219,
+   "false_pos": 489
+  },
+  "standing person": {
+   "correct": 37,
+   "false_pos": 18
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.02853745
+}

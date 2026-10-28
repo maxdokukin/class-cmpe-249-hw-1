@@ -1,0 +1,87 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "dark vehicle": 1,
+  "van": 1,
+  "truck": 2,
+  "lorry": 2,
+  "walking person": 3,
+  "person standing still": 3,
+  "cyclist": 4,
+  "bike": 4,
+  "tram": 5
+ },
+ "rationale": "Add \"bike\" as a second cyclist prompt to increase recall; now at exactly 10 prompts (limit is 30).",
+ "mAP": 0.23285732791019678,
+ "per_class": {
+  "car": {
+   "AP": 0.3814682639707857,
+   "AP50": 0.753897441980093,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3173344668400818,
+   "AP50": 0.5767308089877032,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.22735488107800889,
+   "AP50": 0.5559395002592472,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0020885065504893806,
+   "AP50": 0.017034941803650082,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23604052111161783,
+   "AP50": 0.5340226620767237,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike": {
+   "correct": 12,
+   "false_pos": 1351
+  },
+  "car": {
+   "correct": 1129,
+   "false_pos": 2824
+  },
+  "cyclist": {
+   "correct": 20,
+   "false_pos": 116
+  },
+  "dark vehicle": {
+   "correct": 374,
+   "false_pos": 353
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 5
+  },
+  "person standing still": {
+   "correct": 107,
+   "false_pos": 61
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 32
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 139
+  },
+  "van": {
+   "correct": 139,
+   "false_pos": 58
+  },
+  "walking person": {
+   "correct": 157,
+   "false_pos": 336
+  }
+ },
+ "cost_usd_cum": 0.0602679
+}

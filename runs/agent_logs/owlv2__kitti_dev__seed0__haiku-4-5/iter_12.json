@@ -1,0 +1,77 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "black car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Try using just \"cyclist\" instead of \"bicycle rider\" to see if the simpler term works better, testing whether the issue is word choice or fundamental model limitation.",
+ "mAP": 0.22407129864926423,
+ "per_class": {
+  "car": {
+   "AP": 0.3679245970096997,
+   "AP50": 0.721888362904346,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3024030151237999,
+   "AP50": 0.5536376939861537,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2037008629886613,
+   "AP50": 0.4900441355678586,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.010868381573991738,
+   "AP50": 0.06587699609596508,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23545963655016827,
+   "AP50": 0.5328836554879458,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "black car": {
+   "correct": 130,
+   "false_pos": 52
+  },
+  "car": {
+   "correct": 945,
+   "false_pos": 2867
+  },
+  "cyclist": {
+   "correct": 24,
+   "false_pos": 681
+  },
+  "dark car": {
+   "correct": 512,
+   "false_pos": 248
+  },
+  "pedestrian": {
+   "correct": 192,
+   "false_pos": 397
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 95
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 238
+  }
+ },
+ "cost_usd_cum": 0.0593366
+}

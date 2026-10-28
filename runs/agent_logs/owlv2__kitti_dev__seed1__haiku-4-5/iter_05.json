@@ -1,0 +1,67 @@
+{
+ "iter": 5,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "walking person": 3,
+  "person on bike": 4,
+  "tram": 5
+ },
+ "rationale": "Try \"walking person\" for pedestrian to be more specific (KITTI spec: walking or standing people), keep \"person on bike\" for cyclist.",
+ "mAP": 0.22988744148980914,
+ "per_class": {
+  "car": {
+   "AP": 0.3725730122151991,
+   "AP50": 0.7425866640458109,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31177305675688827,
+   "AP50": 0.5687191594975786,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21422188860044092,
+   "AP50": 0.5225614103190311,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015036067046505449,
+   "AP50": 0.0882864456893602,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.235833182830012,
+   "AP50": 0.5326727564885059,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3193
+  },
+  "person on bike": {
+   "correct": 44,
+   "false_pos": 1025
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  },
+  "walking person": {
+   "correct": 247,
+   "false_pos": 276
+  }
+ },
+ "cost_usd_cum": 0.02727125
+}

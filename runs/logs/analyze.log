@@ -1,0 +1,10 @@
+failure analysis on kitti_test: 8 prediction files
+  frcnn_v2__kitti_test                     AP50 0.493  dCls +0.069 dLoc +0.090 dBoth +0.011 dDupe +0.001 dBkg +0.035 dMissed +0.149
+  gdino_t__kitti_test                      AP50 0.421  dCls +0.125 dLoc +0.046 dBoth +0.008 dDupe +0.002 dBkg +0.076 dMissed +0.113
+  owlv2__kitti_test                        AP50 0.412  dCls +0.070 dLoc +0.172 dBoth +0.005 dDupe +0.001 dBkg +0.048 dMissed +0.152
+  rtdetr_r50__kitti_test                   AP50 0.480  dCls +0.113 dLoc +0.077 dBoth +0.011 dDupe +0.002 dBkg +0.020 dMissed +0.151
+  yolo11m__kitti_test                      AP50 0.440  dCls +0.115 dLoc +0.073 dBoth +0.008 dDupe +0.001 dBkg +0.020 dMissed +0.231
+  yolo11m__kitti_test__img1280             AP50 0.491  dCls +0.083 dLoc +0.090 dBoth +0.011 dDupe +0.001 dBkg +0.019 dMissed +0.214
+  yolo26m__kitti_test                      AP50 0.481  dCls +0.102 dLoc +0.078 dBoth +0.010 dDupe +0.005 dBkg +0.021 dMissed +0.180
+  yolo26m__kitti_test__nms                 AP50 0.456  dCls +0.078 dLoc +0.085 dBoth +0.007 dDupe +0.001 dBkg +0.017 dMissed +0.272
+wrote /Users/user/code/maxdokukin/class-cmpe-249/hw_1/runs/analysis/summary.md

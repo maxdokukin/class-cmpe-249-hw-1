@@ -1,0 +1,82 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "passenger car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "person walking": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "person on bike": 4,
+  "tram": 5
+ },
+ "rationale": "Add synonyms and more specific descriptors for each class, particularly splitting car/truck with clarifying adjectives and focusing cyclist prompts on person+bike interaction.",
+ "mAP": 0.20087593702362563,
+ "per_class": {
+  "car": {
+   "AP": 0.2789229941510219,
+   "AP50": 0.5763378533375397,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.286729131148333,
+   "AP50": 0.5318204711889561,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19303004265584361,
+   "AP50": 0.4687237760273719,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015447560692890801,
+   "AP50": 0.08839984885443852,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23024995647003885,
+   "AP50": 0.5212190963341858,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 20,
+   "false_pos": 51
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "passenger car": {
+   "correct": 6,
+   "false_pos": 21
+  },
+  "person on bike": {
+   "correct": 20,
+   "false_pos": 854
+  },
+  "person standing": {
+   "correct": 72,
+   "false_pos": 56
+  },
+  "person walking": {
+   "correct": 175,
+   "false_pos": 334
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 28
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 191
+  },
+  "van": {
+   "correct": 750,
+   "false_pos": 244
+  }
+ },
+ "cost_usd_cum": 0.006988
+}

@@ -1,0 +1,87 @@
+{
+ "iter": 13,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "vehicle": 1,
+  "van": 1,
+  "truck": 2,
+  "lorry": 2,
+  "walking person": 3,
+  "person standing still": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Replace \"dark vehicle\" with separate \"dark car\" and add \"vehicle\" for more general car detection; now at 10 prompts.",
+ "mAP": 0.23604623134026226,
+ "per_class": {
+  "car": {
+   "AP": 0.3850930228570948,
+   "AP50": 0.7576222128370335,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3166716678921195,
+   "AP50": 0.5751747122579869,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.22742658838469093,
+   "AP50": 0.5557646492626687,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01533510727195291,
+   "AP50": 0.08967620559134211,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2357047702954531,
+   "AP50": 0.5333531887299546,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 894,
+   "false_pos": 2818
+  },
+  "cyclist": {
+   "correct": 33,
+   "false_pos": 709
+  },
+  "dark car": {
+   "correct": 571,
+   "false_pos": 272
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 5
+  },
+  "person standing still": {
+   "correct": 107,
+   "false_pos": 61
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 148
+  },
+  "van": {
+   "correct": 163,
+   "false_pos": 60
+  },
+  "vehicle": {
+   "correct": 13,
+   "false_pos": 78
+  },
+  "walking person": {
+   "correct": 157,
+   "false_pos": 341
+  }
+ },
+ "cost_usd_cum": 0.06554309999999999
+}

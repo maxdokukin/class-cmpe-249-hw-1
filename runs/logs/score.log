@@ -44,3 +44,7 @@ yolo26m__kitti_test__nms                      van-merge__cyc-naive         mAP 0
 yolo26m__kitti_test__nms                      van-merge__cyc-none          mAP 0.208  AP50 0.398  core3 0.285  -> yolo26m__kitti_test__nms__van-merge__cyc-none.json
 yolo26m__kitti_test__nms                      van-ignore__cyc-merge        mAP 0.228  AP50 0.464  core3 0.294  -> yolo26m__kitti_test__nms__van-ignore__cyc-merge.json
 yolo26m__kitti_test__nms                      van-merge__cyc-merge__thr0.3 mAP 0.208  AP50 0.413  core3 0.271  -> yolo26m__kitti_test__nms__van-merge__cyc-merge__thr0.3.json
+yolo11m__coco_val                             default__sub-coco_val1k      mAP 0.544  AP50 0.716  -> yolo11m__coco_val__default__sub-coco_val1k.json
+yolo26m__coco_val                             default__sub-coco_val1k      mAP 0.551  AP50 0.722  -> yolo26m__coco_val__default__sub-coco_val1k.json
+rtdetr_r50__coco_val                          default__sub-coco_val1k      mAP 0.559  AP50 0.746  -> rtdetr_r50__coco_val__default__sub-coco_val1k.json
+frcnn_v2__coco_val                            default__sub-coco_val1k      mAP 0.494  AP50 0.706  -> frcnn_v2__coco_val__default__sub-coco_val1k.json

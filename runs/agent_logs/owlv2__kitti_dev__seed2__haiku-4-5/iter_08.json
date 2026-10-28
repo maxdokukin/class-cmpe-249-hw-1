@@ -1,0 +1,77 @@
+{
+ "iter": 8,
+ "prompt_map": {
+  "car": 1,
+  "dark vehicle": 1,
+  "van": 1,
+  "large truck": 2,
+  "person": 3,
+  "standing person": 3,
+  "person on bike": 4,
+  "tram": 5
+ },
+ "rationale": "Change \"truck\" to \"large truck\" to be more specific; replace \"cyclist\" with \"person on bike\" to test cyclist detection method.",
+ "mAP": 0.2271314565590238,
+ "per_class": {
+  "car": {
+   "AP": 0.38226076227623773,
+   "AP50": 0.755562174725323,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.28841921252581226,
+   "AP50": 0.539793217035495,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21021749521050767,
+   "AP50": 0.5021857759228991,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015795915417306107,
+   "AP50": 0.0916172342581768,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2389638973652553,
+   "AP50": 0.5336320673585708,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1129,
+   "false_pos": 2813
+  },
+  "dark vehicle": {
+   "correct": 374,
+   "false_pos": 363
+  },
+  "large truck": {
+   "correct": 42,
+   "false_pos": 93
+  },
+  "person": {
+   "correct": 99,
+   "false_pos": 94
+  },
+  "person on bike": {
+   "correct": 48,
+   "false_pos": 1069
+  },
+  "standing person": {
+   "correct": 138,
+   "false_pos": 70
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 33
+  },
+  "van": {
+   "correct": 142,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.04122875
+}

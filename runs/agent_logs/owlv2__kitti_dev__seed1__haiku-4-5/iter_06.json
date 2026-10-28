@@ -1,0 +1,67 @@
+{
+ "iter": 6,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "walking person": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Switch back to \"cyclist\" (simpler term with lower false positive rate) rather than \"person on bike\" to balance precision and recall.",
+ "mAP": 0.2308317828070383,
+ "per_class": {
+  "car": {
+   "AP": 0.37272350422434214,
+   "AP50": 0.7432258924696544,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3117660406193504,
+   "AP50": 0.5687140479900417,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21842456637369348,
+   "AP50": 0.5379335738099638,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015463201807828581,
+   "AP50": 0.09122009347816835,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23578160100997686,
+   "AP50": 0.5325400439573225,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3209
+  },
+  "cyclist": {
+   "correct": 34,
+   "false_pos": 713
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  },
+  "walking person": {
+   "correct": 263,
+   "false_pos": 403
+  }
+ },
+ "cost_usd_cum": 0.0311494
+}

@@ -1,0 +1,67 @@
+{
+ "iter": 13,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "standing person": 3,
+  "person riding bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Final attempt: replace \"cyclist\" with \"person riding bicycle\" for more specificity that might improve cyclist AP with the current system's strengths.",
+ "mAP": 0.23148869748216475,
+ "per_class": {
+  "car": {
+   "AP": 0.3725768218083729,
+   "AP50": 0.7425349458792377,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3117699348935869,
+   "AP50": 0.5687165994628155,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.22489051226729345,
+   "AP50": 0.542941620560356,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012380386572459413,
+   "AP50": 0.06635355502292228,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23582583186911113,
+   "AP50": 0.5327321322141058,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3198
+  },
+  "person riding bicycle": {
+   "correct": 37,
+   "false_pos": 1021
+  },
+  "standing person": {
+   "correct": 233,
+   "false_pos": 114
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.06193370000000001
+}

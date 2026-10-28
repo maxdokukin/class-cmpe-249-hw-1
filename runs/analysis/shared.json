@@ -1,0 +1,42 @@
+[
+ {
+  "image_id": 4343,
+  "file": "gallery/shared_miss__1.jpg",
+  "n_common_missed": 6,
+  "ann_ids": [
+   30261,
+   30262,
+   30263,
+   30264,
+   30265,
+   30266
+  ],
+  "detections_from": "frcnn_v2__kitti_test"
+ },
+ {
+  "image_id": 2666,
+  "file": "gallery/shared_miss__2.jpg",
+  "n_common_missed": 5,
+  "ann_ids": [
+   18328,
+   18332,
+   18333,
+   18339,
+   18342
+  ],
+  "detections_from": "frcnn_v2__kitti_test"
+ },
+ {
+  "image_id": 966,
+  "file": "gallery/shared_miss__3.jpg",
+  "n_common_missed": 5,
+  "ann_ids": [
+   7166,
+   7168,
+   7180,
+   7181,
+   7182
+  ],
+  "detections_from": "frcnn_v2__kitti_test"
+ }
+]

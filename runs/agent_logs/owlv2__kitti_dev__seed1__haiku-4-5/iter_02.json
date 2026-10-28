@@ -1,0 +1,67 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person": 3,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "Add \"van\" for car class (KITTI includes vans) and \"person\" for pedestrian to improve coverage with synonyms.",
+ "mAP": 0.22421626785066492,
+ "per_class": {
+  "car": {
+   "AP": 0.37251359848601123,
+   "AP50": 0.7423868898479314,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31175435438207066,
+   "AP50": 0.5687064445162678,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1824674293271746,
+   "AP50": 0.44011078411880034,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.018769205005646678,
+   "AP50": 0.0995331906929147,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2355767520524215,
+   "AP50": 0.5320684335787124,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 34,
+   "false_pos": 166
+  },
+  "car": {
+   "correct": 1446,
+   "false_pos": 3203
+  },
+  "person": {
+   "correct": 217,
+   "false_pos": 187
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.011861
+}

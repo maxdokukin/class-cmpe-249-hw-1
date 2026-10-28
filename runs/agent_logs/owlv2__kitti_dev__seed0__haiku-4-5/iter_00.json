@@ -1,0 +1,62 @@
+{
+ "iter": 0,
+ "prompt_map": {
+  "car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Starting with simple, direct class names as a baseline to understand the model's basic performance and identify which classes need additional vocabulary prompts.",
+ "mAP": 0.21976905175257358,
+ "per_class": {
+  "car": {
+   "AP": 0.3513743449688529,
+   "AP50": 0.7028466274607648,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3021122182248704,
+   "AP50": 0.5530162138141725,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19551569941252103,
+   "AP50": 0.47001795519159106,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014007313556708308,
+   "AP50": 0.08477724248399456,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23583568259991516,
+   "AP50": 0.5326781811972604,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1599,
+   "false_pos": 3529
+  },
+  "cyclist": {
+   "correct": 31,
+   "false_pos": 701
+  },
+  "pedestrian": {
+   "correct": 253,
+   "false_pos": 447
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 244
+  }
+ },
+ "cost_usd_cum": 0.002207
+}

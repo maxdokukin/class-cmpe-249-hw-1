@@ -1,0 +1,77 @@
+{
+ "iter": 9,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "standing person": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "Add more pedestrian synonyms (\"standing person\" and \"person\") to increase recall since pedestrians are often missed, without changing other classes.",
+ "mAP": 0.2248110160721594,
+ "per_class": {
+  "car": {
+   "AP": 0.36763432591376444,
+   "AP50": 0.7211183778307965,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3024059288512988,
+   "AP50": 0.5536397096949585,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20193243323167023,
+   "AP50": 0.48401005236879724,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016612925860790596,
+   "AP50": 0.09026337637515017,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2354694665032731,
+   "AP50": 0.5329172771171616,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 29,
+   "false_pos": 121
+  },
+  "car": {
+   "correct": 960,
+   "false_pos": 2883
+  },
+  "dark car": {
+   "correct": 627,
+   "false_pos": 282
+  },
+  "pedestrian": {
+   "correct": 172,
+   "false_pos": 388
+  },
+  "person": {
+   "correct": 57,
+   "false_pos": 87
+  },
+  "standing person": {
+   "correct": 27,
+   "false_pos": 28
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 238
+  }
+ },
+ "cost_usd_cum": 0.0451702
+}

@@ -1,0 +1,10 @@
+{
+ "car": 1,
+ "dark car": 1,
+ "truck": 2,
+ "pedestrian": 3,
+ "person standing": 3,
+ "bicycle rider": 4,
+ "person on bicycle": 4,
+ "tram": 5
+}

@@ -1,0 +1,77 @@
+{
+ "iter": 7,
+ "prompt_map": {
+  "car": 1,
+  "dark vehicle": 1,
+  "van": 1,
+  "truck": 2,
+  "person": 3,
+  "standing person": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Replace \"dark car\" with \"dark vehicle\" for semantic clarity; keep proven \"person\" and \"standing person\" for pedestrians.",
+ "mAP": 0.23240271755677716,
+ "per_class": {
+  "car": {
+   "AP": 0.3815725389980046,
+   "AP50": 0.754080203783923,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31350697105553,
+   "AP50": 0.5718266400488325,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21479613121325608,
+   "AP50": 0.52721496867628,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01635774221271511,
+   "AP50": 0.08577763718389189,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23578020430438018,
+   "AP50": 0.5334159255161975,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1129,
+   "false_pos": 2821
+  },
+  "cyclist": {
+   "correct": 31,
+   "false_pos": 723
+  },
+  "dark vehicle": {
+   "correct": 374,
+   "false_pos": 354
+  },
+  "person": {
+   "correct": 109,
+   "false_pos": 140
+  },
+  "standing person": {
+   "correct": 143,
+   "false_pos": 85
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 32
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 146
+  },
+  "van": {
+   "correct": 139,
+   "false_pos": 58
+  }
+ },
+ "cost_usd_cum": 0.03686225
+}

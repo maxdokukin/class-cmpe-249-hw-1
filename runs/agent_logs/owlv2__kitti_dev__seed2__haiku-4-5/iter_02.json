@@ -1,0 +1,77 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person walking": 3,
+  "standing person": 3,
+  "cyclist": 4,
+  "bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Simplify to shorter, cleaner prompts; use \"cyclist\" and \"bicycle\" for better cyclist detection; focus pedestrian on walking/standing.",
+ "mAP": 0.22314939945296783,
+ "per_class": {
+  "car": {
+   "AP": 0.37256092840481103,
+   "AP50": 0.7424926826104659,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3116921927333906,
+   "AP50": 0.5687191594975786,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1937302932155983,
+   "AP50": 0.4732712834896751,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.001885514264841478,
+   "AP50": 0.012430502236981502,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2358780686461978,
+   "AP50": 0.5328026101529826,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 12,
+   "false_pos": 1265
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3206
+  },
+  "cyclist": {
+   "correct": 22,
+   "false_pos": 123
+  },
+  "person walking": {
+   "correct": 219,
+   "false_pos": 479
+  },
+  "standing person": {
+   "correct": 37,
+   "false_pos": 18
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.012517
+}

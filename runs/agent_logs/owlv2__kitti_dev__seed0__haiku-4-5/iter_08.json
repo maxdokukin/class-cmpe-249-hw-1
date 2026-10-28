@@ -1,0 +1,77 @@
+{
+ "iter": 8,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "Focus on truck since it's consistently getting false positives for delivery vans. Add \"delivery truck\" to capture box trucks without expanding cyclist further.",
+ "mAP": 0.22032990459015192,
+ "per_class": {
+  "car": {
+   "AP": 0.36757305910844257,
+   "AP50": 0.7211343823661004,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.27884386174923226,
+   "AP50": 0.5179345694574717,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20175765258377845,
+   "AP50": 0.48217925810797807,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.017940761454292013,
+   "AP50": 0.09997335223597184,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23553418805501436,
+   "AP50": 0.5330156962472294,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 33,
+   "false_pos": 137
+  },
+  "car": {
+   "correct": 960,
+   "false_pos": 2883
+  },
+  "dark car": {
+   "correct": 627,
+   "false_pos": 282
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 14
+  },
+  "pedestrian": {
+   "correct": 165,
+   "false_pos": 396
+  },
+  "person standing": {
+   "correct": 88,
+   "false_pos": 85
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 42,
+   "false_pos": 223
+  }
+ },
+ "cost_usd_cum": 0.04073745
+}

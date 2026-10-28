@@ -1,0 +1,82 @@
+{
+ "iter": 11,
+ "prompt_map": {
+  "car": 1,
+  "dark vehicle": 1,
+  "van": 1,
+  "truck": 2,
+  "lorry": 2,
+  "walking person": 3,
+  "person standing still": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Add \"lorry\" as an alternative truck term to catch more truck instances; this brings us to 9 prompts.",
+ "mAP": 0.23553279072822553,
+ "per_class": {
+  "car": {
+   "AP": 0.3815480886193107,
+   "AP50": 0.7540890694692759,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31732928595567,
+   "AP50": 0.576723940144091,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2274318360452212,
+   "AP50": 0.5557842740390865,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015334415776694883,
+   "AP50": 0.0896710307535888,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23602032724423086,
+   "AP50": 0.5339569590290236,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1129,
+   "false_pos": 2825
+  },
+  "cyclist": {
+   "correct": 33,
+   "false_pos": 710
+  },
+  "dark vehicle": {
+   "correct": 374,
+   "false_pos": 353
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 5
+  },
+  "person standing still": {
+   "correct": 107,
+   "false_pos": 61
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 32
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 139
+  },
+  "van": {
+   "correct": 139,
+   "false_pos": 58
+  },
+  "walking person": {
+   "correct": 157,
+   "false_pos": 340
+  }
+ },
+ "cost_usd_cum": 0.05511855
+}

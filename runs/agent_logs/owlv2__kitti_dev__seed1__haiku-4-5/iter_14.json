@@ -1,0 +1,67 @@
+{
+ "iter": 14,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "standing person": 3,
+  "bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Use just \"bicycle\" for cyclist class to focus detection on the vehicle component, which may be more visually distinctive than person-centric descriptions.",
+ "mAP": 0.2308826492981364,
+ "per_class": {
+  "car": {
+   "AP": 0.3725194797511132,
+   "AP50": 0.742337471406617,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31175873538855536,
+   "AP50": 0.5687089705592216,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2335415651508587,
+   "AP50": 0.5707339361745835,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0008869861408117266,
+   "AP50": 0.006484193323807579,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23570648005934317,
+   "AP50": 0.5323991028753261,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 13,
+   "false_pos": 1565
+  },
+  "car": {
+   "correct": 1446,
+   "false_pos": 3211
+  },
+  "standing person": {
+   "correct": 245,
+   "false_pos": 142
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0702871
+}

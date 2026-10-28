@@ -1,0 +1,67 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person": 3,
+  "person on bike": 4,
+  "tram": 5
+ },
+ "rationale": "Change \"bicycle rider\" to \"person on bike\" to emphasize both components of the cyclist object (person + bicycle).",
+ "mAP": 0.22512659728792012,
+ "per_class": {
+  "car": {
+   "AP": 0.37258354152554657,
+   "AP50": 0.742589102356871,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31177271408659013,
+   "AP50": 0.5687217281375004,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.18983145903842927,
+   "AP50": 0.4383616516423251,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015683946101396867,
+   "AP50": 0.09109517795012223,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23576132568763786,
+   "AP50": 0.5325355059033849,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3193
+  },
+  "person": {
+   "correct": 213,
+   "false_pos": 132
+  },
+  "person on bike": {
+   "correct": 48,
+   "false_pos": 1094
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0196805
+}

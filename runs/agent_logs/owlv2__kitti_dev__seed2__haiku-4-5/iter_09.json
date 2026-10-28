@@ -1,0 +1,77 @@
+{
+ "iter": 9,
+ "prompt_map": {
+  "car": 1,
+  "dark vehicle": 1,
+  "van": 1,
+  "truck": 2,
+  "person": 3,
+  "standing person": 3,
+  "cyclist": 4,
+  "street tram": 5
+ },
+ "rationale": "Return to the 0.2324 baseline and try \"street tram\" instead of \"tram\" to disambiguate from other meanings.",
+ "mAP": 0.22910468251261376,
+ "per_class": {
+  "car": {
+   "AP": 0.38161507083941704,
+   "AP50": 0.7541735698210028,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3131052579708526,
+   "AP50": 0.5717246905642438,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21479656416765044,
+   "AP50": 0.5272163353088508,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01635813978146406,
+   "AP50": 0.0857791570737499,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.21964837980368473,
+   "AP50": 0.5274780771751294,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1129,
+   "false_pos": 2821
+  },
+  "cyclist": {
+   "correct": 31,
+   "false_pos": 723
+  },
+  "dark vehicle": {
+   "correct": 374,
+   "false_pos": 355
+  },
+  "person": {
+   "correct": 109,
+   "false_pos": 140
+  },
+  "standing person": {
+   "correct": 143,
+   "false_pos": 85
+  },
+  "street tram": {
+   "correct": 22,
+   "false_pos": 30
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 147
+  },
+  "van": {
+   "correct": 139,
+   "false_pos": 58
+  }
+ },
+ "cost_usd_cum": 0.04568905
+}

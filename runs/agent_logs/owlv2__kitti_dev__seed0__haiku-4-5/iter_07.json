@@ -1,0 +1,77 @@
+{
+ "iter": 7,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "person with bike": 4,
+  "tram": 5
+ },
+ "rationale": "Try \"person with bike\" instead of \"riding bike\" to be more descriptive and anchor to person + bicycle combination.",
+ "mAP": 0.22382292047946814,
+ "per_class": {
+  "car": {
+   "AP": 0.3675811954687721,
+   "AP50": 0.721185764324093,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3024141982442529,
+   "AP50": 0.5536478322548826,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20190892111083547,
+   "AP50": 0.47857233629968576,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.011658300096136977,
+   "AP50": 0.0685745272802552,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23555198747734313,
+   "AP50": 0.5331930654035824,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 24,
+   "false_pos": 82
+  },
+  "car": {
+   "correct": 960,
+   "false_pos": 2878
+  },
+  "dark car": {
+   "correct": 627,
+   "false_pos": 281
+  },
+  "pedestrian": {
+   "correct": 161,
+   "false_pos": 315
+  },
+  "person standing": {
+   "correct": 87,
+   "false_pos": 82
+  },
+  "person with bike": {
+   "correct": 19,
+   "false_pos": 1458
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 238
+  }
+ },
+ "cost_usd_cum": 0.0364726
+}

@@ -1,0 +1,67 @@
+{
+ "iter": 7,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery truck": 2,
+  "walking person": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Replace \"truck\" with \"delivery truck\" to be more specific and potentially reduce false positives on vans and light commercial vehicles.",
+ "mAP": 0.2148894088484674,
+ "per_class": {
+  "car": {
+   "AP": 0.37333414818497745,
+   "AP50": 0.7450257045588284,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.22638035793847952,
+   "AP50": 0.42185394617590344,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2184213288592641,
+   "AP50": 0.537925555749946,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015462965243589834,
+   "AP50": 0.09121882278218336,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2408482440160263,
+   "AP50": 0.5474904417199077,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1449,
+   "false_pos": 3201
+  },
+  "cyclist": {
+   "correct": 34,
+   "false_pos": 713
+  },
+  "delivery truck": {
+   "correct": 35,
+   "false_pos": 64
+  },
+  "tram": {
+   "correct": 22,
+   "false_pos": 44
+  },
+  "van": {
+   "correct": 196,
+   "false_pos": 86
+  },
+  "walking person": {
+   "correct": 263,
+   "false_pos": 403
+  }
+ },
+ "cost_usd_cum": 0.0351788
+}

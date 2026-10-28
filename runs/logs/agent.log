@@ -1,0 +1,138 @@
+W1028 10:54:31.604000 18934 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[baseline] raw_names       dev mAP 0.2260  car 0.373  truck 0.312  pedestrian 0.195  cyclist 0.014  tram 0.236
+[baseline] ngdet_synonyms  dev mAP 0.2250  car 0.373  truck 0.312  pedestrian 0.203  cyclist 0.001  tram 0.236
+[iter  0] dev mAP 0.2198 (best 0.2198)  5 prompts  $0.002  | Starting with simple, direct class names as a baseline to understand the model's basic per
+[iter  1] dev mAP 0.2144 (best 0.2198)  10 prompts  $0.007  | Adding synonyms and descriptive phrases to improve recall for weak classes (cyclist and pe
+[iter  2] dev mAP 0.2190 (best 0.2198)  5 prompts  $0.013  | Simplifying to most reliable prompts: replace generic "bicycle" with "cyclist on bicycle" 
+[iter  3] dev mAP 0.1676 (best 0.2198)  5 prompts  $0.021  | Try "bike rider" instead of "cyclist on bicycle" (simpler, more direct), and "truck or van
+[iter  4] dev mAP 0.2218 (best 0.2218)  6 prompts  $0.024  | Back to basic class names but add one high-quality synonym per weak class: "person standin
+[iter  5] dev mAP 0.2253 (best 0.2253)  8 prompts  $0.028  | Add "dark car" to catch shadowed vehicles and "person on bicycle" to give cyclist more voc
+[iter  6] dev mAP 0.2223 (best 0.2253)  8 prompts  $0.032  | Replace "person on bicycle" (which has too many FP) with "riding bike" to offer more speci
+[iter  7] dev mAP 0.2238 (best 0.2253)  8 prompts  $0.036  | Try "person with bike" instead of "riding bike" to be more descriptive and anchor to perso
+[iter  8] dev mAP 0.2203 (best 0.2253)  8 prompts  $0.041  | Focus on truck since it's consistently getting false positives for delivery vans. Add "del
+[iter  9] dev mAP 0.2248 (best 0.2253)  8 prompts  $0.045  | Add more pedestrian synonyms ("standing person" and "person") to increase recall since ped
+[iter 10] dev mAP 0.2238 (best 0.2253)  8 prompts  $0.050  | Add "black car" to specifically target dark vehicles that "dark car" might not fully captu
+[iter 11] dev mAP 0.2242 (best 0.2253)  8 prompts  $0.054  | Replace "standing person" with "person" which had better results (57 correct vs 27), keepi
+[iter 12] dev mAP 0.2241 (best 0.2253)  8 prompts  $0.059  | Try using just "cyclist" instead of "bicycle rider" to see if the simpler term works bette
+[iter 13] dev mAP 0.2250 (best 0.2253)  7 prompts  $0.064  | Return to the proven best configuration from call 5, ensuring we maintain the baseline bef
+[iter 14] dev mAP 0.2248 (best 0.2253)  8 prompts  $0.069  | Add "person" to pedestrian (which performed well earlier at 57 correct) alongside "standin
+{
+ "model": "claude-haiku-4-5",
+ "effort": "medium",
+ "budget": 15,
+ "evaluations": 15,
+ "turns": 15,
+ "cost_usd": 0.069387,
+ "best_iter": 5,
+ "best_dev_mAP": 0.2252789209856269,
+ "oneshot_dev_mAP": 0.21976905175257358,
+ "trajectory": [
+  0.21976905175257358,
+  0.21438960212135488,
+  0.21896492705493073,
+  0.16757513811508584,
+  0.22178782249711648,
+  0.2252789209856269,
+  0.2223235093040578,
+  0.22382292047946814,
+  0.22032990459015192,
+  0.2248110160721594,
+  0.22379728912633254,
+  0.22420720309124176,
+  0.22407129864926423,
+  0.22503065880604084,
+  0.2248110160721594
+ ]
+}
+W1028 10:56:46.845000 19008 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[baseline] raw_names       dev mAP 0.2260  car 0.373  truck 0.312  pedestrian 0.195  cyclist 0.014  tram 0.236
+[baseline] ngdet_synonyms  dev mAP 0.2250  car 0.373  truck 0.312  pedestrian 0.203  cyclist 0.001  tram 0.236
+[iter  0] dev mAP 0.2198 (best 0.2198)  5 prompts  $0.002  | Start with simple, direct class names to establish a baseline for zero-shot detection perf
+[iter  1] dev mAP 0.2186 (best 0.2198)  5 prompts  $0.007  | Replace single-word "cyclist" with "bicycle rider" to better match the compound visual con
+[iter  2] dev mAP 0.2242 (best 0.2242)  6 prompts  $0.012  | Add "van" for car class (KITTI includes vans) and "person" for pedestrian to improve cover
+[iter  3] dev mAP 0.2251 (best 0.2251)  6 prompts  $0.020  | Change "bicycle rider" to "person on bike" to emphasize both components of the cyclist obj
+[iter  4] dev mAP 0.2238 (best 0.2251)  7 prompts  $0.023  | Add "bike" as an additional prompt for cyclist to capture the bicycle component; keep both
+[iter  5] dev mAP 0.2299 (best 0.2299)  6 prompts  $0.027  | Try "walking person" for pedestrian to be more specific (KITTI spec: walking or standing p
+[iter  6] dev mAP 0.2308 (best 0.2308)  6 prompts  $0.031  | Switch back to "cyclist" (simpler term with lower false positive rate) rather than "person
+[iter  7] dev mAP 0.2149 (best 0.2308)  6 prompts  $0.035  | Replace "truck" with "delivery truck" to be more specific and potentially reduce false pos
+[iter  8] dev mAP 0.2302 (best 0.2308)  7 prompts  $0.039  | Add both "person" and "standing person" to improve pedestrian coverage beyond just "walkin
+[iter  9] dev mAP 0.2331 (best 0.2331)  6 prompts  $0.044  | Use only "standing person" for pedestrian (better FP rate than "walking person"), remove e
+[iter 10] dev mAP 0.2305 (best 0.2331)  6 prompts  $0.048  | Try "person on bicycle" as a more descriptive variant for cyclist to see if it improves de
+[iter 11] dev mAP 0.2145 (best 0.2331)  6 prompts  $0.053  | Try "box truck" to specifically target cargo trucks and reduce confusion with vans or pass
+[iter 12] dev mAP 0.2253 (best 0.2331)  6 prompts  $0.057  | Try "person walking" (verb-first phrasing) instead of "standing person" to see if differen
+[iter 13] dev mAP 0.2315 (best 0.2331)  6 prompts  $0.062  | Final attempt: replace "cyclist" with "person riding bicycle" for more specificity that mi
+[iter 14] dev mAP 0.2309 (best 0.2331)  6 prompts  $0.070  | Use just "bicycle" for cyclist class to focus detection on the vehicle component, which ma
+{
+ "model": "claude-haiku-4-5",
+ "effort": "medium",
+ "budget": 15,
+ "evaluations": 15,
+ "turns": 16,
+ "cost_usd": 0.0702871,
+ "best_iter": 9,
+ "best_dev_mAP": 0.23305518640205866,
+ "oneshot_dev_mAP": 0.21976905175257358,
+ "trajectory": [
+  0.21976905175257358,
+  0.2186477612074372,
+  0.22421626785066492,
+  0.22512659728792012,
+  0.22379005798606022,
+  0.22988744148980914,
+  0.2308317828070383,
+  0.2148894088484674,
+  0.23019280757952718,
+  0.23305518640205866,
+  0.23050243678592147,
+  0.2144743400353418,
+  0.22530850412086423,
+  0.23148869748216475,
+  0.2308826492981364
+ ]
+}
+W1028 10:58:49.652000 19100 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[baseline] raw_names       dev mAP 0.2260  car 0.373  truck 0.312  pedestrian 0.195  cyclist 0.014  tram 0.236
+[baseline] ngdet_synonyms  dev mAP 0.2250  car 0.373  truck 0.312  pedestrian 0.203  cyclist 0.001  tram 0.236
+[iter  0] dev mAP 0.2194 (best 0.2194)  5 prompts  $0.002  | Baseline evaluation with simple, direct class names to establish performance on common obj
+[iter  1] dev mAP 0.2009 (best 0.2194)  9 prompts  $0.007  | Add synonyms and more specific descriptors for each class, particularly splitting car/truc
+[iter  2] dev mAP 0.2231 (best 0.2231)  8 prompts  $0.013  | Simplify to shorter, cleaner prompts; use "cyclist" and "bicycle" for better cyclist detec
+[iter  3] dev mAP 0.2251 (best 0.2251)  8 prompts  $0.021  | Drop the noisy "bicycle" prompt; use "person on bicycle" and "cyclist on bike" to ground c
+[iter  4] dev mAP 0.2247 (best 0.2251)  7 prompts  $0.025  | Drop the low-yielding "cyclist on bike" prompt; consolidate to "person riding bicycle" whi
+[iter  5] dev mAP 0.2259 (best 0.2259)  7 prompts  $0.029  | Back to simpler cyclist prompt "cyclist" alone; this was better at avoiding high FP rates 
+[iter  6] dev mAP 0.2294 (best 0.2294)  8 prompts  $0.033  | Add "dark car" to catch missed dark vehicles; try generic "person" and "pedestrian" for pe
+[iter  7] dev mAP 0.2324 (best 0.2324)  8 prompts  $0.037  | Replace "dark car" with "dark vehicle" for semantic clarity; keep proven "person" and "sta
+[iter  8] dev mAP 0.2271 (best 0.2324)  8 prompts  $0.041  | Change "truck" to "large truck" to be more specific; replace "cyclist" with "person on bik
+[iter  9] dev mAP 0.2291 (best 0.2324)  8 prompts  $0.046  | Return to the 0.2324 baseline and try "street tram" instead of "tram" to disambiguate from
+[iter 10] dev mAP 0.2347 (best 0.2347)  8 prompts  $0.050  | Try "walking person" instead of "person" and "person standing still" instead of "standing 
+[iter 11] dev mAP 0.2355 (best 0.2355)  9 prompts  $0.055  | Add "lorry" as an alternative truck term to catch more truck instances; this brings us to 
+[iter 12] dev mAP 0.2329 (best 0.2355)  10 prompts  $0.060  | Add "bike" as a second cyclist prompt to increase recall; now at exactly 10 prompts (limit
+[iter 13] dev mAP 0.2360 (best 0.2360)  10 prompts  $0.066  | Replace "dark vehicle" with separate "dark car" and add "vehicle" for more general car det
+[iter 14] dev mAP 0.2370 (best 0.2370)  10 prompts  $0.071  | Replace "vehicle" with "minivan" since KITTI includes minivans as cars; stay at 10 prompts
+{
+ "model": "claude-haiku-4-5",
+ "effort": "medium",
+ "budget": 15,
+ "evaluations": 15,
+ "turns": 15,
+ "cost_usd": 0.07097799999999999,
+ "best_iter": 14,
+ "best_dev_mAP": 0.2370207606835324,
+ "oneshot_dev_mAP": 0.21944857707593354,
+ "trajectory": [
+  0.21944857707593354,
+  0.20087593702362563,
+  0.22314939945296783,
+  0.225140338543315,
+  0.2247099126936849,
+  0.22593181358241987,
+  0.2293889336820065,
+  0.23240271755677716,
+  0.2271314565590238,
+  0.22910468251261376,
+  0.23474578734252988,
+  0.23553279072822553,
+  0.23285732791019678,
+  0.23604623134026226,
+  0.2370207606835324
+ ]
+}

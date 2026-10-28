@@ -1,0 +1,67 @@
+{
+ "iter": 11,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "box truck": 2,
+  "standing person": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Try \"box truck\" to specifically target cargo trucks and reduce confusion with vans or passenger vehicles.",
+ "mAP": 0.2144743400353418,
+ "per_class": {
+  "car": {
+   "AP": 0.3739168872481674,
+   "AP50": 0.745679265974785,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.21386613468329121,
+   "AP50": 0.40268490799146744,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.22471221217827064,
+   "AP50": 0.5456089860623194,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.020545994971196805,
+   "AP50": 0.11120354922970965,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2393304710957828,
+   "AP50": 0.5391078874423197,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "box truck": {
+   "correct": 33,
+   "false_pos": 80
+  },
+  "car": {
+   "correct": 1448,
+   "false_pos": 3210
+  },
+  "cyclist": {
+   "correct": 43,
+   "false_pos": 785
+  },
+  "standing person": {
+   "correct": 235,
+   "false_pos": 125
+  },
+  "tram": {
+   "correct": 22,
+   "false_pos": 47
+  },
+  "van": {
+   "correct": 199,
+   "false_pos": 84
+  }
+ },
+ "cost_usd_cum": 0.052605000000000006
+}

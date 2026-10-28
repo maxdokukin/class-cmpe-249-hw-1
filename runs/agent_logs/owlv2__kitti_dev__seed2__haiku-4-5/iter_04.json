@@ -1,0 +1,72 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person walking": 3,
+  "standing person": 3,
+  "person riding bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Drop the low-yielding \"cyclist on bike\" prompt; consolidate to \"person riding bicycle\" which may ground the concept better.",
+ "mAP": 0.2247099126936849,
+ "per_class": {
+  "car": {
+   "AP": 0.3725764995864473,
+   "AP50": 0.7425323965573992,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31177493557362357,
+   "AP50": 0.5687191594975786,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19663824069280536,
+   "AP50": 0.4786968209902369,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.006649562817170819,
+   "AP50": 0.03981520475463458,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2359103247983777,
+   "AP50": 0.5328907084816286,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3200
+  },
+  "person riding bicycle": {
+   "correct": 22,
+   "false_pos": 845
+  },
+  "person walking": {
+   "correct": 219,
+   "false_pos": 405
+  },
+  "standing person": {
+   "correct": 39,
+   "false_pos": 18
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.024583
+}

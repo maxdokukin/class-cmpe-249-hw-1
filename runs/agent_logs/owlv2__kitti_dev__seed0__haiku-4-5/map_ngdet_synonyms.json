@@ -1,0 +1,10 @@
+{
+ "car": 1,
+ "van": 1,
+ "truck": 2,
+ "person": 3,
+ "pedestrian": 3,
+ "bicycle": 4,
+ "cyclist": 4,
+ "tram": 5
+}

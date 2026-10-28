@@ -1,0 +1,77 @@
+{
+ "iter": 5,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "person on bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Add \"dark car\" to catch shadowed vehicles and \"person on bicycle\" to give cyclist more vocabulary coverage while keeping successful prompts from the previous run.",
+ "mAP": 0.2252789209856269,
+ "per_class": {
+  "car": {
+   "AP": 0.36758113362269884,
+   "AP50": 0.7212480202702117,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3024120562368601,
+   "AP50": 0.5536457926031856,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2034780437072059,
+   "AP50": 0.4786832221328014,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.017385044280298433,
+   "AP50": 0.09403404681682502,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23553832708107114,
+   "AP50": 0.5331428861567891,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 20,
+   "false_pos": 57
+  },
+  "car": {
+   "correct": 960,
+   "false_pos": 2877
+  },
+  "dark car": {
+   "correct": 627,
+   "false_pos": 281
+  },
+  "pedestrian": {
+   "correct": 158,
+   "false_pos": 283
+  },
+  "person on bicycle": {
+   "correct": 24,
+   "false_pos": 909
+  },
+  "person standing": {
+   "correct": 87,
+   "false_pos": 79
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 238
+  }
+ },
+ "cost_usd_cum": 0.0283663
+}

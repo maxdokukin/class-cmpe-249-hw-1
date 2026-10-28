@@ -1,0 +1,67 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person walking": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Try \"person walking\" (verb-first phrasing) instead of \"standing person\" to see if different word order improves pedestrian AP.",
+ "mAP": 0.22530850412086423,
+ "per_class": {
+  "car": {
+   "AP": 0.37262091203073805,
+   "AP50": 0.7424859178271547,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31176625706695277,
+   "AP50": 0.5687140479900417,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1905443573200198,
+   "AP50": 0.46663860288060915,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01578062843436916,
+   "AP50": 0.08709537411456537,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23583036575224128,
+   "AP50": 0.5326751883486037,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3208
+  },
+  "cyclist": {
+   "correct": 32,
+   "false_pos": 707
+  },
+  "person walking": {
+   "correct": 258,
+   "false_pos": 523
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.05719590000000001
+}

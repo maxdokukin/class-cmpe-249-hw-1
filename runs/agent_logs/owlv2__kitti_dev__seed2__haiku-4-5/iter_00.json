@@ -1,0 +1,62 @@
+{
+ "iter": 0,
+ "prompt_map": {
+  "a car": 1,
+  "a truck": 2,
+  "a pedestrian": 3,
+  "a cyclist": 4,
+  "a tram": 5
+ },
+ "rationale": "Baseline evaluation with simple, direct class names to establish performance on common objects.",
+ "mAP": 0.21944857707593354,
+ "per_class": {
+  "car": {
+   "AP": 0.37536818003881645,
+   "AP50": 0.7227294465626933,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.284539051710131,
+   "AP50": 0.5203414383482754,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19715054121101025,
+   "AP50": 0.47815346705495204,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0010686111277081194,
+   "AP50": 0.009403406194568528,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23911650129200204,
+   "AP50": 0.5187906723111742,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "a car": {
+   "correct": 1586,
+   "false_pos": 2851
+  },
+  "a cyclist": {
+   "correct": 16,
+   "false_pos": 1210
+  },
+  "a pedestrian": {
+   "correct": 261,
+   "false_pos": 550
+  },
+  "a tram": {
+   "correct": 20,
+   "false_pos": 26
+  },
+  "a truck": {
+   "correct": 46,
+   "false_pos": 307
+  }
+ },
+ "cost_usd_cum": 0.002287
+}

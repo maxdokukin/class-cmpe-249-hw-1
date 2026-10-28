@@ -1,0 +1,77 @@
+{
+ "iter": 10,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "black car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "standing person": 3,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "Add \"black car\" to specifically target dark vehicles that \"dark car\" might not fully capture, potentially improving car recall on shadowed objects.",
+ "mAP": 0.22379728912633254,
+ "per_class": {
+  "car": {
+   "AP": 0.3679188505588979,
+   "AP50": 0.7218708595632356,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3024035120919151,
+   "AP50": 0.5536356841971986,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19407311282308734,
+   "AP50": 0.4628735168260848,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.019127892358270088,
+   "AP50": 0.10587314840865404,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2354630777994923,
+   "AP50": 0.5328984612426724,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 35,
+   "false_pos": 141
+  },
+  "black car": {
+   "correct": 130,
+   "false_pos": 52
+  },
+  "car": {
+   "correct": 945,
+   "false_pos": 2870
+  },
+  "dark car": {
+   "correct": 512,
+   "false_pos": 248
+  },
+  "pedestrian": {
+   "correct": 212,
+   "false_pos": 422
+  },
+  "standing person": {
+   "correct": 37,
+   "false_pos": 31
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 238
+  }
+ },
+ "cost_usd_cum": 0.04970945
+}

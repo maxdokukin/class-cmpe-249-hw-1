@@ -1,0 +1,62 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "Replace single-word \"cyclist\" with \"bicycle rider\" to better match the compound visual concept of both person and bike.",
+ "mAP": 0.2186477612074372,
+ "per_class": {
+  "car": {
+   "AP": 0.35137048167425083,
+   "AP50": 0.7028350512141253,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.30211176714782717,
+   "AP50": 0.5530142897815312,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1849692302953217,
+   "AP50": 0.443709358738179,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.018944379887630057,
+   "AP50": 0.10495763616973153,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23584294703215627,
+   "AP50": 0.5326990629751458,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 35,
+   "false_pos": 147
+  },
+  "car": {
+   "correct": 1599,
+   "false_pos": 3531
+  },
+  "pedestrian": {
+   "correct": 241,
+   "false_pos": 456
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 244
+  }
+ },
+ "cost_usd_cum": 0.006648
+}

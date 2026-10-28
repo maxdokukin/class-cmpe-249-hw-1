@@ -1,0 +1,87 @@
+{
+ "iter": 14,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "van": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "walking person": 3,
+  "person standing still": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Replace \"vehicle\" with \"minivan\" since KITTI includes minivans as cars; stay at 10 prompts.",
+ "mAP": 0.2370207606835324,
+ "per_class": {
+  "car": {
+   "AP": 0.39090966662910004,
+   "AP50": 0.7638172333097767,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3158994159494395,
+   "AP50": 0.5740546696627722,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.22742608219213248,
+   "AP50": 0.5557629077997103,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015334898596305812,
+   "AP50": 0.08967526844364425,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2355337400506842,
+   "AP50": 0.5329778102933986,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 862,
+   "false_pos": 2858
+  },
+  "cyclist": {
+   "correct": 33,
+   "false_pos": 709
+  },
+  "dark car": {
+   "correct": 499,
+   "false_pos": 271
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 167,
+   "false_pos": 9
+  },
+  "person standing still": {
+   "correct": 107,
+   "false_pos": 61
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 110,
+   "false_pos": 63
+  },
+  "walking person": {
+   "correct": 157,
+   "false_pos": 341
+  }
+ },
+ "cost_usd_cum": 0.07097799999999999
+}

@@ -1,0 +1,77 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person walking": 3,
+  "standing person": 3,
+  "person on bicycle": 4,
+  "cyclist on bike": 4,
+  "tram": 5
+ },
+ "rationale": "Drop the noisy \"bicycle\" prompt; use \"person on bicycle\" and \"cyclist on bike\" to ground cyclist detection in person+bicycle relationship.",
+ "mAP": 0.225140338543315,
+ "per_class": {
+  "car": {
+   "AP": 0.3725847050835214,
+   "AP50": 0.7425530723005764,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31169596519430615,
+   "AP50": 0.5687217281375004,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1948700031012606,
+   "AP50": 0.46743601742861635,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.010631655987062777,
+   "AP50": 0.06486349761418694,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23591936335042424,
+   "AP50": 0.5329230335814126,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3198
+  },
+  "cyclist on bike": {
+   "correct": 6,
+   "false_pos": 828
+  },
+  "person on bicycle": {
+   "correct": 39,
+   "false_pos": 775
+  },
+  "person walking": {
+   "correct": 212,
+   "false_pos": 361
+  },
+  "standing person": {
+   "correct": 38,
+   "false_pos": 18
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.020779
+}

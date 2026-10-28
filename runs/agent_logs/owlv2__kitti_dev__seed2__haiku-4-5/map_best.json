@@ -1,0 +1,12 @@
+{
+ "car": 1,
+ "dark car": 1,
+ "van": 1,
+ "minivan": 1,
+ "truck": 2,
+ "lorry": 2,
+ "walking person": 3,
+ "person standing still": 3,
+ "cyclist": 4,
+ "tram": 5
+}

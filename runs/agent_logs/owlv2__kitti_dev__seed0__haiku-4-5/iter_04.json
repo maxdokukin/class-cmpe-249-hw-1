@@ -1,0 +1,67 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "Back to basic class names but add one high-quality synonym per weak class: \"person standing\" for pedestrians and \"bicycle rider\" for cyclists, skipping compound truck descriptions.",
+ "mAP": 0.22178782249711648,
+ "per_class": {
+  "car": {
+   "AP": 0.3512575164478292,
+   "AP50": 0.7028391267965303,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.30211414355507765,
+   "AP50": 0.5530162138141725,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20175565227833464,
+   "AP50": 0.48217264613165883,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.017940614230532424,
+   "AP50": 0.09997280665172611,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23587118597380857,
+   "AP50": 0.532778388297672,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 33,
+   "false_pos": 137
+  },
+  "car": {
+   "correct": 1599,
+   "false_pos": 3531
+  },
+  "pedestrian": {
+   "correct": 165,
+   "false_pos": 396
+  },
+  "person standing": {
+   "correct": 88,
+   "false_pos": 85
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 244
+  }
+ },
+ "cost_usd_cum": 0.02434655
+}

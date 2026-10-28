@@ -1,0 +1,62 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "truck": 2,
+  "person": 3,
+  "cyclist on bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Simplifying to most reliable prompts: replace generic \"bicycle\" with \"cyclist on bicycle\" to anchor detections to the person+bike object, and \"person\" for pedestrians to be more specific than pedestrian.",
+ "mAP": 0.21896492705493073,
+ "per_class": {
+  "car": {
+   "AP": 0.3514492085257242,
+   "AP50": 0.7027641738769694,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3021028421360555,
+   "AP50": 0.5530066486233266,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2039700363854268,
+   "AP50": 0.49300597003384866,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.001779485380167585,
+   "AP50": 0.014278915024040556,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23552306284727975,
+   "AP50": 0.5319735025563939,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1599,
+   "false_pos": 3533
+  },
+  "cyclist on bicycle": {
+   "correct": 18,
+   "false_pos": 1005
+  },
+  "person": {
+   "correct": 244,
+   "false_pos": 211
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 244
+  }
+ },
+ "cost_usd_cum": 0.012745
+}

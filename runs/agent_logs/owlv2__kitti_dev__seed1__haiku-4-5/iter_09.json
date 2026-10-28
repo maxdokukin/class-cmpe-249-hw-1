@@ -1,0 +1,67 @@
+{
+ "iter": 9,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "standing person": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Use only \"standing person\" for pedestrian (better FP rate than \"walking person\"), remove extra \"person\" to keep prompts efficient.",
+ "mAP": 0.23305518640205866,
+ "per_class": {
+  "car": {
+   "AP": 0.3725957219747692,
+   "AP50": 0.7431072328550228,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.311753506225516,
+   "AP50": 0.5687039268654834,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.22472477327357382,
+   "AP50": 0.5456402504479386,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.02054618082379981,
+   "AP50": 0.11120444180501958,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2356557497126346,
+   "AP50": 0.5322771448494568,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1446,
+   "false_pos": 3204
+  },
+  "cyclist": {
+   "correct": 43,
+   "false_pos": 785
+  },
+  "standing person": {
+   "correct": 235,
+   "false_pos": 125
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.043718650000000005
+}

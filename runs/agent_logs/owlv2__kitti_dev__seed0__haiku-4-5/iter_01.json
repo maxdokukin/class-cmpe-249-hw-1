@@ -1,0 +1,87 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "passenger car": 1,
+  "truck": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicycle": 4,
+  "person on bike": 4,
+  "tram": 5
+ },
+ "rationale": "Adding synonyms and descriptive phrases to improve recall for weak classes (cyclist and pedestrian), while splitting vague terms to reduce false positives for truck.",
+ "mAP": 0.21438960212135488,
+ "per_class": {
+  "car": {
+   "AP": 0.3498020852136807,
+   "AP50": 0.7013960433389955,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.29824470645285095,
+   "AP50": 0.5524239162218658,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19132916618801646,
+   "AP50": 0.4681134063456673,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.002258880135569496,
+   "AP50": 0.014266679750942788,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23031317261665663,
+   "AP50": 0.5212190963341858,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 11,
+   "false_pos": 1207
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 23
+  },
+  "car": {
+   "correct": 1590,
+   "false_pos": 3347
+  },
+  "cyclist": {
+   "correct": 10,
+   "false_pos": 13
+  },
+  "passenger car": {
+   "correct": 3,
+   "false_pos": 20
+  },
+  "pedestrian": {
+   "correct": 119,
+   "false_pos": 193
+  },
+  "person on bike": {
+   "correct": 19,
+   "false_pos": 616
+  },
+  "person walking": {
+   "correct": 133,
+   "false_pos": 273
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 28
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 222
+  }
+ },
+ "cost_usd_cum": 0.007153
+}

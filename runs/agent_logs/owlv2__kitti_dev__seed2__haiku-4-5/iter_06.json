@@ -1,0 +1,77 @@
+{
+ "iter": 6,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "dark car": 1,
+  "truck": 2,
+  "person": 3,
+  "pedestrian": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Add \"dark car\" to catch missed dark vehicles; try generic \"person\" and \"pedestrian\" for pedestrians to improve recall.",
+ "mAP": 0.2293889336820065,
+ "per_class": {
+  "car": {
+   "AP": 0.3848741413952621,
+   "AP50": 0.7570335225261642,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3119492412046049,
+   "AP50": 0.5692070992440296,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20370221346727752,
+   "AP50": 0.490048021105769,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01086832855786126,
+   "AP50": 0.06587667104391665,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2355507437850266,
+   "AP50": 0.5330963300211619,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 899,
+   "false_pos": 2852
+  },
+  "cyclist": {
+   "correct": 24,
+   "false_pos": 681
+  },
+  "dark car": {
+   "correct": 572,
+   "false_pos": 276
+  },
+  "pedestrian": {
+   "correct": 192,
+   "false_pos": 397
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 95
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 168
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 66
+  }
+ },
+ "cost_usd_cum": 0.0325818
+}

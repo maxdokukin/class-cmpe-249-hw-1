@@ -1,0 +1,72 @@
+{
+ "iter": 8,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person": 3,
+  "standing person": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Add both \"person\" and \"standing person\" to improve pedestrian coverage beyond just \"walking person\", giving more specific coverage for the KITTI definition.",
+ "mAP": 0.23019280757952718,
+ "per_class": {
+  "car": {
+   "AP": 0.37252308908345577,
+   "AP50": 0.7424057019424767,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31175769994289676,
+   "AP50": 0.5687089705592216,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21465785084243494,
+   "AP50": 0.5271762321125507,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016356295357356273,
+   "AP50": 0.08577139547056012,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2356691026714922,
+   "AP50": 0.5323139491474026,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1446,
+   "false_pos": 3200
+  },
+  "cyclist": {
+   "correct": 31,
+   "false_pos": 723
+  },
+  "person": {
+   "correct": 109,
+   "false_pos": 140
+  },
+  "standing person": {
+   "correct": 143,
+   "false_pos": 85
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.039377350000000005
+}

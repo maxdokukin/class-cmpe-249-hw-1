@@ -1,0 +1,77 @@
+{
+ "iter": 6,
+ "prompt_map": {
+  "car": 1,
+  "dark car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "riding bike": 4,
+  "tram": 5
+ },
+ "rationale": "Replace \"person on bicycle\" (which has too many FP) with \"riding bike\" to offer more specific cyclist vocabulary without the generic overlap.",
+ "mAP": 0.2223235093040578,
+ "per_class": {
+  "car": {
+   "AP": 0.367570603299489,
+   "AP50": 0.7211399775171023,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.30240772997410587,
+   "AP50": 0.5536417313498068,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20177751687932363,
+   "AP50": 0.4822628854013203,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.004378741934615806,
+   "AP50": 0.027718916314797674,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23548295443275472,
+   "AP50": 0.5329692070788159,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 25,
+   "false_pos": 111
+  },
+  "car": {
+   "correct": 960,
+   "false_pos": 2883
+  },
+  "dark car": {
+   "correct": 627,
+   "false_pos": 282
+  },
+  "pedestrian": {
+   "correct": 165,
+   "false_pos": 392
+  },
+  "person standing": {
+   "correct": 88,
+   "false_pos": 83
+  },
+  "riding bike": {
+   "correct": 9,
+   "false_pos": 876
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 45,
+   "false_pos": 238
+  }
+ },
+ "cost_usd_cum": 0.03241375
+}

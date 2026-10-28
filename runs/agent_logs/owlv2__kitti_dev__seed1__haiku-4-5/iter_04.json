@@ -1,0 +1,72 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "person": 3,
+  "cyclist": 4,
+  "bike": 4,
+  "tram": 5
+ },
+ "rationale": "Add \"bike\" as an additional prompt for cyclist to capture the bicycle component; keep both \"cyclist\" and \"bike\" as synonymous detections merged by NMS.",
+ "mAP": 0.22379005798606022,
+ "per_class": {
+  "car": {
+   "AP": 0.3724549220770922,
+   "AP50": 0.7423951764416371,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.311758292059759,
+   "AP50": 0.5687115050363755,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1968672608251346,
+   "AP50": 0.47493836416843127,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0022392001362082138,
+   "AP50": 0.01715304080237646,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23563061483210687,
+   "AP50": 0.5322123086779661,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike": {
+   "correct": 12,
+   "false_pos": 1340
+  },
+  "car": {
+   "correct": 1446,
+   "false_pos": 3199
+  },
+  "cyclist": {
+   "correct": 19,
+   "false_pos": 127
+  },
+  "person": {
+   "correct": 233,
+   "false_pos": 189
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0233961
+}

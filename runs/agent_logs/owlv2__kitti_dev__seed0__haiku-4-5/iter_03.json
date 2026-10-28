@@ -1,0 +1,62 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "truck or van": 2,
+  "person": 3,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Try \"bike rider\" instead of \"cyclist on bicycle\" (simpler, more direct), and \"truck or van\" to broaden truck detection without confusing cars.",
+ "mAP": 0.16757513811508584,
+ "per_class": {
+  "car": {
+   "AP": 0.34681067548369965,
+   "AP50": 0.6937172022947409,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.03802767867936678,
+   "AP50": 0.07912921706205596,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20081493421811925,
+   "AP50": 0.4839635840790146,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014739108432233883,
+   "AP50": 0.07468061331865189,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2374832937620095,
+   "AP50": 0.5320425752714848,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 23,
+   "false_pos": 103
+  },
+  "car": {
+   "correct": 1562,
+   "false_pos": 3524
+  },
+  "person": {
+   "correct": 236,
+   "false_pos": 194
+  },
+  "tram": {
+   "correct": 22,
+   "false_pos": 53
+  },
+  "truck or van": {
+   "correct": 26,
+   "false_pos": 204
+  }
+ },
+ "cost_usd_cum": 0.020768250000000002
+}

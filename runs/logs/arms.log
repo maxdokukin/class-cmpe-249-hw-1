@@ -1,2 +1,13 @@
 no agent logs for owlv2; run hw1.agent first
 no agent logs for gdino_t; run hw1.agent first
+W1028 11:00:46.376000 19133 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+owlv2 arms: raw_names, ngdet_synonyms, oneshot_s0_haiku-4-5, best_s0_haiku-4-5, oneshot_s1_haiku-4-5, best_s1_haiku-4-5, oneshot_s2_haiku-4-5, best_s2_haiku-4-5
+owlv2__kitti_test__arm-raw_names              van-merge__cyc-prompt__pm-map_raw_names mAP 0.195  AP50 0.412  core3 0.238  -> owlv2__kitti_test__arm-raw_names__van-merge__cyc-prompt__pm-map_raw_names.json
+owlv2__kitti_test__arm-ngdet_synonyms         van-merge__cyc-prompt__pm-map_ngdet_synonyms mAP 0.191  AP50 0.395  core3 0.238  -> owlv2__kitti_test__arm-ngdet_synonyms__van-merge__cyc-prompt__pm-map_ngdet_synonyms.json
+owlv2__kitti_test__arm-oneshot_s0_haiku-4-5   van-merge__cyc-prompt__pm-map_oneshot mAP 0.192  AP50 0.407  core3 0.233  -> owlv2__kitti_test__arm-oneshot_s0_haiku-4-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s0_haiku-4-5      van-merge__cyc-prompt__pm-map_best mAP 0.199  AP50 0.422  core3 0.243  -> owlv2__kitti_test__arm-best_s0_haiku-4-5__van-merge__cyc-prompt__pm-map_best.json
+owlv2__kitti_test__arm-oneshot_s1_haiku-4-5   van-merge__cyc-prompt__pm-map_oneshot mAP 0.192  AP50 0.407  core3 0.233  -> owlv2__kitti_test__arm-oneshot_s1_haiku-4-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s1_haiku-4-5      van-merge__cyc-prompt__pm-map_best mAP 0.205  AP50 0.438  core3 0.251  -> owlv2__kitti_test__arm-best_s1_haiku-4-5__van-merge__cyc-prompt__pm-map_best.json
+owlv2__kitti_test__arm-oneshot_s2_haiku-4-5   van-merge__cyc-prompt__pm-map_oneshot mAP 0.188  AP50 0.383  core3 0.238  -> owlv2__kitti_test__arm-oneshot_s2_haiku-4-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s2_haiku-4-5      van-merge__cyc-prompt__pm-map_best mAP 0.208  AP50 0.439  core3 0.259  -> owlv2__kitti_test__arm-best_s2_haiku-4-5__van-merge__cyc-prompt__pm-map_best.json
+no agent logs for gdino_t; run hw1.agent first

@@ -1,0 +1,28 @@
+{
+  "name": "owlv2__kitti_test__arm-best_s0_haiku-4-5",
+  "model": "owlv2",
+  "split": "kitti_test",
+  "n_images": 3769,
+  "vocabulary": [
+    "bicycle rider",
+    "car",
+    "dark car",
+    "pedestrian",
+    "person on bicycle",
+    "person standing",
+    "tram",
+    "truck"
+  ],
+  "prompt_map_file": "runs/agent_logs/owlv2__kitti_dev__seed0__haiku-4-5/map_best.json",
+  "detector_config": {
+    "name": "owlv2",
+    "open_vocab": true,
+    "source": "sharded feature cache (hw1.owl_cache)",
+    "score_thresh": 0.001,
+    "max_det": 100
+  },
+  "src_hash": "3ac6ab719ac8",
+  "command": "python -m hw1.arms --detector owlv2 --device mps",
+  "finished_utc": "2026-10-28T18:11:46+00:00",
+  "pred_file": "runs/preds/owlv2__kitti_test__arm-best_s0_haiku-4-5.jsonl.gz"
+}
