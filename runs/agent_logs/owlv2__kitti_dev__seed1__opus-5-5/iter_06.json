@@ -1,0 +1,87 @@
+{
+ "iter": 6,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Pedestrian AP is low (0.19), so I'm adding the generic 'person' to see whether it raises recall on small, distant people more than it adds false positives.",
+ "mAP": 0.22694871835691108,
+ "per_class": {
+  "car": {
+   "AP": 0.37477315259114746,
+   "AP50": 0.745581033166549,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31590261745234655,
+   "AP50": 0.5767842115004048,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1936681978674659,
+   "AP50": 0.478649789988275,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014384800328051844,
+   "AP50": 0.07909176832830504,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2360148235455434,
+   "AP50": 0.5330897279717483,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 24,
+   "false_pos": 98
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 10
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3199
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 91,
+   "false_pos": 223
+  },
+  "person": {
+   "correct": 58,
+   "false_pos": 84
+  },
+  "person walking": {
+   "correct": 110,
+   "false_pos": 352
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.1234802
+}

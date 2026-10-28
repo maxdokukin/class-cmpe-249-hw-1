@@ -1,0 +1,87 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person riding a bicycle": 4,
+  "cyclist": 4,
+  "person cycling on the street": 4,
+  "tram": 5
+ },
+ "rationale": "'bicycle' boxes only the bike, including parked ones, so I'm switching back to the original cyclist prompts and adding one action-in-context phrase, 'person cycling on the street', to see whether it fits the rider plus the bike.",
+ "mAP": 0.2263220999804726,
+ "per_class": {
+  "car": {
+   "AP": 0.3746133058538496,
+   "AP50": 0.7447500827487805,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31590963004535105,
+   "AP50": 0.5767924053249686,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19315810261656916,
+   "AP50": 0.47595994379227197,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.011855499747200444,
+   "AP50": 0.0669279904344606,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23607396163939262,
+   "AP50": 0.5332265792652086,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3192
+  },
+  "cyclist": {
+   "correct": 21,
+   "false_pos": 409
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 121,
+   "false_pos": 218
+  },
+  "person cycling on the street": {
+   "correct": 1,
+   "false_pos": 55
+  },
+  "person riding a bicycle": {
+   "correct": 12,
+   "false_pos": 659
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 287
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.06377340000000001
+}

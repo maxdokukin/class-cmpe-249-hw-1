@@ -1,0 +1,97 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "parked car": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "cyclist on a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "'bike rider' adds almost nothing, so I'm replacing it with 'cyclist on a bicycle' to see whether naming both rider and bike gives boxes that cover the whole cyclist.",
+ "mAP": 0.22954637054312035,
+ "per_class": {
+  "car": {
+   "AP": 0.3766107115339492,
+   "AP50": 0.7506041220032917,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.32170699206759595,
+   "AP50": 0.5853955353334941,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20571331187667077,
+   "AP50": 0.4946432136587948,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.007952018685090417,
+   "AP50": 0.049349238942330634,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2357488185522954,
+   "AP50": 0.5335080981478296,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 22,
+   "false_pos": 90
+  },
+  "car": {
+   "correct": 960,
+   "false_pos": 2354
+  },
+  "cyclist on a bicycle": {
+   "correct": 10,
+   "false_pos": 947
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "parked car": {
+   "correct": 522,
+   "false_pos": 898
+  },
+  "pedestrian": {
+   "correct": 144,
+   "false_pos": 353
+  },
+  "person": {
+   "correct": 53,
+   "false_pos": 87
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 76
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 157,
+   "false_pos": 65
+  }
+ },
+ "cost_usd_cum": 0.2529038
+}

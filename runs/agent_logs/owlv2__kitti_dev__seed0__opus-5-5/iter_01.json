@@ -1,0 +1,82 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "bicycle": 4,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Large missed 'cars' are KITTI Vans (delivery vans), so add 'delivery van' to car; and replace the high-FP 'person riding a bicycle' with 'bicycle' to test whether the bike region better matches cyclist boxes.",
+ "mAP": 0.22417715463717278,
+ "per_class": {
+  "car": {
+   "AP": 0.3746954230896608,
+   "AP50": 0.7447083410461219,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3159097572960503,
+   "AP50": 0.5767951555999962,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19271945682484562,
+   "AP50": 0.4756143212487205,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0015278951737209658,
+   "AP50": 0.010688061616600792,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23603324080158625,
+   "AP50": 0.5331336472334217,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 12,
+   "false_pos": 1273
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3198
+  },
+  "cyclist": {
+   "correct": 17,
+   "false_pos": 101
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 123,
+   "false_pos": 240
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 345
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.031692
+}

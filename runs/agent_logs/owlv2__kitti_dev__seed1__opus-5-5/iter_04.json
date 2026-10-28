@@ -1,0 +1,82 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "I'm isolating the cyclist class: keeping 'cyclist', which has the best precision, and testing 'bicycle rider' in place of the two noisy phrases.",
+ "mAP": 0.2255494354276951,
+ "per_class": {
+  "car": {
+   "AP": 0.37477464280035766,
+   "AP50": 0.7455848972820839,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31590547100007355,
+   "AP50": 0.5767896645829568,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.18645071545071143,
+   "AP50": 0.4594569922205496,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014589818555859283,
+   "AP50": 0.08353888922615924,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2360265293314734,
+   "AP50": 0.5331186018324586,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 24,
+   "false_pos": 93
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3198
+  },
+  "cyclist": {
+   "correct": 8,
+   "false_pos": 625
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 120,
+   "false_pos": 238
+  },
+  "person walking": {
+   "correct": 132,
+   "false_pos": 348
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0810056
+}

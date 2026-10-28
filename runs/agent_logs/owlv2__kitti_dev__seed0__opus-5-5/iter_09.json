@@ -1,0 +1,107 @@
+{
+ "iter": 9,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "minivan": 1,
+  "sedan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person": 3,
+  "cyclist": 4,
+  "bike rider": 4,
+  "person riding a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Keep 'minivan' (helped car), drop 'light rail train' (hurt tram AP), and test 'sedan' as another precise car sub-type.",
+ "mAP": 0.23027670905323694,
+ "per_class": {
+  "car": {
+   "AP": 0.3848768957142144,
+   "AP50": 0.7565371094099048,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3216767109274947,
+   "AP50": 0.5853631326541723,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19725411201520068,
+   "AP50": 0.48645384856921403,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01139230336340182,
+   "AP50": 0.060464612840454644,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23618352324587302,
+   "AP50": 0.5334091509749258,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 14,
+   "false_pos": 37
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3139
+  },
+  "cyclist": {
+   "correct": 6,
+   "false_pos": 386
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 91,
+   "false_pos": 198
+  },
+  "person": {
+   "correct": 59,
+   "false_pos": 80
+  },
+  "person riding a bicycle": {
+   "correct": 11,
+   "false_pos": 699
+  },
+  "person walking": {
+   "correct": 112,
+   "false_pos": 284
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.21200719999999998
+}

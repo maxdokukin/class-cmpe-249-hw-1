@@ -1,0 +1,97 @@
+{
+ "iter": 9,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "box van": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "person walking": 3,
+  "bike rider": 4,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "I'm adding 'box van' to car for the missed white box vans and bringing 'person walking' back for pedestrian; because they affect separate classes, the per-class AP shows the effect of each.",
+ "mAP": 0.22811278767929585,
+ "per_class": {
+  "car": {
+   "AP": 0.3746865628641617,
+   "AP50": 0.7446281283242449,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3216798508690667,
+   "AP50": 0.5853693452504259,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19366824130915547,
+   "AP50": 0.4786499419617882,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014384816645698401,
+   "AP50": 0.07909183570630249,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23614446670839698,
+   "AP50": 0.533305134845553,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 24,
+   "false_pos": 98
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 10
+  },
+  "box van": {
+   "correct": 2,
+   "false_pos": 7
+  },
+  "car": {
+   "correct": 1446,
+   "false_pos": 3186
+  },
+  "delivery van": {
+   "correct": 4,
+   "false_pos": 1
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 91,
+   "false_pos": 223
+  },
+  "person": {
+   "correct": 58,
+   "false_pos": 84
+  },
+  "person walking": {
+   "correct": 110,
+   "false_pos": 352
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 158
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.1936686
+}

@@ -1,0 +1,97 @@
+{
+ "iter": 11,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "minivan": 1,
+  "hatchback": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "person on a bike": 4,
+  "tram": 5
+ },
+ "rationale": "A specific vehicle-type word ('minivan') helped car, so I'm trying 'hatchback', a common European car type, and replacing the near-useless 'bike rider' with 'person on a bike' (32 correct earlier).",
+ "mAP": 0.2311155399116353,
+ "per_class": {
+  "car": {
+   "AP": 0.38363624980841515,
+   "AP50": 0.7556686941917674,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.32167400633292664,
+   "AP50": 0.5853602639949849,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19717525266881872,
+   "AP50": 0.4697555031240776,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016977841602942467,
+   "AP50": 0.09390009004048895,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23611434914507365,
+   "AP50": 0.5332486089739451,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 19,
+   "false_pos": 45
+  },
+  "car": {
+   "correct": 1323,
+   "false_pos": 3138
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "hatchback": {
+   "correct": 7,
+   "false_pos": 2
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 195,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 181,
+   "false_pos": 332
+  },
+  "person": {
+   "correct": 64,
+   "false_pos": 75
+  },
+  "person on a bike": {
+   "correct": 21,
+   "false_pos": 722
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.2412068
+}

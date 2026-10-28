@@ -1,0 +1,87 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "bicycle with rider": 4,
+  "tram": 5
+ },
+ "rationale": "Restore the best cyclist pair and test 'bicycle with rider' to encourage boxes covering both rider and bike.",
+ "mAP": 0.22639737907102475,
+ "per_class": {
+  "car": {
+   "AP": 0.3746119095684871,
+   "AP50": 0.7447471020627583,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31590958152405946,
+   "AP50": 0.5767924053249686,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19300594449052133,
+   "AP50": 0.47559036703203805,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012380974731536027,
+   "AP50": 0.06977663102144797,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23607848504051976,
+   "AP50": 0.533247242210989,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle with rider": {
+   "correct": 4,
+   "false_pos": 313
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3193
+  },
+  "cyclist": {
+   "correct": 20,
+   "false_pos": 310
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 121,
+   "false_pos": 220
+  },
+  "person riding a bicycle": {
+   "correct": 12,
+   "false_pos": 635
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 291
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0705586
+}

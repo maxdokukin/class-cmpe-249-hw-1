@@ -1,0 +1,112 @@
+{
+ "iter": 11,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "minivan": 1,
+  "sedan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person": 3,
+  "cyclist": 4,
+  "bike rider": 4,
+  "person on a bicycle": 4,
+  "person on a bike": 4,
+  "tram": 5
+ },
+ "rationale": "Drop 'woman' (slightly hurt pedestrian) and add 'person on a bike' since the 'person on a ...' phrasing gave the best cyclist AP so far.",
+ "mAP": 0.2308294850406675,
+ "per_class": {
+  "car": {
+   "AP": 0.3848838682992356,
+   "AP50": 0.7566093657806267,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3216767109274947,
+   "AP50": 0.5853631326541723,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19532526854989518,
+   "AP50": 0.47890385769555566,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016075068942740543,
+   "AP50": 0.0827079891124091,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23618650848397138,
+   "AP50": 0.533412711042796,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 10,
+   "false_pos": 20
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3137
+  },
+  "cyclist": {
+   "correct": 5,
+   "false_pos": 451
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 90,
+   "false_pos": 188
+  },
+  "person": {
+   "correct": 57,
+   "false_pos": 70
+  },
+  "person on a bicycle": {
+   "correct": 13,
+   "false_pos": 458
+  },
+  "person on a bike": {
+   "correct": 11,
+   "false_pos": 275
+  },
+  "person walking": {
+   "correct": 110,
+   "false_pos": 266
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.2639258
+}

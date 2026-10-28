@@ -1,0 +1,107 @@
+{
+ "iter": 13,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "minivan": 1,
+  "station wagon": 1,
+  "truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Specific vehicle-type words like 'minivan' and 'lorry' helped, so I'm trying 'station wagon' (common in Germany) for car and 'box truck' for truck.",
+ "mAP": 0.23235503137812255,
+ "per_class": {
+  "car": {
+   "AP": 0.385294545551582,
+   "AP50": 0.7572888102764704,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31896573303683334,
+   "AP50": 0.5885202129949287,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20557474381015603,
+   "AP50": 0.49420430894235173,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01576633642197522,
+   "AP50": 0.08669008478631005,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2361737980700662,
+   "AP50": 0.5333248563442952,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 27,
+   "false_pos": 102
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 11
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 16
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3145
+  },
+  "delivery van": {
+   "correct": 4,
+   "false_pos": 2
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 172,
+   "false_pos": 10
+  },
+  "pedestrian": {
+   "correct": 144,
+   "false_pos": 366
+  },
+  "person": {
+   "correct": 53,
+   "false_pos": 87
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 78
+  },
+  "station wagon": {
+   "correct": 55,
+   "false_pos": 3
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 146
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.2906224
+}

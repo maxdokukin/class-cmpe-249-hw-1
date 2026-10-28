@@ -66,3 +66,14 @@
 [Wed 11:29:43] rescore yolo26m on coco_val1k
 [Wed 11:29:48] rescore rtdetr_r50 on coco_val1k
 [Wed 11:29:54] rescore frcnn_v2 on coco_val1k
+[Wed 11:30:00] publish: committed
+[Wed 11:30:03] publish: pushed
+[Wed 11:30:03] finished: agent arms score analyze publish
+[Wed 12:28:34] start stages: agent arms score analyze publish  (DEV=mps)
+[Wed 12:28:34] agent owlv2 seed 0 (claude-opus-5-5)
+[Wed 12:30:53] agent owlv2 seed 1 (claude-opus-5-5)
+[Wed 12:32:56] agent owlv2 seed 2 (claude-opus-5-5)
+[Wed 12:35:02] test arms owlv2
+[Wed 13:52:56] test arms gdino_t
+[Wed 13:52:58] score all
+[Wed 13:52:59] failure analysis

@@ -1,0 +1,112 @@
+{
+ "iter": 10,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "minivan": 1,
+  "sedan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person": 3,
+  "woman": 3,
+  "cyclist": 4,
+  "bike rider": 4,
+  "person on a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Test 'woman' for pedestrian recall and swap the noisy 'person riding a bicycle' (699 FP) for 'person on a bicycle'.",
+ "mAP": 0.231144699345905,
+ "per_class": {
+  "car": {
+   "AP": 0.38488368201212597,
+   "AP50": 0.7566089718433879,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3216767109274947,
+   "AP50": 0.5853631326541723,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19659514457001465,
+   "AP50": 0.4838843047645844,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016381450735918502,
+   "AP50": 0.08593882931874873,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23618650848397138,
+   "AP50": 0.533412711042796,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 11,
+   "false_pos": 25
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3137
+  },
+  "cyclist": {
+   "correct": 5,
+   "false_pos": 456
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 91,
+   "false_pos": 190
+  },
+  "person": {
+   "correct": 58,
+   "false_pos": 74
+  },
+  "person on a bicycle": {
+   "correct": 22,
+   "false_pos": 694
+  },
+  "person walking": {
+   "correct": 109,
+   "false_pos": 269
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  },
+  "woman": {
+   "correct": 2,
+   "false_pos": 0
+  }
+ },
+ "cost_usd_cum": 0.23728619999999997
+}

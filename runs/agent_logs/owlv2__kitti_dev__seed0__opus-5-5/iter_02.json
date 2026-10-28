@@ -1,0 +1,87 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicyclist": 4,
+  "man riding a bike": 4,
+  "tram": 5
+ },
+ "rationale": "'bicycle' fires on parked bikes and bike-only boxes, so drop it and test rider-centric phrasings ('bicyclist', 'man riding a bike') alongside 'cyclist'.",
+ "mAP": 0.22484941061809333,
+ "per_class": {
+  "car": {
+   "AP": 0.3746890340239105,
+   "AP50": 0.7447086745951301,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3159054791622371,
+   "AP50": 0.5767896645829568,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1928064860376411,
+   "AP50": 0.4757950203939,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.004816395952883594,
+   "AP50": 0.035781401776607116,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23602965791379438,
+   "AP50": 0.5331265355196568,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicyclist": {
+   "correct": 11,
+   "false_pos": 1029
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3197
+  },
+  "cyclist": {
+   "correct": 19,
+   "false_pos": 69
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "man riding a bike": {
+   "correct": 1,
+   "false_pos": 90
+  },
+  "pedestrian": {
+   "correct": 123,
+   "false_pos": 239
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 345
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.05051359999999999
+}

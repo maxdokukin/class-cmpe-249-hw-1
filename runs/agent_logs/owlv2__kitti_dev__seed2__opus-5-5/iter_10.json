@@ -1,0 +1,92 @@
+{
+ "iter": 10,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "bike rider": 4,
+  "minivan": 1,
+  "tram": 5
+ },
+ "rationale": "I'm reverting both of the last changes, which hurt, and testing only 'minivan' for car on top of the best map.",
+ "mAP": 0.23118978880180635,
+ "per_class": {
+  "car": {
+   "AP": 0.3835225329922588,
+   "AP50": 0.7557346656083855,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3216642145755921,
+   "AP50": 0.5853432634147476,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1986180070812002,
+   "AP50": 0.4769278440240444,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01606590728978666,
+   "AP50": 0.08845292574844725,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23607828207019393,
+   "AP50": 0.5331464800220564,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 27,
+   "false_pos": 105
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 11
+  },
+  "car": {
+   "correct": 1329,
+   "false_pos": 3152
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 409
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.2176602
+}

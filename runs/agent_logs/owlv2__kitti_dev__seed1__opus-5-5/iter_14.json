@@ -1,0 +1,107 @@
+{
+ "iter": 14,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "parked car": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "person standing": 3,
+  "woman walking": 3,
+  "bicycle rider": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "For the last call I'm keeping the best map and testing one more specific pedestrian phrase, 'woman walking', since specific person phrases have helped more than generic action phrases.",
+ "mAP": 0.23452537243761004,
+ "per_class": {
+  "car": {
+   "AP": 0.3841607745085971,
+   "AP50": 0.7598563955457531,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3217056901881598,
+   "AP50": 0.585392583453628,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.214720239423757,
+   "AP50": 0.5146452923599613,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016303680716653463,
+   "AP50": 0.08949549531186944,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.235736477350883,
+   "AP50": 0.5334646014425731,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 28,
+   "false_pos": 101
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 11
+  },
+  "car": {
+   "correct": 945,
+   "false_pos": 2355
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 164,
+   "false_pos": 7
+  },
+  "parked car": {
+   "correct": 423,
+   "false_pos": 893
+  },
+  "pedestrian": {
+   "correct": 123,
+   "false_pos": 362
+  },
+  "person": {
+   "correct": 47,
+   "false_pos": 87
+  },
+  "person standing": {
+   "correct": 50,
+   "false_pos": 77
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 107,
+   "false_pos": 62
+  },
+  "woman walking": {
+   "correct": 38,
+   "false_pos": 5
+  }
+ },
+ "cost_usd_cum": 0.3023462
+}

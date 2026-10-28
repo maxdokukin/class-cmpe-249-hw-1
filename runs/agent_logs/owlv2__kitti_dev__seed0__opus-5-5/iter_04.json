@@ -1,0 +1,92 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "tram": 5,
+  "streetcar": 5
+ },
+ "rationale": "Test generic 'person' for pedestrian recall and 'streetcar' for tram, dropping the unhelpful 'bicycle with rider'.",
+ "mAP": 0.22397247255685135,
+ "per_class": {
+  "car": {
+   "AP": 0.37461469681697945,
+   "AP50": 0.7447520306185168,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3159198210708982,
+   "AP50": 0.5768006849487425,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1981968260697015,
+   "AP50": 0.4890914110929019,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.010123393288919357,
+   "AP50": 0.05726998093928668,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22100762553775813,
+   "AP50": 0.5329918059832875,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3192
+  },
+  "cyclist": {
+   "correct": 15,
+   "false_pos": 402
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 92,
+   "false_pos": 198
+  },
+  "person": {
+   "correct": 59,
+   "false_pos": 82
+  },
+  "person riding a bicycle": {
+   "correct": 14,
+   "false_pos": 713
+  },
+  "person walking": {
+   "correct": 113,
+   "false_pos": 285
+  },
+  "streetcar": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 29
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0917862
+}

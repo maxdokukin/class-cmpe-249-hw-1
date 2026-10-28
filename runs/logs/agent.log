@@ -136,3 +136,172 @@ W1028 10:58:49.652000 19100 .venv/lib/python3.12/site-packages/torch/distributed
   0.2370207606835324
  ]
 }
+W1028 12:28:37.463000 20134 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[baseline] raw_names       dev mAP 0.2260  car 0.373  truck 0.312  pedestrian 0.195  cyclist 0.014  tram 0.236
+[baseline] ngdet_synonyms  dev mAP 0.2250  car 0.373  truck 0.312  pedestrian 0.203  cyclist 0.001  tram 0.236
+[iter  0] dev mAP 0.2251 (best 0.2251)  8 prompts  $0.013  | Start with a simple baseline: one or two canonical synonyms per class, so later changes ca
+[iter  1] dev mAP 0.2242 (best 0.2251)  9 prompts  $0.032  | Large missed 'cars' are KITTI Vans (delivery vans), so add 'delivery van' to car; and repl
+[iter  2] dev mAP 0.2248 (best 0.2251)  10 prompts  $0.051  | 'bicycle' fires on parked bikes and bike-only boxes, so drop it and test rider-centric phr
+[iter  3] dev mAP 0.2264 (best 0.2264)  10 prompts  $0.071  | Restore the best cyclist pair and test 'bicycle with rider' to encourage boxes covering bo
+[iter  4] dev mAP 0.2240 (best 0.2264)  11 prompts  $0.092  | Test generic 'person' for pedestrian recall and 'streetcar' for tram, dropping the unhelpf
+[iter  5] dev mAP 0.2270 (best 0.2270)  11 prompts  $0.117  | Keep 'person' (helped pedestrian), drop 'streetcar' (hurt tram), and test 'bike rider' for
+[iter  6] dev mAP 0.2268 (best 0.2270)  10 prompts  $0.138  | 'cyclist' now gives 6 correct vs 386 FP while 'bike rider' is precise, so drop 'cyclist' t
+[iter  7] dev mAP 0.2282 (best 0.2282)  12 prompts  $0.164  | Return to the best map and add 'lorry' to test whether a truck synonym improves truck reca
+[iter  8] dev mAP 0.2282 (best 0.2282)  14 prompts  $0.188  | Add 'minivan' for car recall and 'light rail train' for tram recall, keeping everything el
+[iter  9] dev mAP 0.2303 (best 0.2303)  14 prompts  $0.212  | Keep 'minivan' (helped car), drop 'light rail train' (hurt tram AP), and test 'sedan' as a
+[iter 10] dev mAP 0.2311 (best 0.2311)  15 prompts  $0.237  | Test 'woman' for pedestrian recall and swap the noisy 'person riding a bicycle' (699 FP) f
+[iter 11] dev mAP 0.2308 (best 0.2311)  15 prompts  $0.264  | Drop 'woman' (slightly hurt pedestrian) and add 'person on a bike' since the 'person on a 
+[iter 12] dev mAP 0.2311 (best 0.2311)  16 prompts  $0.295  | Revert to the best map (extra cyclist prompt stole pedestrians) and test 'city tram' as a 
+[iter 13] dev mAP 0.2299 (best 0.2311)  15 prompts  $0.322  | 'city tram' was neutral so drop it; swap the low-yield 'delivery van' (5 correct) for 'sta
+[iter 14] dev mAP 0.2306 (best 0.2311)  16 prompts  $0.351  | Restore 'delivery van' (removing it hurt truck and car), and test 'box truck' as a precise
+{
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "budget": 15,
+ "evaluations": 15,
+ "turns": 15,
+ "cost_usd": 0.3511702,
+ "tokens": {
+  "input": 32,
+  "output": 8852,
+  "cache_read": 181061,
+  "cache_write": 27558
+ },
+ "best_iter": 10,
+ "best_dev_mAP": 0.231144699345905,
+ "oneshot_dev_mAP": 0.22514774731482554,
+ "trajectory": [
+  0.22514774731482554,
+  0.22417715463717278,
+  0.22484941061809333,
+  0.22639737907102475,
+  0.22397247255685135,
+  0.22704876048806447,
+  0.2268209219952872,
+  0.22822426247546793,
+  0.22817357915184527,
+  0.23027670905323694,
+  0.231144699345905,
+  0.2308294850406675,
+  0.23108366402105945,
+  0.22986872189022012,
+  0.2306036715117075
+ ]
+}
+W1028 12:30:55.750000 20166 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[baseline] raw_names       dev mAP 0.2260  car 0.373  truck 0.312  pedestrian 0.195  cyclist 0.014  tram 0.236
+[baseline] ngdet_synonyms  dev mAP 0.2250  car 0.373  truck 0.312  pedestrian 0.203  cyclist 0.001  tram 0.236
+[iter  0] dev mAP 0.2251 (best 0.2251)  8 prompts  $0.006  | This is a simple baseline that uses one or two common names for each class, so later chang
+[iter  1] dev mAP 0.2229 (best 0.2251)  8 prompts  $0.023  | Cyclist is the weakest class and 'person riding a bicycle' gave 723 false positives, so I'
+[iter  2] dev mAP 0.2236 (best 0.2251)  8 prompts  $0.040  | 'bicycle' boxes only the bike and fires on parked bikes, so I'm testing rider-centric noun
+[iter  3] dev mAP 0.2262 (best 0.2262)  10 prompts  $0.060  | I'm adding 'delivery van' because the large white/brown vans labelled as car (KITTI Van) w
+[iter  4] dev mAP 0.2255 (best 0.2262)  9 prompts  $0.081  | I'm isolating the cyclist class: keeping 'cyclist', which has the best precision, and test
+[iter  5] dev mAP 0.2258 (best 0.2262)  9 prompts  $0.103  | 'bicycle rider' had the best precision of any cyclist prompt (24 correct, 93 false positiv
+[iter  6] dev mAP 0.2269 (best 0.2269)  10 prompts  $0.123  | Pedestrian AP is low (0.19), so I'm adding the generic 'person' to see whether it raises r
+[iter  7] dev mAP 0.2252 (best 0.2269)  10 prompts  $0.143  | I'm dropping 'person walking' (most false positives of the pedestrian prompts) and adding 
+[iter  8] dev mAP 0.2264 (best 0.2269)  10 prompts  $0.165  | 'streetcar' lowered tram AP even though it had good precision, likely through worse box fi
+[iter  9] dev mAP 0.2286 (best 0.2286)  10 prompts  $0.187  | I'm reverting tram to the single 'tram' prompt (best so far) and testing 'parked car' to r
+[iter 10] dev mAP 0.2298 (best 0.2298)  11 prompts  $0.208  | 'parked car' helped car AP, so now I'm testing the European synonym 'lorry' for the truck 
+[iter 11] dev mAP 0.2311 (best 0.2311)  12 prompts  $0.229  | 'lorry' helped truck, so next I'm testing 'person standing' for pedestrians, since KITTI p
+[iter 12] dev mAP 0.2295 (best 0.2311)  12 prompts  $0.253  | 'bike rider' adds almost nothing, so I'm replacing it with 'cyclist on a bicycle' to see w
+[iter 13] dev mAP 0.2326 (best 0.2326)  13 prompts  $0.276  | I'm reverting to the best cyclist pair and testing 'minivan', which KITTI explicitly folds
+[iter 14] dev mAP 0.2345 (best 0.2345)  14 prompts  $0.302  | For the last call I'm keeping the best map and testing one more specific pedestrian phrase
+{
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "budget": 15,
+ "evaluations": 15,
+ "turns": 15,
+ "cost_usd": 0.3023462,
+ "tokens": {
+  "input": 32,
+  "output": 7407,
+  "cache_read": 172041,
+  "cache_write": 23934
+ },
+ "best_iter": 14,
+ "best_dev_mAP": 0.23452537243761004,
+ "oneshot_dev_mAP": 0.22514774731482554,
+ "trajectory": [
+  0.22514774731482554,
+  0.22292331288574185,
+  0.22358158560604505,
+  0.22617528192604847,
+  0.2255494354276951,
+  0.2257553688957554,
+  0.22694871835691108,
+  0.225233457551848,
+  0.22640705751233722,
+  0.2286170544275259,
+  0.2297920803841947,
+  0.2311278115916205,
+  0.22954637054312035,
+  0.23260535994838608,
+  0.23452537243761004
+ ]
+}
+W1028 12:32:59.146000 20198 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[baseline] raw_names       dev mAP 0.2260  car 0.373  truck 0.312  pedestrian 0.195  cyclist 0.014  tram 0.236
+[baseline] ngdet_synonyms  dev mAP 0.2250  car 0.373  truck 0.312  pedestrian 0.203  cyclist 0.001  tram 0.236
+[iter  0] dev mAP 0.2251 (best 0.2251)  8 prompts  $0.006  | Start with a minimal baseline: one or two plain prompts per class, so later changes can be
+[iter  1] dev mAP 0.2235 (best 0.2251)  8 prompts  $0.023  | Cyclist is the weakest class with many false positives, so I'm testing only alternative cy
+[iter  2] dev mAP 0.2244 (best 0.2251)  9 prompts  $0.042  | I'm adding 'delivery van' to car to catch the large missed vans (KITTI counts those as car
+[iter  3] dev mAP 0.2263 (best 0.2263)  10 prompts  $0.064  | 'bicycle' boxes only the bike, including parked ones, so I'm switching back to the origina
+[iter  4] dev mAP 0.2282 (best 0.2282)  10 prompts  $0.087  | I'm swapping 'person walking' for the broader 'person', since riders and seated people are
+[iter  5] dev mAP 0.2282 (best 0.2282)  9 prompts  $0.107  | 'bike rider' had by far the best precision for cyclist, so I'm dropping the two prompts th
+[iter  6] dev mAP 0.2259 (best 0.2282)  11 prompts  $0.127  | Testing synonyms ('streetcar', 'light rail train') to raise tram recall; other classes sta
+[iter  7] dev mAP 0.2252 (best 0.2282)  10 prompts  $0.148  | Adding three tram prompts raised tram AP50 but lowered AP, so I'm keeping only 'tram' + 's
+[iter  8] dev mAP 0.2294 (best 0.2294)  10 prompts  $0.170  | Tram synonyms hurt, so I'm going back to 'tram' alone and testing one truck synonym, 'lorr
+[iter  9] dev mAP 0.2281 (best 0.2294)  12 prompts  $0.194  | I'm adding 'box van' to car for the missed white box vans and bringing 'person walking' ba
+[iter 10] dev mAP 0.2312 (best 0.2312)  11 prompts  $0.218  | I'm reverting both of the last changes, which hurt, and testing only 'minivan' for car on 
+[iter 11] dev mAP 0.2311 (best 0.2312)  12 prompts  $0.241  | A specific vehicle-type word ('minivan') helped car, so I'm trying 'hatchback', a common E
+[iter 12] dev mAP 0.2325 (best 0.2325)  12 prompts  $0.266  | I'm going back to the best map, since 'hatchback' and 'person on a bike' were neutral, and
+[iter 13] dev mAP 0.2324 (best 0.2325)  14 prompts  $0.291  | Specific vehicle-type words like 'minivan' and 'lorry' helped, so I'm trying 'station wago
+[iter 14] dev mAP 0.2329 (best 0.2329)  13 prompts  $0.315  | I'm combining the measured gains: keeping 'station wagon', which raised car AP, and droppi
+{
+ "model": "claude-opus-5-5",
+ "effort": "medium",
+ "budget": 15,
+ "evaluations": 15,
+ "turns": 15,
+ "cost_usd": 0.3151788,
+ "tokens": {
+  "input": 32,
+  "output": 7830,
+  "cache_read": 176029,
+  "cache_write": 24649
+ },
+ "best_iter": 14,
+ "best_dev_mAP": 0.2328957562596559,
+ "oneshot_dev_mAP": 0.22514774731482554,
+ "trajectory": [
+  0.22514774731482554,
+  0.22354759676273567,
+  0.22440354469406876,
+  0.2263220999804726,
+  0.2281539022865002,
+  0.228243102421148,
+  0.22588387383203662,
+  0.225233457551848,
+  0.22941905080849698,
+  0.22811278767929585,
+  0.23118978880180635,
+  0.2311155399116353,
+  0.23252612892314029,
+  0.23235503137812255,
+  0.2328957562596559
+ ]
+}
+run                                          evals     input   output    c.read  c.write  cost $ best dev mAP
+owlv2__kitti_dev__seed0__haiku-4-5              15     7,839    4,691   131,180   19,980   0.069       0.2253
+owlv2__kitti_dev__seed0__opus-5-5               15        32    8,852   181,061   27,558   0.351       0.2311
+owlv2__kitti_dev__seed1__haiku-4-5              15     7,618    4,606   148,191   19,856   0.070       0.2331
+owlv2__kitti_dev__seed1__opus-5-5               15        32    7,407   172,041   23,934   0.302       0.2345
+owlv2__kitti_dev__seed2__haiku-4-5              15     7,801    4,786   134,245   20,658   0.071       0.2370
+owlv2__kitti_dev__seed2__opus-5-5               15        32    7,830   176,029   24,649   0.315       0.2329
+
+total tokens: input 23,354  output 38,172  cache read 942,747  cache write 136,635
+same token counts repriced (all runs together):
+  claude-opus-5-5      $   1.73   with x2 output for thinking: $   2.49
+  claude-sonnet-5-5    $   0.96   with x2 output for thinking: $   1.34
+  claude-haiku-4-5     $   0.48   with x2 output for thinking: $   0.67

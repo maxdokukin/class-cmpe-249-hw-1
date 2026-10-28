@@ -1,0 +1,117 @@
+{
+ "iter": 14,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "minivan": 1,
+  "sedan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person": 3,
+  "woman": 3,
+  "cyclist": 4,
+  "bike rider": 4,
+  "person on a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Restore 'delivery van' (removing it hurt truck and car), and test 'box truck' as a precise truck synonym like 'lorry'.",
+ "mAP": 0.2306036715117075,
+ "per_class": {
+  "car": {
+   "AP": 0.38480236008027735,
+   "AP50": 0.7562499610693131,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3189739474405245,
+   "AP50": 0.5885324731607651,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19659516830307058,
+   "AP50": 0.48388445019411586,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01638149312693327,
+   "AP50": 0.08593906737343822,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23626538860773194,
+   "AP50": 0.533540268189053,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 11,
+   "false_pos": 25
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 16
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3146
+  },
+  "cyclist": {
+   "correct": 5,
+   "false_pos": 456
+  },
+  "delivery van": {
+   "correct": 4,
+   "false_pos": 2
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 91,
+   "false_pos": 190
+  },
+  "person": {
+   "correct": 58,
+   "false_pos": 74
+  },
+  "person on a bicycle": {
+   "correct": 22,
+   "false_pos": 694
+  },
+  "person walking": {
+   "correct": 109,
+   "false_pos": 269
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 146
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  },
+  "woman": {
+   "correct": 2,
+   "false_pos": 0
+  }
+ },
+ "cost_usd_cum": 0.3511702
+}

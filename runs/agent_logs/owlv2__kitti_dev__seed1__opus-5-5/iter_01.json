@@ -1,0 +1,77 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "bicycle": 4,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist is the weakest class and 'person riding a bicycle' gave 723 false positives, so I'm swapping it for 'bicycle' to see whether the bike-focused prompt localizes rider-plus-bike boxes better.",
+ "mAP": 0.22292331288574185,
+ "per_class": {
+  "car": {
+   "AP": 0.37264523812049827,
+   "AP50": 0.7424757131094019,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3117038140763231,
+   "AP50": 0.568732089622397,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19271945682484562,
+   "AP50": 0.4756143212487205,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0015278951737209658,
+   "AP50": 0.010688061616600792,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23602016023332137,
+   "AP50": 0.5331178067727727,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 12,
+   "false_pos": 1273
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3211
+  },
+  "cyclist": {
+   "correct": 17,
+   "false_pos": 101
+  },
+  "pedestrian": {
+   "correct": 123,
+   "false_pos": 240
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 345
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.023255
+}

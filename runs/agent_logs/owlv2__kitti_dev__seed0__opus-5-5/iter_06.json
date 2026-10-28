@@ -1,0 +1,87 @@
+{
+ "iter": 6,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person": 3,
+  "bike rider": 4,
+  "person riding a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "'cyclist' now gives 6 correct vs 386 FP while 'bike rider' is precise, so drop 'cyclist' to cut false positives.",
+ "mAP": 0.2268209219952872,
+ "per_class": {
+  "car": {
+   "AP": 0.374614602113824,
+   "AP50": 0.7447518610394316,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31591146056986674,
+   "AP50": 0.5767951555999962,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1972385399688226,
+   "AP50": 0.4864045318860325,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.010268685386749892,
+   "AP50": 0.05406629359838661,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2360713219371728,
+   "AP50": 0.533220952083706,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 15,
+   "false_pos": 39
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3192
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 91,
+   "false_pos": 199
+  },
+  "person": {
+   "correct": 59,
+   "false_pos": 82
+  },
+  "person riding a bicycle": {
+   "correct": 13,
+   "false_pos": 933
+  },
+  "person walking": {
+   "correct": 112,
+   "false_pos": 284
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.13782419999999998
+}

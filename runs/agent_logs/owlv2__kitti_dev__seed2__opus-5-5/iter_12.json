@@ -1,0 +1,97 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "person standing": 3,
+  "bicycle rider": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "I'm going back to the best map, since 'hatchback' and 'person on a bike' were neutral, and testing 'person standing' for pedestrian.",
+ "mAP": 0.23252612892314029,
+ "per_class": {
+  "car": {
+   "AP": 0.38352245498746634,
+   "AP50": 0.7557351567545142,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3216681265549908,
+   "AP50": 0.5853488903673614,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2055746681685253,
+   "AP50": 0.49420383340472934,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015766330864302628,
+   "AP50": 0.08669008478631005,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23609906404041636,
+   "AP50": 0.533208159415755,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 27,
+   "false_pos": 102
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 11
+  },
+  "car": {
+   "correct": 1329,
+   "false_pos": 3153
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 144,
+   "false_pos": 366
+  },
+  "person": {
+   "correct": 53,
+   "false_pos": 87
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 78
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.2658622
+}

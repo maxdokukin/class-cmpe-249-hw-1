@@ -1,0 +1,87 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "person riding a bicycle": 4,
+  "cyclist": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "I'm swapping 'person walking' for the broader 'person', since riders and seated people are ignored, and replacing the barely useful street-cycling phrase with 'bike rider'.",
+ "mAP": 0.2281539022865002,
+ "per_class": {
+  "car": {
+   "AP": 0.3746119184495616,
+   "AP50": 0.7447470966686464,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3159106054777706,
+   "AP50": 0.5767951555999962,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2022462089379535,
+   "AP50": 0.48296193341011356,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.011958146684470426,
+   "AP50": 0.0682215899344008,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23604263188274505,
+   "AP50": 0.5331538625612956,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 14,
+   "false_pos": 39
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3192
+  },
+  "cyclist": {
+   "correct": 7,
+   "false_pos": 388
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 341
+  },
+  "person": {
+   "correct": 67,
+   "false_pos": 86
+  },
+  "person riding a bicycle": {
+   "correct": 13,
+   "false_pos": 739
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.08708880000000001
+}

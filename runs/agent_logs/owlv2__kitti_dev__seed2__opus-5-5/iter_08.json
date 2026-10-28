@@ -1,0 +1,87 @@
+{
+ "iter": 8,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "Tram synonyms hurt, so I'm going back to 'tram' alone and testing one truck synonym, 'lorry'.",
+ "mAP": 0.22941905080849698,
+ "per_class": {
+  "car": {
+   "AP": 0.37466884302571185,
+   "AP50": 0.7455665950645117,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3216642145755921,
+   "AP50": 0.5853432634147476,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1986180070812002,
+   "AP50": 0.4769278440240444,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01606590728978666,
+   "AP50": 0.08845292574844725,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23607828207019393,
+   "AP50": 0.5331464800220564,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 27,
+   "false_pos": 105
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 11
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3195
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 409
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 159
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.1700584
+}

@@ -1,0 +1,87 @@
+{
+ "iter": 9,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "parked car": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "I'm reverting tram to the single 'tram' prompt (best so far) and testing 'parked car' to recover the many occluded cars parked along Karlsruhe streets.",
+ "mAP": 0.2286170544275259,
+ "per_class": {
+  "car": {
+   "AP": 0.3767703567305177,
+   "AP50": 0.7515052226688599,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31593676039419555,
+   "AP50": 0.5768179711802156,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19864188560174806,
+   "AP50": 0.4770128012350406,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01612238808844331,
+   "AP50": 0.08842447704779129,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23561388132272476,
+   "AP50": 0.5332280809729565,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 27,
+   "false_pos": 106
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 11
+  },
+  "car": {
+   "correct": 960,
+   "false_pos": 2355
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "parked car": {
+   "correct": 522,
+   "false_pos": 897
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 408
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 157,
+   "false_pos": 65
+  }
+ },
+ "cost_usd_cum": 0.1867454
+}

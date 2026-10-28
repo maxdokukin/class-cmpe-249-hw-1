@@ -1,0 +1,77 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "bicyclist": 4,
+  "person on a bike": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist is the weakest class with many false positives, so I'm testing only alternative cyclist wordings and keeping everything else fixed.",
+ "mAP": 0.22354759676273567,
+ "per_class": {
+  "car": {
+   "AP": 0.37265352679771724,
+   "AP50": 0.7424972053724191,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31170342250202404,
+   "AP50": 0.5687294861242916,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1910132077088655,
+   "AP50": 0.46625841482388614,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0063284758908285,
+   "AP50": 0.04549845000671371,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23603935091424294,
+   "AP50": 0.5331691301078865,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicyclist": {
+   "correct": 8,
+   "false_pos": 997
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3206
+  },
+  "pedestrian": {
+   "correct": 119,
+   "false_pos": 211
+  },
+  "person on a bike": {
+   "correct": 32,
+   "false_pos": 500
+  },
+  "person walking": {
+   "correct": 134,
+   "false_pos": 289
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.023435
+}

@@ -1,0 +1,77 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicyclist": 4,
+  "tram": 5
+ },
+ "rationale": "'bicycle' boxes only the bike and fires on parked bikes, so I'm testing rider-centric nouns ('cyclist' + 'bicyclist'), which should cover both rider and bike.",
+ "mAP": 0.22358158560604505,
+ "per_class": {
+  "car": {
+   "AP": 0.37264348034820427,
+   "AP50": 0.7424735470873536,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.311699734080095,
+   "AP50": 0.5687268914069556,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19280361517103456,
+   "AP50": 0.47578537504466645,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.004748623236014053,
+   "AP50": 0.035463317247552556,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23601247519487728,
+   "AP50": 0.5331011727591638,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicyclist": {
+   "correct": 11,
+   "false_pos": 1118
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3210
+  },
+  "cyclist": {
+   "correct": 19,
+   "false_pos": 69
+  },
+  "pedestrian": {
+   "correct": 123,
+   "false_pos": 239
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 345
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 171
+  },
+  "van": {
+   "correct": 193,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0400756
+}

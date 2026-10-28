@@ -1,0 +1,87 @@
+{
+ "iter": 8,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "bike rider": 4,
+  "tram": 5,
+  "light rail train": 5
+ },
+ "rationale": "'streetcar' lowered tram AP even though it had good precision, likely through worse box fit, so I'm replacing it with 'light rail train' while keeping the improved pedestrian set.",
+ "mAP": 0.22640705751233722,
+ "per_class": {
+  "car": {
+   "AP": 0.37467017294730276,
+   "AP50": 0.7455725716365211,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3159032556327897,
+   "AP50": 0.5767869333244814,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19861804295811641,
+   "AP50": 0.4769280117639993,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016065941401274274,
+   "AP50": 0.08845312271509816,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22677787462220306,
+   "AP50": 0.550032772031775,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 27,
+   "false_pos": 105
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 11
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3195
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "light rail train": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 409
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 32
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.1647826
+}

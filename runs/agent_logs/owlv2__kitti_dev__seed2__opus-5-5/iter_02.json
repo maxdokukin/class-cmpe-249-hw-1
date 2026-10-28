@@ -1,0 +1,82 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person riding a bicycle": 4,
+  "bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "I'm adding 'delivery van' to car to catch the large missed vans (KITTI counts those as car), and testing whether the plain object word 'bicycle' localizes cyclists better than person-centered phrases.",
+ "mAP": 0.22440354469406876,
+ "per_class": {
+  "car": {
+   "AP": 0.37461683971458154,
+   "AP50": 0.7447546968098521,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31591657012561336,
+   "AP50": 0.5768006849487425,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19418794432304295,
+   "AP50": 0.4775996274694995,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0012038507020575011,
+   "AP50": 0.00830252132559936,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23609251860504837,
+   "AP50": 0.5332890642911022,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 11,
+   "false_pos": 1202
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3192
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "pedestrian": {
+   "correct": 123,
+   "false_pos": 224
+  },
+  "person riding a bicycle": {
+   "correct": 11,
+   "false_pos": 401
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 291
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0423914
+}

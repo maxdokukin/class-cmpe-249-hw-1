@@ -1,0 +1,87 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "delivery van": 1,
+  "truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "man on a bike": 4,
+  "tram": 5
+ },
+ "rationale": "I'm adding 'delivery van' because the large white/brown vans labelled as car (KITTI Van) were missed, and restoring the baseline cyclist pair plus 'man on a bike' to see whether a short rider phrase covers both rider and bike.",
+ "mAP": 0.22617528192604847,
+ "per_class": {
+  "car": {
+   "AP": 0.37461197174426286,
+   "AP50": 0.7447479419084979,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.315909516135615,
+   "AP50": 0.5767924053249686,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19300752567733057,
+   "AP50": 0.4755933192267452,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.011279611583155226,
+   "AP50": 0.06729028065128445,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23606778448987872,
+   "AP50": 0.5332100982543562,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3193
+  },
+  "cyclist": {
+   "correct": 18,
+   "false_pos": 315
+  },
+  "delivery van": {
+   "correct": 5,
+   "false_pos": 3
+  },
+  "man on a bike": {
+   "correct": 7,
+   "false_pos": 254
+  },
+  "pedestrian": {
+   "correct": 121,
+   "false_pos": 220
+  },
+  "person riding a bicycle": {
+   "correct": 11,
+   "false_pos": 602
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 291
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 165
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0595864
+}
