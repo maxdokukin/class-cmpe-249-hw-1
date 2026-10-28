@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 # Full experiment pipeline. Resumable: rerun after any interruption and finished work is skipped.
-#   ./run.sh                 all stages: parity e1 cache agent arms score publish
+#   ./run.sh                 all stages: parity e1 cache agent arms score analyze publish
 #   ./run.sh e1 score        only the named stages
 # Env: DEV (default mps), COOL (seconds between model runs, default 120), NO_PUSH=1 (commit results, don't push),
 #      ANTHROPIC_API_KEY (the agent stage is skipped without it), AGENT_MODEL (default claude-opus-5-5),
+#      AGENT_DETECTORS (default "owlv2"; add gdino_t to also run the Grounding DINO agent),
 #      DRY_RUN=1 (print the commands that would run, run nothing).
 set -uo pipefail
 cd "$(dirname "$0")"
 if [[ $(uname) == Darwin && -z ${CAFFEINATED:-} ]]; then export CAFFEINATED=1; exec caffeinate -dims "$0" "$@"; fi
 export PATH="$HOME/.local/bin:$PATH" PYTHONWARNINGS=ignore PYTORCH_ENABLE_MPS_FALLBACK=1
 DEV=${DEV:-mps}; COOL=${COOL:-120}; AGENT_MODEL=${AGENT_MODEL:-claude-opus-5-5}
-STAGES=${*:-parity e1 cache agent arms score publish}
+AGENT_DETECTORS=${AGENT_DETECTORS:-owlv2}
+STAGES=${*:-parity e1 cache agent arms score analyze publish}
 MODELS="yolo11m yolo26m rtdetr_r50 frcnn_v2 owlv2 gdino_t"
 mkdir -p runs/logs runs/parity
 if [[ -n ${DRY_RUN:-} ]]; then py() { echo "  would run: python $*"; }; COOL=0; else py() { uv run python "$@"; }; fi
@@ -75,7 +77,7 @@ agent() {  # agent <detector> <seed>
 stage_agent() {
   if [[ -z ${ANTHROPIC_API_KEY:-} ]]; then log "agent skipped: ANTHROPIC_API_KEY not set"; return; fi
   for s in 0 1 2; do agent owlv2 $s; done
-  agent gdino_t 0
+  [[ " $AGENT_DETECTORS " == *" gdino_t "* ]] && agent gdino_t 0
 }
 
 stage_arms() {
@@ -87,12 +89,24 @@ stage_arms() {
 
 stage_score() { log "score all"; py -m hw1.score_all 2>&1 | tee -a runs/logs/score.log; }
 
-stage_publish() {  # small outputs only (metrics, run metadata, agent logs, logs); predictions and caches stay local
+stage_analyze() {  # TIDE errors, recall bins, galleries on kitti_test; closed-set COCO rescored on the open-vocab models' 1000 images
+  log "failure analysis"
+  py -m hw1.failure 2>&1 | tee -a runs/logs/analyze.log
+  for m in yolo11m yolo26m rtdetr_r50 frcnn_v2; do
+    [[ -f runs/metrics/${m}__coco_val__default__sub-coco_val1k.json ]] && continue
+    [[ -f runs/preds/${m}__coco_val.jsonl.gz || -n ${DRY_RUN:-} ]] || continue
+    log "rescore $m on coco_val1k"
+    py -m hw1.score "runs/preds/${m}__coco_val.jsonl.gz" --subset coco_val1k --fast 2>&1 | tee -a runs/logs/score.log
+  done
+}
+
+stage_publish() {  # small outputs only (metrics, analysis, run metadata, agent logs, logs); predictions and caches stay local
   [[ -n ${DRY_RUN:-} ]] && { log "publish: would commit and push runs/ outputs"; return; }
-  git add runs/metrics runs/preds/*.meta.json runs/agent_logs runs/parity runs/logs runs/COMMANDS.md 2>/dev/null
+  git add runs/metrics runs/preds/*.meta.json runs/agent_logs runs/parity runs/analysis runs/logs runs/COMMANDS.md 2>/dev/null
   if git diff --cached --quiet; then log "publish: nothing new"; return; fi
   git commit -qm "hw1 results: $(hostname -s) $(date '+%Y-%m-%d %H:%M')" && log "publish: committed"
   if [[ -n ${NO_PUSH:-} ]]; then log "publish: NO_PUSH set, not pushing"; return; fi
+  git pull -q --rebase --autostash || log "publish: pull failed; resolve by hand, then 'git push'"
   if git push -q; then log "publish: pushed"; else log "publish: push failed; run 'git push' by hand"; fi
 }
 
