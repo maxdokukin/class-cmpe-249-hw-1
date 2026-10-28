@@ -30,6 +30,7 @@ PRICES = {  # USD per MTok: input, output, cache read, cache write (5 min)
     "claude-opus-5-5": (4.0, 20.0, 0.20, 5.0),
     "claude-sonnet-5-5": (2.0, 10.0, 0.20, 2.5),
     "claude-haiku-4-5": (1.0, 5.0, 0.10, 1.25),
+    "claude-haiku-5-5": (0.10, 0.50, 0.01, 0.125),  # prompts <= 100K tokens (platform.claude.com pricing, 2026-10-28)
 }
 MAX_PER_CLASS, MAX_TOTAL = 5, 30
 
@@ -231,14 +232,24 @@ def tool_result_content(ev: DevEvaluator, res: dict, best: float) -> list[dict]:
     return content
 
 
+FALLBACK_MODELS = {"claude-opus-5-5", "claude-sonnet-5-5", "claude-fable-5-1"}  # accept server-side `fallbacks`
+
+
 def request_options(model: str, effort: str) -> dict:
-    """Per-model request settings: Haiku 4.5 rejects `effort` and has no server-side refusal fallback."""
-    if model.startswith("claude-haiku"):
+    """Per-model request settings. Haiku 4.5 rejects `effort`; Haiku 5.5 takes `effort` but has no server-side
+    fallback. Unknown models get `effort` only; run_agent drops it if the API rejects it."""
+    if model.startswith("claude-haiku-4"):
         return {}
-    return {"output_config": {"effort": effort}, "betas": ["server-side-fallback-2026-07-01"], "fallbacks": "default"}
+    opts = {"output_config": {"effort": effort}}
+    if model in FALLBACK_MODELS:
+        opts |= {"betas": ["server-side-fallback-2026-07-01"], "fallbacks": "default"}
+    return opts
 
 
 def cost_usd(model: str, usage) -> float:
+    """USD for one response; NaN for a model without a known price (tokens are still logged)."""
+    if model not in PRICES:
+        return float("nan")
     pin, pout, pread, pwrite = PRICES[model]
     return ((usage.input_tokens or 0) * pin + (usage.output_tokens or 0) * pout
             + (getattr(usage, "cache_read_input_tokens", 0) or 0) * pread
@@ -272,12 +283,24 @@ def run_agent(ev: DevEvaluator, out: Path, model: str, budget: int, effort: str)
     tokens = {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
     log = open(out / "transcript.jsonl", "a")
     n_eval, turns = 0, 0
+    options, dropped = request_options(model, effort), None
     while n_eval < budget and turns < budget * 3:
         turns += 1
-        resp = client.beta.messages.create(
-            model=model, max_tokens=16000, system=system, tools=[TOOL], messages=messages,
-            cache_control={"type": "ephemeral"}, **request_options(model, effort),
-        )
+        try:
+            resp = client.beta.messages.create(
+                model=model, max_tokens=16000, system=system, tools=[TOOL], messages=messages,
+                cache_control={"type": "ephemeral"}, **options,
+            )
+        except anthropic.BadRequestError as e:
+            if not options or turns > 1:
+                raise
+            dropped = {"options": list(options), "error": str(e)[:300]}
+            print(f"model rejected {list(options)}; retrying without them: {dropped['error']}", flush=True)
+            options = {}
+            resp = client.beta.messages.create(
+                model=model, max_tokens=16000, system=system, tools=[TOOL], messages=messages,
+                cache_control={"type": "ephemeral"},
+            )
         c = cost_usd(model, resp.usage)
         total_cost += c
         u = resp.usage
@@ -325,7 +348,8 @@ def run_agent(ev: DevEvaluator, out: Path, model: str, budget: int, effort: str)
                             "content": tool_result_content(ev, res, best["mAP"])})
         messages.append({"role": "user", "content": results})
     summary = {"model": model, "effort": effort, "budget": budget, "evaluations": n_eval, "turns": turns,
-               "cost_usd": total_cost, "tokens": tokens, "best_iter": best.get("iter"), "best_dev_mAP": best["mAP"],
+               "cost_usd": total_cost, "tokens": tokens, "request_options": list(options),
+               "request_options_dropped": dropped, "best_iter": best.get("iter"), "best_dev_mAP": best["mAP"],
                "oneshot_dev_mAP": history[0]["mAP"] if history else None,
                "trajectory": [h["mAP"] for h in history]}
     (out / "summary.json").write_text(json.dumps(summary, indent=1, default=float))

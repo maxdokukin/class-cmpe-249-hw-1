@@ -65,5 +65,17 @@ def test_request_options_per_model():
     from hw1.agent import PRICES, request_options
 
     assert request_options("claude-haiku-4-5", "medium") == {}
+    h55 = request_options("claude-haiku-5-5", "medium")
+    assert h55 == {"output_config": {"effort": "medium"}}  # effort yes, server-side fallback not available
+    assert "fallbacks" in request_options("claude-sonnet-5-5", "medium")
     assert request_options("claude-opus-5-5", "medium")["output_config"] == {"effort": "medium"}
     assert {"claude-haiku-4-5", "claude-opus-5-5", "claude-sonnet-5-5"} <= set(PRICES)
+
+
+def test_cost_unknown_model_is_nan():
+    import math
+    from types import SimpleNamespace
+    from hw1.agent import cost_usd
+
+    u = SimpleNamespace(input_tokens=10, output_tokens=10, cache_read_input_tokens=0, cache_creation_input_tokens=0)
+    assert math.isnan(cost_usd("claude-some-new-model", u)) and cost_usd("claude-haiku-4-5", u) > 0

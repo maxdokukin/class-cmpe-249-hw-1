@@ -37,7 +37,8 @@ for f in runs:
     for k in tot:
         tot[k] += t.get(k, 0)
     print(f"{f.parent.name:44s} {s['evaluations']:5d} {t.get('input', 0):9,d} {t.get('output', 0):8,d} "
-          f"{t.get('cache_read', 0):9,d} {t.get('cache_write', 0):8,d} {s['cost_usd']:7.3f} {s['best_dev_mAP']:12.4f}")
+          f"{t.get('cache_read', 0):9,d} {t.get('cache_write', 0):8,d} {s['cost_usd']:7.3f} {s['best_dev_mAP']:12.4f}"
+          + ("  (no price on file; cost from tokens below)" if s["cost_usd"] != s["cost_usd"] else ""))
 print(f"\ntotal tokens: input {tot['input']:,}  output {tot['output']:,}  cache read {tot['cache_read']:,}  cache write {tot['cache_write']:,}")
 print("same token counts repriced (all runs together):")
 for m in PRICES:
