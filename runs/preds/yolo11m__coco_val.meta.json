@@ -1,0 +1,71 @@
+{
+  "name": "yolo11m__coco_val",
+  "model": "yolo11m",
+  "split": "coco_val",
+  "n_images": 5000,
+  "vocabulary": null,
+  "detector_config": {
+    "name": "yolo11m",
+    "open_vocab": false,
+    "device": "mps",
+    "dtype": "float32",
+    "score_thresh": 0.001,
+    "max_det": 100,
+    "versions": {
+      "python": "3.12.15",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "ultralytics": "8.4.190",
+      "transformers": "5.21.0"
+    },
+    "checkpoint": "/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt",
+    "input": "letterbox, long side 640, minimal stride-32 padding (predict-style, rect)",
+    "nms_iou": 0.7,
+    "head": "one2many + NMS",
+    "timing_note": "stage split from ultralytics Results.speed; total_ms includes RGB->BGR copy"
+  },
+  "latency": {
+    "warmup_images": 10,
+    "burst": {
+      "n": 200,
+      "median_ms": 36.92524999860325,
+      "p90_ms": 45.498384001257364,
+      "mean_ms": 40.531349330067314,
+      "fps_median": 27.08173946114993,
+      "preprocess_median_ms": 0.8801044987194473,
+      "forward_median_ms": 32.92591649915266,
+      "postprocess_median_ms": 1.641313001528033
+    },
+    "sustained": {
+      "n": 4990,
+      "median_ms": 37.400146498839604,
+      "p90_ms": 51.097674700213254,
+      "mean_ms": 42.316572257300365,
+      "fps_median": 26.737863180055363,
+      "preprocess_median_ms": 0.898833000974264,
+      "forward_median_ms": 33.581770499949926,
+      "postprocess_median_ms": 1.7642499988141935
+    }
+  },
+  "memory": {
+    "kind": "mps_unified",
+    "samples": 5000,
+    "process_rss_peak_mb": 1834.9,
+    "peak_driver_allocated_mb": 1155.9,
+    "peak_current_allocated_mb": 76.7
+  },
+  "boxes_per_image_mean": 55.9154,
+  "wall_s": 234.7,
+  "mps_fallback_warnings": [],
+  "env": {
+    "host": "Mac",
+    "platform": "macOS-15.7.7-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "src_hash": "9a1b67aa7f53",
+  "command": "python -m hw1.run --model yolo11m --split coco_val --device mps",
+  "finished_utc": "2026-10-27T22:11:56+00:00",
+  "pred_file": "runs/preds/yolo11m__coco_val.jsonl.gz"
+}

@@ -1,0 +1,1 @@
+frcnn_v2: mAP cpu 0.6341  mps 0.6341  |diff| 0.0000 -> PARITY OK

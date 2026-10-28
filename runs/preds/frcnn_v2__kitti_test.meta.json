@@ -1,0 +1,70 @@
+{
+  "name": "frcnn_v2__kitti_test",
+  "model": "frcnn_v2",
+  "split": "kitti_test",
+  "n_images": 3769,
+  "vocabulary": null,
+  "detector_config": {
+    "name": "frcnn_v2",
+    "open_vocab": false,
+    "device": "mps",
+    "dtype": "float32",
+    "score_thresh": 0.001,
+    "max_det": 100,
+    "versions": {
+      "python": "3.12.15",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "ultralytics": "8.4.190",
+      "transformers": "5.21.0"
+    },
+    "checkpoint": "FasterRCNN_ResNet50_FPN_V2_Weights.COCO_V1",
+    "input": "GeneralizedRCNNTransform resize short side 800, long side cap 1333, keep aspect",
+    "nms_iou": 0.5,
+    "timing_note": "transform+backbone+rpn+roi_heads split; roi_heads includes NMS"
+  },
+  "latency": {
+    "warmup_images": 10,
+    "burst": {
+      "n": 200,
+      "median_ms": 267.54391649956233,
+      "p90_ms": 272.8642327027046,
+      "mean_ms": 267.81882352024695,
+      "fps_median": 3.737704123807412,
+      "preprocess_median_ms": 2.977583499159664,
+      "forward_median_ms": 263.5234789995593,
+      "postprocess_median_ms": 1.0302290029358119
+    },
+    "sustained": {
+      "n": 3759,
+      "median_ms": 337.258457999269,
+      "p90_ms": 385.37273300025845,
+      "mean_ms": 344.8537652086149,
+      "fps_median": 2.9650850150129293,
+      "preprocess_median_ms": 3.66458400094416,
+      "forward_median_ms": 332.0567080008914,
+      "postprocess_median_ms": 1.3792499958071858
+    }
+  },
+  "memory": {
+    "kind": "mps_unified",
+    "samples": 3769,
+    "process_rss_peak_mb": 912.0,
+    "peak_driver_allocated_mb": 1217.7,
+    "peak_current_allocated_mb": 167.1
+  },
+  "boxes_per_image_mean": 99.46696736534889,
+  "wall_s": 1336.6,
+  "mps_fallback_warnings": [],
+  "env": {
+    "host": "Mac",
+    "platform": "macOS-15.7.7-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "src_hash": "9a1b67aa7f53",
+  "command": "python -m hw1.run --model frcnn_v2 --split kitti_test --device mps",
+  "finished_utc": "2026-10-28T00:04:27+00:00",
+  "pred_file": "runs/preds/frcnn_v2__kitti_test.jsonl.gz"
+}

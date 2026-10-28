@@ -1,0 +1,1 @@
+rtdetr_r50: mAP cpu 0.6083  mps 0.6083  |diff| 0.0000 -> PARITY OK

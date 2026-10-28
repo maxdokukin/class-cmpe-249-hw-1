@@ -1,0 +1,71 @@
+{
+  "name": "rtdetr_r50__coco_val",
+  "model": "rtdetr_r50",
+  "split": "coco_val",
+  "n_images": 5000,
+  "vocabulary": null,
+  "detector_config": {
+    "name": "rtdetr_r50",
+    "open_vocab": false,
+    "device": "mps",
+    "dtype": "float32",
+    "score_thresh": 0.0,
+    "max_det": 100,
+    "versions": {
+      "python": "3.12.15",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "ultralytics": "8.4.190",
+      "transformers": "5.21.0"
+    },
+    "checkpoint": "PekingU/rtdetr_r50vd",
+    "input": "fixed 640x640 resize, aspect not kept",
+    "nms_iou": "none",
+    "queries": 300,
+    "postprocess": "sigmoid, top-300 over queries x classes, then top-max_det"
+  },
+  "latency": {
+    "warmup_images": 10,
+    "burst": {
+      "n": 200,
+      "median_ms": 116.6602294997574,
+      "p90_ms": 120.87942530160944,
+      "mean_ms": 116.75624624494958,
+      "fps_median": 8.571901532236224,
+      "preprocess_median_ms": 6.394832998921629,
+      "forward_median_ms": 107.62262450043636,
+      "postprocess_median_ms": 2.9844585005776025
+    },
+    "sustained": {
+      "n": 4990,
+      "median_ms": 161.69527050260513,
+      "p90_ms": 189.57685829773254,
+      "mean_ms": 163.45355753467143,
+      "fps_median": 6.184472785701476,
+      "preprocess_median_ms": 2.833374999681837,
+      "forward_median_ms": 156.88858300200081,
+      "postprocess_median_ms": 1.995187498323503
+    }
+  },
+  "memory": {
+    "kind": "mps_unified",
+    "samples": 5000,
+    "process_rss_peak_mb": 842.8,
+    "peak_driver_allocated_mb": 1248.8,
+    "peak_current_allocated_mb": 164.9
+  },
+  "boxes_per_image_mean": 100.0,
+  "wall_s": 844.6,
+  "mps_fallback_warnings": [],
+  "env": {
+    "host": "Mac",
+    "platform": "macOS-15.7.7-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "src_hash": "9a1b67aa7f53",
+  "command": "python -m hw1.run --model rtdetr_r50 --split coco_val --device mps",
+  "finished_utc": "2026-10-27T22:42:49+00:00",
+  "pred_file": "runs/preds/rtdetr_r50__coco_val.jsonl.gz"
+}

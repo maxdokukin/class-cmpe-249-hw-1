@@ -1,0 +1,1 @@
+yolo11m: mAP cpu 0.6583  mps 0.6583  |diff| 0.0000 -> PARITY OK

@@ -1,0 +1,70 @@
+{
+  "name": "frcnn_v2__coco_val200__parity_mps__n20",
+  "model": "frcnn_v2",
+  "split": "coco_val200",
+  "n_images": 20,
+  "vocabulary": null,
+  "detector_config": {
+    "name": "frcnn_v2",
+    "open_vocab": false,
+    "device": "mps",
+    "dtype": "float32",
+    "score_thresh": 0.001,
+    "max_det": 100,
+    "versions": {
+      "python": "3.12.15",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "ultralytics": "8.4.190",
+      "transformers": "5.21.0"
+    },
+    "checkpoint": "FasterRCNN_ResNet50_FPN_V2_Weights.COCO_V1",
+    "input": "GeneralizedRCNNTransform resize short side 800, long side cap 1333, keep aspect",
+    "nms_iou": 0.5,
+    "timing_note": "transform+backbone+rpn+roi_heads split; roi_heads includes NMS"
+  },
+  "latency": {
+    "warmup_images": 2,
+    "burst": {
+      "n": 18,
+      "median_ms": 345.27458299817226,
+      "p90_ms": 397.9137836020528,
+      "mean_ms": 362.7418102777382,
+      "fps_median": 2.8962456237483707,
+      "preprocess_median_ms": 2.7979375008726493,
+      "forward_median_ms": 341.4844369999628,
+      "postprocess_median_ms": 1.0240834999422077
+    },
+    "sustained": {
+      "n": 18,
+      "median_ms": 345.27458299817226,
+      "p90_ms": 397.9137836020528,
+      "mean_ms": 362.7418102777382,
+      "fps_median": 2.8962456237483707,
+      "preprocess_median_ms": 2.7979375008726493,
+      "forward_median_ms": 341.4844369999628,
+      "postprocess_median_ms": 1.0240834999422077
+    }
+  },
+  "memory": {
+    "kind": "mps_unified",
+    "samples": 20,
+    "process_rss_peak_mb": 1276.8,
+    "peak_driver_allocated_mb": 1225.7,
+    "peak_current_allocated_mb": 167.1
+  },
+  "boxes_per_image_mean": 72.95,
+  "wall_s": 8.5,
+  "mps_fallback_warnings": [],
+  "env": {
+    "host": "users-MacBook-Air.local",
+    "platform": "macOS-15.7.7-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "src_hash": "9a1b67aa7f53",
+  "command": "python -m hw1.run --model frcnn_v2 --split coco_val200 --max-images 20 --device mps --warmup 2 --tag parity_mps",
+  "finished_utc": "2026-10-27T20:50:32+00:00",
+  "pred_file": "runs/preds/frcnn_v2__coco_val200__parity_mps__n20.jsonl.gz"
+}

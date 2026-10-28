@@ -1,0 +1,1 @@
+FileNotFoundError: [Errno 2] No such file or directory: 'runs/preds/gdino_t__coco_val200__parity_cpu__n20.meta.json'

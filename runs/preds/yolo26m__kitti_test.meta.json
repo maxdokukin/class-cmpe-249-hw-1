@@ -1,0 +1,71 @@
+{
+  "name": "yolo26m__kitti_test",
+  "model": "yolo26m",
+  "split": "kitti_test",
+  "n_images": 3769,
+  "vocabulary": null,
+  "detector_config": {
+    "name": "yolo26m",
+    "open_vocab": false,
+    "device": "mps",
+    "dtype": "float32",
+    "score_thresh": 0.001,
+    "max_det": 100,
+    "versions": {
+      "python": "3.12.15",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "ultralytics": "8.4.190",
+      "transformers": "5.21.0"
+    },
+    "checkpoint": "/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt",
+    "input": "letterbox, long side 640, minimal stride-32 padding (predict-style, rect)",
+    "nms_iou": "none (end-to-end one-to-one head, nms=False)",
+    "head": "end2end",
+    "timing_note": "stage split from ultralytics Results.speed; total_ms includes RGB->BGR copy"
+  },
+  "latency": {
+    "warmup_images": 10,
+    "burst": {
+      "n": 200,
+      "median_ms": 19.838687499941443,
+      "p90_ms": 20.56899999952293,
+      "mean_ms": 19.984988730102486,
+      "fps_median": 50.40656041398665,
+      "preprocess_median_ms": 0.8524165023118258,
+      "forward_median_ms": 3.124708500763518,
+      "postprocess_median_ms": 14.621583999542054
+    },
+    "sustained": {
+      "n": 3759,
+      "median_ms": 19.961540998338023,
+      "p90_ms": 21.416291601053675,
+      "mean_ms": 20.606097410744457,
+      "fps_median": 50.096332747219215,
+      "preprocess_median_ms": 0.8432920003542677,
+      "forward_median_ms": 3.4092909991159104,
+      "postprocess_median_ms": 14.50575000126264
+    }
+  },
+  "memory": {
+    "kind": "mps_unified",
+    "samples": 3769,
+    "process_rss_peak_mb": 769.2,
+    "peak_driver_allocated_mb": 153.8,
+    "peak_current_allocated_mb": 77.9
+  },
+  "boxes_per_image_mean": 96.8386840010613,
+  "wall_s": 107.2,
+  "mps_fallback_warnings": [],
+  "env": {
+    "host": "Mac",
+    "platform": "macOS-15.7.7-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "src_hash": "9a1b67aa7f53",
+  "command": "python -m hw1.run --model yolo26m --split kitti_test --device mps",
+  "finished_utc": "2026-10-27T22:26:39+00:00",
+  "pred_file": "runs/preds/yolo26m__kitti_test.jsonl.gz"
+}

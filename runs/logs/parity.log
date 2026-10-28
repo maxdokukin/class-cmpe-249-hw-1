@@ -1,0 +1,49 @@
+Creating new Ultralytics Settings v0.0.8 file ✅ 
+View Ultralytics Settings with 'yolo settings' or at '/Users/user/Library/Application Support/Ultralytics/settings.json'
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/usage/settings.
+[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt': 8% ━─────────── 3.4/38.8MB 32.0MB/s 0.1s<1.1s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt': 21% ━━╸───────── 8.5/38.8MB 51.1MB/s 0.2s<0.6s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt': 32% ━━━╸──────── 12.7/38.8MB 41.4MB/s 0.3s<0.6s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt': 46% ━━━━━╸────── 18.2/38.8MB 54.4MB/s 0.4s<0.4s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt': 61% ━━━━━━━───── 23.8/38.8MB 56.2MB/s 0.5s<0.3s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt': 76% ━━━━━━━━━─── 29.5/38.8MB 57.4MB/s 0.6s<0.2s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt': 90% ━━━━━━━━━━╸─ 35.1/38.8MB 55.5MB/s 0.7s<0.1s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo11m.pt': 100% ━━━━━━━━━━━━ 38.8MB 49.9MB/s 0.8s
+done yolo11m__coco_val200__parity_cpu__n20: 20 imgs, 2 s, median 115.2 ms/img
+done yolo11m__coco_val200__parity_mps__n20: 20 imgs, 4 s, median 38.1 ms/img
+yolo11m: mAP cpu 0.6583  mps 0.6583  |diff| 0.0000 -> PARITY OK
+[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 2% ──────────── 994.0KB/42.2MB 9.6MB/s 0.1s<4.3s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 6% ╸─────────── 2.9/42.2MB 18.9MB/s 0.2s<2.1s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 14% ━╸────────── 6.0/42.2MB 31.2MB/s 0.3s<1.2s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 23% ━━╸───────── 10.0/42.2MB 28.4MB/s 0.4s<1.1s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 36% ━━━━──────── 15.3/42.2MB 52.4MB/s 0.5s<0.5s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 47% ━━━━━╸────── 20.0/42.2MB 40.8MB/s 0.7s<0.5s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 63% ━━━━━━━╸──── 26.8/42.2MB 67.9MB/s 0.8s<0.2s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 74% ━━━━━━━━╸─── 31.3/42.2MB 44.6MB/s 0.9s<0.2s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 90% ━━━━━━━━━━╸─ 38.3/42.2MB 69.5MB/s 1.0s<0.1s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26m.pt to '/Users/user/code/maxdokukin/class-cmpe-249/hw_1/weights/yolo26m.pt': 100% ━━━━━━━━━━━━ 42.2MB 41.1MB/s 1.0s
+done yolo26m__coco_val200__parity_cpu__n20: 20 imgs, 2 s, median 101.5 ms/img
+done yolo26m__coco_val200__parity_mps__n20: 20 imgs, 1 s, median 36.3 ms/img
+yolo26m: mAP cpu 0.6544  mps 0.6544  |diff| 0.0000 -> PARITY OK
+W1027 13:49:25.492000 6983 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/764 [00:00<?, ?it/s]Loading weights: 100%|██████████| 764/764 [00:00<00:00, 23381.60it/s]
+done rtdetr_r50__coco_val200__parity_cpu__n20: 20 imgs, 7 s, median 314.7 ms/img
+W1027 13:49:40.800000 6988 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/764 [00:00<?, ?it/s]Loading weights: 100%|██████████| 764/764 [00:00<00:00, 22446.09it/s]
+done rtdetr_r50__coco_val200__parity_mps__n20: 20 imgs, 4 s, median 107.0 ms/img
+rtdetr_r50: mAP cpu 0.6083  mps 0.6083  |diff| 0.0000 -> PARITY OK
+Downloading: "https://download.pytorch.org/models/fasterrcnn_resnet50_fpn_v2_coco-dd69338a.pth" to /Users/user/.cache/torch/hub/checkpoints/fasterrcnn_resnet50_fpn_v2_coco-dd69338a.pth
+  0%|          | 0.00/167M [00:00<?, ?B/s]  3%|▎         | 4.50M/167M [00:00<00:03, 44.5MB/s]  6%|▋         | 10.5M/167M [00:00<00:02, 54.9MB/s] 10%|▉         | 16.5M/167M [00:00<00:02, 57.9MB/s] 14%|█▎        | 22.9M/167M [00:00<00:02, 61.2MB/s] 18%|█▊        | 30.2M/167M [00:00<00:02, 66.7MB/s] 22%|██▏       | 37.5M/167M [00:00<00:01, 69.5MB/s] 27%|██▋       | 44.5M/167M [00:00<00:01, 70.6MB/s] 31%|███       | 51.9M/167M [00:00<00:01, 72.5MB/s] 36%|███▌      | 59.5M/167M [00:00<00:01, 74.6MB/s] 40%|████      | 66.9M/167M [00:01<00:01, 75.1MB/s] 45%|████▍     | 74.5M/167M [00:01<00:01, 76.4MB/s] 49%|████▉     | 82.2M/167M [00:01<00:01, 77.4MB/s] 54%|█████▎    | 89.8M/167M [00:01<00:01, 75.8MB/s] 58%|█████▊    | 97.0M/167M [00:01<00:00, 75.7MB/s] 63%|██████▎   | 105M/167M [00:01<00:00, 78.2MB/s]  67%|██████▋   | 113M/167M [00:01<00:00, 78.7MB/s] 72%|███████▏  | 120M/167M [00:01<00:00, 78.5MB/s] 77%|███████▋  | 128M/167M [00:01<00:00, 78.8MB/s] 81%|████████  | 136M/167M [00:01<00:00, 78.6MB/s] 86%|████████▌ | 144M/167M [00:02<00:00, 80.5MB/s] 91%|█████████ | 152M/167M [00:02<00:00, 77.9MB/s] 95%|█████████▌| 159M/167M [00:02<00:00, 78.7MB/s]100%|█████████▉| 167M/167M [00:02<00:00, 77.3MB/s]100%|██████████| 167M/167M [00:02<00:00, 74.2MB/s]
+done frcnn_v2__coco_val200__parity_cpu__n20: 20 imgs, 30 s, median 1557.2 ms/img
+done frcnn_v2__coco_val200__parity_mps__n20: 20 imgs, 9 s, median 345.3 ms/img
+frcnn_v2: mAP cpu 0.6341  mps 0.6341  |diff| 0.0000 -> PARITY OK
+W1027 13:50:36.064000 7035 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/418 [00:00<?, ?it/s]Loading weights: 100%|██████████| 418/418 [00:00<00:00, 22242.48it/s]
+done owlv2__coco_val200__parity_cpu__n20: 20 imgs, 30 s, median 1447.4 ms/img
+W1027 13:51:22.085000 7074 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/418 [00:00<?, ?it/s]Loading weights: 100%|██████████| 418/418 [00:00<00:00, 23203.01it/s]
+done owlv2__coco_val200__parity_mps__n20: 20 imgs, 13 s, median 587.0 ms/img
+owlv2: mAP cpu 0.6303  mps 0.6303  |diff| 0.0000 -> PARITY OK
+W1027 13:51:39.228000 7095 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/978 [00:00<?, ?it/s]Loading weights: 100%|██████████| 978/978 [00:00<00:00, 24076.19it/s]
+Traceback (most recent call last):
+  File "/Users/user/code/maxdokukin/class-cmpe-249/hw_1/scripts/parity.py", line 15, in <module>
+    maps[dev] = score(pred)["coco"]["mAP"]
+                ^^^^^^^^^^^
+  File "/Users/user/code/maxdokukin/class-cmpe-249/hw_1/src/hw1/score.py", line 51, in score
+    meta = json.loads(Path(str(pred_path).replace(".jsonl.gz", ".meta.json")).read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'runs/preds/gdino_t__coco_val200__parity_cpu__n20.meta.json'

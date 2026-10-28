@@ -1,0 +1,36 @@
+[Tue 13:48:46] start stages: parity e1 cache agent arms score publish  (DEV=mps)
+[Tue 13:48:46] parity yolo11m
+[Tue 13:49:11]   yolo11m: mAP cpu 0.6583  mps 0.6583  |diff| 0.0000 -> PARITY OK -> mps
+[Tue 13:49:11] parity yolo26m
+[Tue 13:49:22]   yolo26m: mAP cpu 0.6544  mps 0.6544  |diff| 0.0000 -> PARITY OK -> mps
+[Tue 13:49:22] parity rtdetr_r50
+[Tue 13:49:45]   rtdetr_r50: mAP cpu 0.6083  mps 0.6083  |diff| 0.0000 -> PARITY OK -> mps
+[Tue 13:49:45] parity frcnn_v2
+[Tue 13:50:33]   frcnn_v2: mAP cpu 0.6341  mps 0.6341  |diff| 0.0000 -> PARITY OK -> mps
+[Tue 13:50:33] parity owlv2
+[Tue 13:51:36]   owlv2: mAP cpu 0.6303  mps 0.6303  |diff| 0.0000 -> PARITY OK -> mps
+[Tue 13:51:36] parity gdino_t
+[Tue 15:07:59] start stages: parity e1 cache agent arms score publish  (DEV=mps)
+[Tue 15:07:59] parity gdino_t
+[Tue 15:08:00]   FileNotFoundError: [Errno 2] No such file or directory: 'runs/preds/gdino_t__coco_val200__parity_cpu__n20.meta.json' -> cpu
+[Tue 15:08:00] run yolo11m__coco_val on mps
+[Tue 15:13:57] run yolo11m__kitti_test on mps
+[Tue 15:17:46] run yolo26m__coco_val on mps
+[Tue 15:24:50] run yolo26m__kitti_test on mps
+[Tue 15:28:39] run rtdetr_r50__coco_val on mps
+[Tue 15:44:49] run rtdetr_r50__kitti_test on mps
+[Tue 15:59:16] run frcnn_v2__coco_val on mps
+[Tue 16:42:08] run frcnn_v2__kitti_test on mps
+[Tue 17:06:27] run yolo26m__coco_val__nms on mps
+[Tue 17:12:25] run yolo26m__kitti_test__nms on mps
+[Tue 17:16:14] run yolo11m__kitti_test__img1280 on mps
+[Tue 17:22:50] run owlv2__coco_val1k on mps
+[Tue 17:38:15] run owlv2__kitti_test on mps
+[Tue 18:35:56] run gdino_t__coco_val1k on cpu
+[Tue 19:21:10] run gdino_t__kitti_test on cpu
+[Tue 20:54:42] owlv2 cache kitti_dev
+[Tue 21:00:53] owlv2 cache kitti_test (sharded, resumable)
+[Tue 21:48:55] agent skipped: ANTHROPIC_API_KEY not set
+[Tue 21:48:55] test arms owlv2
+[Tue 21:48:57] test arms gdino_t
+[Tue 21:48:58] score all

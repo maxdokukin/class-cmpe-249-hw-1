@@ -1,0 +1,86 @@
+{
+  "name": "owlv2__kitti_test",
+  "model": "owlv2",
+  "split": "kitti_test",
+  "n_images": 3769,
+  "vocabulary": [
+    "car",
+    "van",
+    "truck",
+    "pedestrian",
+    "cyclist",
+    "tram"
+  ],
+  "detector_config": {
+    "name": "owlv2",
+    "open_vocab": true,
+    "device": "mps",
+    "dtype": "float32",
+    "score_thresh": 0.001,
+    "max_det": 100,
+    "versions": {
+      "python": "3.12.15",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "ultralytics": "8.4.190",
+      "transformers": "5.21.0"
+    },
+    "checkpoint": "google/owlv2-base-patch16-ensemble",
+    "input": "pad to square (gray), resize 960x960",
+    "nms_iou": "none",
+    "prompts": [
+      "car",
+      "van",
+      "truck",
+      "pedestrian",
+      "cyclist",
+      "tram"
+    ],
+    "postprocess": "one box per query (argmax prompt), sigmoid score",
+    "timing_note": "text tokenized once in set_vocabulary; text tower still runs every forward"
+  },
+  "latency": {
+    "warmup_images": 10,
+    "burst": {
+      "n": 200,
+      "median_ms": 634.5393544979743,
+      "p90_ms": 816.0668169963174,
+      "mean_ms": 671.8080479298078,
+      "fps_median": 1.5759463820666657,
+      "preprocess_median_ms": 17.63652100271429,
+      "forward_median_ms": 615.3966874990147,
+      "postprocess_median_ms": 1.3569375005317852
+    },
+    "sustained": {
+      "n": 3759,
+      "median_ms": 865.9029170012218,
+      "p90_ms": 1006.2710002021049,
+      "mean_ms": 876.3234584383616,
+      "fps_median": 1.154863877192123,
+      "preprocess_median_ms": 27.70704100112198,
+      "forward_median_ms": 837.1006249944912,
+      "postprocess_median_ms": 1.6416250000474975
+    }
+  },
+  "memory": {
+    "kind": "mps_unified",
+    "samples": 3769,
+    "process_rss_peak_mb": 890.8,
+    "peak_driver_allocated_mb": 1084.7,
+    "peak_current_allocated_mb": 592.9
+  },
+  "boxes_per_image_mean": 100.0,
+  "wall_s": 3337.8,
+  "mps_fallback_warnings": [],
+  "env": {
+    "host": "Mac",
+    "platform": "macOS-15.7.7-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "src_hash": "9a1b67aa7f53",
+  "command": "python -m hw1.run --model owlv2 --split kitti_test --device mps",
+  "finished_utc": "2026-10-28T01:33:56+00:00",
+  "pred_file": "runs/preds/owlv2__kitti_test.jsonl.gz"
+}

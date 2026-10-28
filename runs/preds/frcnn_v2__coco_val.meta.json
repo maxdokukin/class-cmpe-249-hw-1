@@ -1,0 +1,70 @@
+{
+  "name": "frcnn_v2__coco_val",
+  "model": "frcnn_v2",
+  "split": "coco_val",
+  "n_images": 5000,
+  "vocabulary": null,
+  "detector_config": {
+    "name": "frcnn_v2",
+    "open_vocab": false,
+    "device": "mps",
+    "dtype": "float32",
+    "score_thresh": 0.001,
+    "max_det": 100,
+    "versions": {
+      "python": "3.12.15",
+      "torch": "2.14.1",
+      "torchvision": "0.29.1",
+      "ultralytics": "8.4.190",
+      "transformers": "5.21.0"
+    },
+    "checkpoint": "FasterRCNN_ResNet50_FPN_V2_Weights.COCO_V1",
+    "input": "GeneralizedRCNNTransform resize short side 800, long side cap 1333, keep aspect",
+    "nms_iou": 0.5,
+    "timing_note": "transform+backbone+rpn+roi_heads split; roi_heads includes NMS"
+  },
+  "latency": {
+    "warmup_images": 10,
+    "burst": {
+      "n": 200,
+      "median_ms": 355.8851880043221,
+      "p90_ms": 393.9821544976439,
+      "mean_ms": 358.95313335509854,
+      "fps_median": 2.8098949709248795,
+      "preprocess_median_ms": 3.0529169998771977,
+      "forward_median_ms": 351.84633300013957,
+      "postprocess_median_ms": 1.078104498446919
+    },
+    "sustained": {
+      "n": 4990,
+      "median_ms": 470.1848959994095,
+      "p90_ms": 581.2513872042473,
+      "mean_ms": 484.8308120587424,
+      "fps_median": 2.126822891395592,
+      "preprocess_median_ms": 3.8338124977599364,
+      "forward_median_ms": 464.659583500179,
+      "postprocess_median_ms": 1.4180215002852492
+    }
+  },
+  "memory": {
+    "kind": "mps_unified",
+    "samples": 5000,
+    "process_rss_peak_mb": 2769.6,
+    "peak_driver_allocated_mb": 2250.0,
+    "peak_current_allocated_mb": 167.1
+  },
+  "boxes_per_image_mean": 88.5938,
+  "wall_s": 2448.1,
+  "mps_fallback_warnings": [],
+  "env": {
+    "host": "Mac",
+    "platform": "macOS-15.7.7-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "1"
+  },
+  "src_hash": "9a1b67aa7f53",
+  "command": "python -m hw1.run --model frcnn_v2 --split coco_val --device mps",
+  "finished_utc": "2026-10-27T23:40:07+00:00",
+  "pred_file": "runs/preds/frcnn_v2__coco_val.jsonl.gz"
+}
