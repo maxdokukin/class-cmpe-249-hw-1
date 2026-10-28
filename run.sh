@@ -3,14 +3,14 @@
 #   ./run.sh                 all stages: parity e1 cache agent arms score analyze publish
 #   ./run.sh e1 score        only the named stages
 # Env: DEV (default mps), COOL (seconds between model runs, default 120), NO_PUSH=1 (commit results, don't push),
-#      ANTHROPIC_API_KEY (the agent stage is skipped without it), AGENT_MODEL (default claude-opus-5-5),
+#      ANTHROPIC_API_KEY (the agent stage is skipped without it), AGENT_MODEL (default claude-haiku-4-5; e.g. claude-opus-5-5),
 #      AGENT_DETECTORS (default "owlv2"; add gdino_t to also run the Grounding DINO agent),
 #      DRY_RUN=1 (print the commands that would run, run nothing).
 set -uo pipefail
 cd "$(dirname "$0")"
 if [[ $(uname) == Darwin && -z ${CAFFEINATED:-} ]]; then export CAFFEINATED=1; exec caffeinate -dims "$0" "$@"; fi
 export PATH="$HOME/.local/bin:$PATH" PYTHONWARNINGS=ignore PYTORCH_ENABLE_MPS_FALLBACK=1
-DEV=${DEV:-mps}; COOL=${COOL:-120}; AGENT_MODEL=${AGENT_MODEL:-claude-opus-5-5}
+DEV=${DEV:-mps}; COOL=${COOL:-120}; AGENT_MODEL=${AGENT_MODEL:-claude-haiku-4-5}
 AGENT_DETECTORS=${AGENT_DETECTORS:-owlv2}
 STAGES=${*:-parity e1 cache agent arms score analyze publish}
 MODELS="yolo11m yolo26m rtdetr_r50 frcnn_v2 owlv2 gdino_t"
@@ -68,7 +68,7 @@ stage_cache() {  # OWLv2 image features: dev for the agent loop, test (sharded) 
 }
 
 agent() {  # agent <detector> <seed>
-  [[ -f runs/agent_logs/$1__kitti_dev__seed$2/summary.json ]] && return
+  [[ -f runs/agent_logs/$1__kitti_dev__seed$2__${AGENT_MODEL#claude-}/summary.json ]] && return
   log "agent $1 seed $2 ($AGENT_MODEL)"
   py -m hw1.agent --detector "$1" --seed "$2" --device "$(dev "$1")" --model "$AGENT_MODEL" 2>&1 \
     | grep -v 'Loading weights' | tee -a runs/logs/agent.log | grep -E '^\[(iter|baseline)|refusal|Error'

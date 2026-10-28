@@ -29,6 +29,7 @@ LOG_ROOT = ROOT / "runs" / "agent_logs"
 PRICES = {  # USD per MTok: input, output, cache read, cache write (5 min)
     "claude-opus-5-5": (4.0, 20.0, 0.20, 5.0),
     "claude-sonnet-5-5": (2.0, 10.0, 0.20, 2.5),
+    "claude-haiku-4-5": (1.0, 5.0, 0.10, 1.25),
 }
 MAX_PER_CLASS, MAX_TOTAL = 5, 30
 
@@ -230,8 +231,15 @@ def tool_result_content(ev: DevEvaluator, res: dict, best: float) -> list[dict]:
     return content
 
 
+def request_options(model: str, effort: str) -> dict:
+    """Per-model request settings: Haiku 4.5 rejects `effort` and has no server-side refusal fallback."""
+    if model.startswith("claude-haiku"):
+        return {}
+    return {"output_config": {"effort": effort}, "betas": ["server-side-fallback-2026-07-01"], "fallbacks": "default"}
+
+
 def cost_usd(model: str, usage) -> float:
-    pin, pout, pread, pwrite = PRICES.get(model, PRICES["claude-opus-5-5"])
+    pin, pout, pread, pwrite = PRICES[model]
     return ((usage.input_tokens or 0) * pin + (usage.output_tokens or 0) * pout
             + (getattr(usage, "cache_read_input_tokens", 0) or 0) * pread
             + (getattr(usage, "cache_creation_input_tokens", 0) or 0) * pwrite) / 1e6
@@ -267,8 +275,7 @@ def run_agent(ev: DevEvaluator, out: Path, model: str, budget: int, effort: str)
         turns += 1
         resp = client.beta.messages.create(
             model=model, max_tokens=16000, system=system, tools=[TOOL], messages=messages,
-            output_config={"effort": effort}, cache_control={"type": "ephemeral"},
-            betas=["server-side-fallback-2026-07-01"], fallbacks="default",
+            cache_control={"type": "ephemeral"}, **request_options(model, effort),
         )
         c = cost_usd(model, resp.usage)
         total_cost += c
@@ -325,13 +332,13 @@ def main(argv=None):
     ap.add_argument("--split", default="kitti_dev", choices=sorted(AGENT_SPLITS))
     ap.add_argument("--device", default="cpu")
     ap.add_argument("--seed", type=int, default=0, help="run index; sampling uses the model's default temperature")
-    ap.add_argument("--model", default="claude-opus-5-5")
+    ap.add_argument("--model", default="claude-haiku-4-5")
     ap.add_argument("--effort", default="medium", choices=["low", "medium", "high", "xhigh", "max"])
     ap.add_argument("--budget", type=int, default=15)
     ap.add_argument("--dry-run", action="store_true", help="score the baselines only, no API calls")
     args = ap.parse_args(argv)
 
-    out = LOG_ROOT / f"{args.detector}__{args.split}__seed{args.seed}"
+    out = LOG_ROOT / f"{args.detector}__{args.split}__seed{args.seed}__{args.model.removeprefix('claude-')}"
     out.mkdir(parents=True, exist_ok=True)
     ev = DevEvaluator(args.detector, args.split, args.device)
     run_baselines(ev, out)

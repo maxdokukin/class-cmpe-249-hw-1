@@ -59,3 +59,11 @@ def test_evaluate_feedback_and_crops():
 def test_agent_cannot_use_test_split():
     with pytest.raises(ValueError):
         DevEvaluator("owlv2", split="kitti_test")
+
+
+def test_request_options_per_model():
+    from hw1.agent import PRICES, request_options
+
+    assert request_options("claude-haiku-4-5", "medium") == {}
+    assert request_options("claude-opus-5-5", "medium")["output_config"] == {"effort": "medium"}
+    assert {"claude-haiku-4-5", "claude-opus-5-5", "claude-sonnet-5-5"} <= set(PRICES)

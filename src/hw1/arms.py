@@ -27,7 +27,7 @@ LOGS = ROOT / "runs" / "agent_logs"
 def collect_arms(detector: str, split: str = "kitti_dev") -> dict[str, Path]:
     arms: dict[str, Path] = {}
     for d in sorted(LOGS.glob(f"{detector}__{split}__seed*")):
-        seed = d.name.rsplit("seed", 1)[1]
+        seed = d.name.split("__seed", 1)[1].replace("__", "_")  # e.g. "0_haiku-4-5"
         for base in ("raw_names", "ngdet_synonyms"):
             if (d / f"map_{base}.json").exists():
                 arms.setdefault(base, d / f"map_{base}.json")
