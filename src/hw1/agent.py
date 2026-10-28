@@ -269,6 +269,7 @@ def run_agent(ev: DevEvaluator, out: Path, model: str, budget: int, effort: str)
                            max_total=MAX_TOTAL, budget=budget)
     messages: list = [{"role": "user", "content": "Propose your first prompt map."}]
     history, total_cost, best = [], 0.0, {"mAP": -1.0}
+    tokens = {"input": 0, "output": 0, "cache_read": 0, "cache_write": 0}
     log = open(out / "transcript.jsonl", "a")
     n_eval, turns = 0, 0
     while n_eval < budget and turns < budget * 3:
@@ -279,6 +280,11 @@ def run_agent(ev: DevEvaluator, out: Path, model: str, budget: int, effort: str)
         )
         c = cost_usd(model, resp.usage)
         total_cost += c
+        u = resp.usage
+        tokens["input"] += u.input_tokens or 0
+        tokens["output"] += u.output_tokens or 0
+        tokens["cache_read"] += getattr(u, "cache_read_input_tokens", 0) or 0
+        tokens["cache_write"] += getattr(u, "cache_creation_input_tokens", 0) or 0
         log.write(json.dumps({"turn": turns, "model": resp.model, "stop_reason": resp.stop_reason,
                               "usage": resp.usage.to_dict(), "cost_usd": c, "request_id": resp._request_id,
                               "content": [b.to_dict() for b in resp.content if b.type in ("text", "tool_use")]}) + "\n")
@@ -319,7 +325,7 @@ def run_agent(ev: DevEvaluator, out: Path, model: str, budget: int, effort: str)
                             "content": tool_result_content(ev, res, best["mAP"])})
         messages.append({"role": "user", "content": results})
     summary = {"model": model, "effort": effort, "budget": budget, "evaluations": n_eval, "turns": turns,
-               "cost_usd": total_cost, "best_iter": best.get("iter"), "best_dev_mAP": best["mAP"],
+               "cost_usd": total_cost, "tokens": tokens, "best_iter": best.get("iter"), "best_dev_mAP": best["mAP"],
                "oneshot_dev_mAP": history[0]["mAP"] if history else None,
                "trajectory": [h["mAP"] for h in history]}
     (out / "summary.json").write_text(json.dumps(summary, indent=1, default=float))

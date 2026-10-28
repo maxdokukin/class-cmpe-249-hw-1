@@ -78,6 +78,7 @@ stage_agent() {
   if [[ -z ${ANTHROPIC_API_KEY:-} ]]; then log "agent skipped: ANTHROPIC_API_KEY not set"; return; fi
   for s in 0 1 2; do agent owlv2 $s; done
   [[ " $AGENT_DETECTORS " == *" gdino_t "* ]] && agent gdino_t 0
+  py scripts/agent_usage.py 2>&1 | tee -a runs/logs/agent.log
 }
 
 stage_arms() {
