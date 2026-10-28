@@ -76,3 +76,14 @@ def test_open_vocab_synonym_nms():
     pm = {"sedan": 1, "suv": 1, "person walking": 3}
     b, s, c = map_predictions(pred, PredRules(prompt_map=pm), open_vocab=True)
     assert sorted(c.tolist()) == [1, 3] and s[c == 1][0] == np.float32(0.9)
+
+
+def test_paired_bootstrap_detects_a_real_gain():
+    from hw1.evaluate import paired_bootstrap
+    gt = load_gt("kitti_dev", cache=False)
+    good = run_cocoeval(gt, gt_as_dets(gt, jitter=0.02, drop=0.1, seed=1))
+    bad = run_cocoeval(gt, gt_as_dets(gt, jitter=0.10, drop=0.3, seed=2))
+    r = paired_bootstrap(good, bad, n=50)
+    assert r["delta"] > 0 and r["lo"] > 0 and r["p_le_0"] == 0
+    same = paired_bootstrap(good, good, n=20)
+    assert same["delta"] == 0 and same["lo"] == 0 and same["hi"] == 0

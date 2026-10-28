@@ -84,6 +84,31 @@ def main(argv=None):
                                 "--device", args.device, "--vocab", str(vocab), "--tag", f"arm-{arm}"], check=True)
         if not list(METRIC_DIR.glob(f"{name}__*pm-{map_path.stem}.json")):
             score_main([str(pred), "--prompt-map", str(map_path), "--bootstrap", str(args.bootstrap)])
+    paired_vs_raw(args.detector, arms)
+
+
+def paired_vs_raw(detector: str, arms: dict[str, Path], n: int = 1000):
+    """Paired bootstrap of each arm's test mAP minus the raw-names arm, on identical resampled images."""
+    from .data import load_gt
+    from .evaluate import paired_bootstrap, run_cocoeval
+    from .score import kitti_dets, load_preds
+    from .taxonomy import GTRules, PredRules
+
+    gt = load_gt("kitti_test", GTRules())
+
+    def ev(arm):
+        pm = {k: int(v) for k, v in json.loads(arms[arm].read_text()).items()}
+        preds = load_preds(PRED_DIR / f"{detector}__kitti_test__arm-{arm}.jsonl.gz")
+        return run_cocoeval(gt, kitti_dets(preds, PredRules(prompt_map=pm), True, 0.0))
+
+    if "raw_names" not in arms:
+        return
+    base = ev("raw_names")
+    out = {arm: paired_bootstrap(ev(arm), base, n=n) for arm in arms if arm != "raw_names"}
+    path = METRIC_DIR / f"{detector}__kitti_test__paired_vs_raw_names.json"
+    path.write_text(json.dumps(out, indent=1))
+    for arm, r in out.items():
+        print(f"{arm:28s} delta mAP {r['delta']:+.4f}  95% CI [{r['lo']:+.4f}, {r['hi']:+.4f}]  P(delta<=0) {r['p_le_0']:.3f}")
 
 
 if __name__ == "__main__":

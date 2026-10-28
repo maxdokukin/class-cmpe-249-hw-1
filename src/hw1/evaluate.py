@@ -154,3 +154,18 @@ def bootstrap_map(E: COCOeval, n: int = 500, seed: int = 0, per_class: bool = Tr
         lo, hi = (np.percentile(vals, [2.5, 97.5]) if vals.size else (np.nan, np.nan))
         out[name] = {"point": point, "lo": float(lo), "hi": float(hi), "n": int(vals.size)}
     return out
+
+
+def paired_bootstrap(E_a: COCOeval, E_b: COCOeval, n: int = 1000, seed: int = 0) -> dict:
+    """95% CI of mAP(a) - mAP(b) over the same resampled images; both evals must share images and categories."""
+    assert list(E_a.params.imgIds) == list(E_b.params.imgIds) and list(E_a.params.catIds) == list(E_b.params.catIds)
+    rng = np.random.default_rng(seed)
+    I, ks = len(E_a.params.imgIds), list(range(len(E_a.params.catIds)))
+    full = np.arange(I)
+    diffs = []
+    for s in rng.integers(0, I, size=(n, I)):
+        diffs.append(_ap_for_images(E_a, s, ks) - _ap_for_images(E_b, s, ks))
+    diffs = np.array(diffs)
+    point = _ap_for_images(E_a, full, ks) - _ap_for_images(E_b, full, ks)
+    lo, hi = np.percentile(diffs, [2.5, 97.5])
+    return {"delta": float(point), "lo": float(lo), "hi": float(hi), "p_le_0": float((diffs <= 0).mean()), "n": n}
