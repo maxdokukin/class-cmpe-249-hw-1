@@ -1,0 +1,14 @@
+{
+ "car": 1,
+ "van": 1,
+ "minivan": 1,
+ "suv": 1,
+ "station wagon": 1,
+ "truck": 2,
+ "box truck": 2,
+ "pedestrian": 3,
+ "person standing": 3,
+ "bicycle rider": 4,
+ "tram": 5,
+ "light rail train": 5
+}

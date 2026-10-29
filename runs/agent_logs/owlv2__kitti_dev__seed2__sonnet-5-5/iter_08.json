@@ -1,0 +1,97 @@
+{
+ "iter": 8,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "van": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "person riding a bicycle": 4,
+  "tram": 5,
+  "light rail train": 5,
+  "train": 5
+ },
+ "rationale": "Keep best map and add 'train' for tram and a longer riding phrase for cyclist, two small changes.",
+ "mAP": 0.22490140691184277,
+ "per_class": {
+  "car": {
+   "AP": 0.3817571397270669,
+   "AP50": 0.7539182146564467,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3003663597211857,
+   "AP50": 0.5472744070877975,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19797059437730116,
+   "AP50": 0.47286312977999667,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.013789521481203066,
+   "AP50": 0.07701770611459521,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2306234192524569,
+   "AP50": 0.5272289305084134,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 21,
+   "false_pos": 71
+  },
+  "car": {
+   "correct": 1329,
+   "false_pos": 3159
+  },
+  "light rail train": {
+   "correct": 1,
+   "false_pos": 2
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 184,
+   "false_pos": 341
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 86
+  },
+  "person riding a bicycle": {
+   "correct": 15,
+   "false_pos": 959
+  },
+  "train": {
+   "correct": 19,
+   "false_pos": 61
+  },
+  "tram": {
+   "correct": 1,
+   "false_pos": 16
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 163
+  },
+  "van": {
+   "correct": 114,
+   "false_pos": 63
+  }
+ },
+ "cost_usd_cum": 0.09516939999999999
+}

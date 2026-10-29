@@ -1,0 +1,87 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicycle": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist is the weakest class, so I'm swapping the awkward \"person riding a bicycle\" prompt for shorter bicycle-centred phrases (\"bicycle\", \"bike rider\") to see if they match the rider+bike box better with fewer false positives.",
+ "mAP": 0.2177664642801155,
+ "per_class": {
+  "car": {
+   "AP": 0.3726189597672366,
+   "AP50": 0.742310087214161,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2876257809964724,
+   "AP50": 0.5329628387909513,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19073880732650098,
+   "AP50": 0.46814956331870927,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.001756983695570895,
+   "AP50": 0.011955245476410617,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23609178961479674,
+   "AP50": 0.5332165879355684,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 12,
+   "false_pos": 1267
+  },
+  "bike rider": {
+   "correct": 13,
+   "false_pos": 69
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3211
+  },
+  "cyclist": {
+   "correct": 5,
+   "false_pos": 64
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 121,
+   "false_pos": 237
+  },
+  "person walking": {
+   "correct": 136,
+   "false_pos": 341
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.000745775
+}

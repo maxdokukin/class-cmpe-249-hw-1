@@ -1,0 +1,92 @@
+{
+ "iter": 13,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "suv": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "tram": 5,
+  "streetcar": 5,
+  "light rail train": 5
+ },
+ "rationale": "Remove the noisy 'person on a bicycle' cyclist prompt (825 false positives) to see if precision from 'bicycle rider' alone helps.",
+ "mAP": 0.22691919080683973,
+ "per_class": {
+  "car": {
+   "AP": 0.38675781804386883,
+   "AP50": 0.7507709806204144,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.30844123896208475,
+   "AP50": 0.5628586408162647,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19861601765699596,
+   "AP50": 0.47692063123838946,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01663730791807806,
+   "AP50": 0.09072373606493986,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2241435714531709,
+   "AP50": 0.5430002786476614,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 29,
+   "false_pos": 122
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3215
+  },
+  "light rail train": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 247,
+   "false_pos": 29
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 409
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "streetcar": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "suv": {
+   "correct": 73,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 3,
+   "false_pos": 28
+  },
+  "truck": {
+   "correct": 36,
+   "false_pos": 203
+  }
+ },
+ "cost_usd_cum": 0.20905659999999998
+}

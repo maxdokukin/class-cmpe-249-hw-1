@@ -1,0 +1,92 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person standing": 3,
+  "man": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Reverting cyclist to the original prompts, since bicycle-only prompts caused many false positives on empty bikes, and testing whether extra pedestrian wording (\"person standing\", \"man\") raises pedestrian recall.",
+ "mAP": 0.22258892312820341,
+ "per_class": {
+  "car": {
+   "AP": 0.37263699603374983,
+   "AP50": 0.7423547684539883,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2876225957664322,
+   "AP50": 0.5329576405755099,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20473841470534815,
+   "AP50": 0.4977253874454953,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01182020369102726,
+   "AP50": 0.06569031266710426,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2361264054444597,
+   "AP50": 0.5332771062914553,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3206
+  },
+  "cyclist": {
+   "correct": 18,
+   "false_pos": 409
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "man": {
+   "correct": 35,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 93,
+   "false_pos": 212
+  },
+  "person riding a bicycle": {
+   "correct": 14,
+   "false_pos": 724
+  },
+  "person standing": {
+   "correct": 32,
+   "false_pos": 47
+  },
+  "person walking": {
+   "correct": 99,
+   "false_pos": 263
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0019069949999999999
+}

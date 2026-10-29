@@ -1,0 +1,112 @@
+{
+ "iter": 9,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person standing": 3,
+  "man": 3,
+  "cyclist": 4,
+  "rider on a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist remains the weakest class at about 0.01 AP, so I'm testing \"rider on a bicycle\" (within the 6-word limit) alongside \"cyclist\" to see whether a rider-centred phrase finds more riders with fewer false positives on empty bikes.",
+ "mAP": 0.22495456679815598,
+ "per_class": {
+  "car": {
+   "AP": 0.3798050126839134,
+   "AP50": 0.7508985392985227,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2904269106010412,
+   "AP50": 0.5420735493339107,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20506577062437742,
+   "AP50": 0.500246823714292,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.013240872036613675,
+   "AP50": 0.0736166275859937,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23623426804483424,
+   "AP50": 0.5334385888477228,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "box truck": {
+   "correct": 2,
+   "false_pos": 17
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3176
+  },
+  "cyclist": {
+   "correct": 21,
+   "false_pos": 653
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 8
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "man": {
+   "correct": 35,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 95,
+   "false_pos": 234
+  },
+  "person standing": {
+   "correct": 32,
+   "false_pos": 47
+  },
+  "person walking": {
+   "correct": 99,
+   "false_pos": 327
+  },
+  "rider on a bicycle": {
+   "correct": 5,
+   "false_pos": 25
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 143
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.0074525699999999995
+}

@@ -1,0 +1,82 @@
+{
+ "iter": 0,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Baseline map: one or two plain-noun prompts per KITTI class, with synonyms for car, truck, pedestrian, and cyclist, and a single tram prompt, to see which classes the detector responds to before refining.",
+ "mAP": 0.2203383877758482,
+ "per_class": {
+  "car": {
+   "AP": 0.37263738263602103,
+   "AP50": 0.7423553366457982,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2876221863262652,
+   "AP50": 0.5329576405755099,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19300389367957899,
+   "AP50": 0.4755822103323001,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012313148095602447,
+   "AP50": 0.06981412734743159,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23611532814177327,
+   "AP50": 0.5332567584363337,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3206
+  },
+  "cyclist": {
+   "correct": 21,
+   "false_pos": 410
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 121,
+   "false_pos": 220
+  },
+  "person riding a bicycle": {
+   "correct": 14,
+   "false_pos": 723
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 291
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.00020355000000000001
+}

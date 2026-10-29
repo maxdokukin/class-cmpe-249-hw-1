@@ -1,0 +1,97 @@
+{
+ "iter": 7,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "tram": 5,
+  "light rail": 5,
+  "tram on rails": 5
+ },
+ "rationale": "Tram AP has been flat at about 0.236 across variants, so I'm adding \"light rail\" and \"tram on rails\" to test whether more specific rail-vehicle wording recovers more tram boxes.",
+ "mAP": 0.22779110909383316,
+ "per_class": {
+  "car": {
+   "AP": 0.37983870464275227,
+   "AP50": 0.7511097191797838,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3155214155003301,
+   "AP50": 0.5735714931614704,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2038799795958474,
+   "AP50": 0.48896929401926553,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012370200480448472,
+   "AP50": 0.06444273692647166,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2273452452497875,
+   "AP50": 0.5483653103071243,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 18,
+   "false_pos": 77
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3170
+  },
+  "light rail": {
+   "correct": 15,
+   "false_pos": 4
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "pedestrian": {
+   "correct": 191,
+   "false_pos": 415
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 92
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 6,
+   "false_pos": 25
+  },
+  "tram on rails": {
+   "correct": 0,
+   "false_pos": 16
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 163
+  },
+  "van": {
+   "correct": 168,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.00475713
+}

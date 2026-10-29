@@ -1,0 +1,87 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "bike rider": 4,
+  "person on bike": 4,
+  "cyclist riding": 4,
+  "tram": 5
+ },
+ "rationale": "\"bike rider\" gave the best cyclist precision, so I'm keeping it and adding two more rider-focused phrasings to see if cyclist recall improves without a flood of bicycle-only false positives.",
+ "mAP": 0.21987143226708217,
+ "per_class": {
+  "car": {
+   "AP": 0.37264304270714066,
+   "AP50": 0.7423888633317413,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2876221941097565,
+   "AP50": 0.5329576405755099,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19005693005297672,
+   "AP50": 0.46260054871794676,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012933591753497401,
+   "AP50": 0.07306560172078583,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23610140271203972,
+   "AP50": 0.533237811688961,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 14,
+   "false_pos": 22
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3201
+  },
+  "cyclist riding": {
+   "correct": 6,
+   "false_pos": 596
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 118,
+   "false_pos": 193
+  },
+  "person on bike": {
+   "correct": 21,
+   "false_pos": 755
+  },
+  "person walking": {
+   "correct": 132,
+   "false_pos": 272
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0020002199999999996
+}

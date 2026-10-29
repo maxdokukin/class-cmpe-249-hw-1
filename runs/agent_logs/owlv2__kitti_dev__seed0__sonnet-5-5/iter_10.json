@@ -1,0 +1,102 @@
+{
+ "iter": 10,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "suv": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "person on a bicycle": 4,
+  "bicycle with person": 4,
+  "tram": 5,
+  "streetcar": 5,
+  "light rail train": 5
+ },
+ "rationale": "Add one new cyclist phrasing, 'bicycle with person', to the best map to see if it covers rider plus bike boxes better.",
+ "mAP": 0.22690222804940016,
+ "per_class": {
+  "car": {
+   "AP": 0.3867525162080984,
+   "AP50": 0.7505708993450988,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.308451429300176,
+   "AP50": 0.5628752395868962,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20016531944427263,
+   "AP50": 0.4745057568407026,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014936230418099028,
+   "AP50": 0.08362170991791029,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22420564487635475,
+   "AP50": 0.5431848137376875,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 19,
+   "false_pos": 52
+  },
+  "bicycle with person": {
+   "correct": 8,
+   "false_pos": 1023
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3209
+  },
+  "light rail train": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 247,
+   "false_pos": 29
+  },
+  "pedestrian": {
+   "correct": 181,
+   "false_pos": 318
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 78
+  },
+  "person on a bicycle": {
+   "correct": 16,
+   "false_pos": 405
+  },
+  "streetcar": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "suv": {
+   "correct": 73,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 3,
+   "false_pos": 28
+  },
+  "truck": {
+   "correct": 36,
+   "false_pos": 203
+  }
+ },
+ "cost_usd_cum": 0.1419347
+}

@@ -1,0 +1,102 @@
+{
+ "iter": 5,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person standing": 3,
+  "man": 3,
+  "bicyclist": 4,
+  "person cycling": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist AP is still about 0.01, so I'm swapping the cyclist prompts for \"bicyclist\" and \"person cycling\" to test whether these wordings match the rider-plus-bike boxes better than \"cyclist\" or \"person riding a bicycle\".",
+ "mAP": 0.22223486558895644,
+ "per_class": {
+  "car": {
+   "AP": 0.3797970294928368,
+   "AP50": 0.7507509407458914,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.28761902757847524,
+   "AP50": 0.532955054594596,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20433929767821626,
+   "AP50": 0.4941442311283843,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0033163733039283023,
+   "AP50": 0.026455072291329082,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23610259989132545,
+   "AP50": 0.5332306964900783,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicyclist": {
+   "correct": 13,
+   "false_pos": 1068
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3173
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "man": {
+   "correct": 35,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 94,
+   "false_pos": 221
+  },
+  "person cycling": {
+   "correct": 13,
+   "false_pos": 213
+  },
+  "person standing": {
+   "correct": 32,
+   "false_pos": 47
+  },
+  "person walking": {
+   "correct": 98,
+   "false_pos": 287
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.003250145
+}

@@ -1,0 +1,87 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "bicycle": 4,
+  "bike": 4,
+  "motorcycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "Since the cyclist ground truth covers rider plus bicycle, I'm testing bicycle-centred single-object prompts (\"bicycle\", \"bike\", \"motorcycle rider\") in place of the rider phrases to see whether the detector localises bikes better.",
+ "mAP": 0.2180607842323078,
+ "per_class": {
+  "car": {
+   "AP": 0.3726206282928792,
+   "AP50": 0.7423140685598286,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.28762280465763057,
+   "AP50": 0.532960235292846,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19299906244817755,
+   "AP50": 0.47689138535662096,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0009675886552513435,
+   "AP50": 0.006771044717533627,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23609383710760012,
+   "AP50": 0.5331992905201561,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 10,
+   "false_pos": 590
+  },
+  "bike": {
+   "correct": 3,
+   "false_pos": 827
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3209
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "motorcycle rider": {
+   "correct": 1,
+   "false_pos": 31
+  },
+  "pedestrian": {
+   "correct": 124,
+   "false_pos": 249
+  },
+  "person walking": {
+   "correct": 138,
+   "false_pos": 348
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0012742749999999998
+}

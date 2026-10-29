@@ -1,0 +1,97 @@
+{
+ "iter": 11,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "van": 1,
+  "truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "tram": 5,
+  "light rail train": 5,
+  "yellow tram": 5
+ },
+ "rationale": "Keep best map and add 'box truck' as a single change to improve truck recall.",
+ "mAP": 0.2283758291451981,
+ "per_class": {
+  "car": {
+   "AP": 0.3817038491766952,
+   "AP50": 0.7536856117840757,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31286977259468113,
+   "AP50": 0.5765493951963968,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19861739852146784,
+   "AP50": 0.47692612220450636,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01663745969643616,
+   "AP50": 0.09072435409066647,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2320506657367103,
+   "AP50": 0.5774737587974826,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 29,
+   "false_pos": 122
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 18
+  },
+  "car": {
+   "correct": 1329,
+   "false_pos": 3163
+  },
+  "light rail train": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 409
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "tram": {
+   "correct": 3,
+   "false_pos": 24
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 147
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  },
+  "yellow tram": {
+   "correct": 3,
+   "false_pos": 11
+  }
+ },
+ "cost_usd_cum": 0.1524073
+}

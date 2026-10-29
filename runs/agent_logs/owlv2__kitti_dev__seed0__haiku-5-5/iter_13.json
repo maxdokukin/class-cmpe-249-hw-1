@@ -1,0 +1,97 @@
+{
+ "iter": 13,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "rider on bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist has free prompt slots and is the weakest class, so I'm adding \"rider on bicycle\" to the best map as a final test of whether another rider-plus-bicycle phrasing helps.",
+ "mAP": 0.23105969925393005,
+ "per_class": {
+  "car": {
+   "AP": 0.3868263152370365,
+   "AP50": 0.7595293141831999,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3155043866373819,
+   "AP50": 0.5735498300362538,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20376464025108437,
+   "AP50": 0.48899102964913754,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.013140526757953797,
+   "AP50": 0.06882888050921342,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2360626273861936,
+   "AP50": 0.5331240622175633,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 16,
+   "false_pos": 68
+  },
+  "car": {
+   "correct": 1254,
+   "false_pos": 3140
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 174,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 191,
+   "false_pos": 412
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 92
+  },
+  "rider on bicycle": {
+   "correct": 6,
+   "false_pos": 53
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 70,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 163
+  },
+  "van": {
+   "correct": 109,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.012054775
+}

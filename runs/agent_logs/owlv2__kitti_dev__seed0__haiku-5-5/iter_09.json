@@ -1,0 +1,92 @@
+{
+ "iter": 9,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "With the 5-prompt-per-class limit, I'm adding only \"minivan\" to the car set (the best map plus one new car synonym) to see whether it adds true car recall without many false positives.",
+ "mAP": 0.23092548182571374,
+ "per_class": {
+  "car": {
+   "AP": 0.38682569479142354,
+   "AP50": 0.7595279247973,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3155043866373819,
+   "AP50": 0.5735498300362538,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20387969945854714,
+   "AP50": 0.48896861901925875,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01236955086688458,
+   "AP50": 0.06444047938015414,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23604807737433173,
+   "AP50": 0.5330875481673867,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 18,
+   "false_pos": 77
+  },
+  "car": {
+   "correct": 1254,
+   "false_pos": 3140
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 174,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 191,
+   "false_pos": 415
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 92
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 70,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 163
+  },
+  "van": {
+   "correct": 109,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.007502335
+}

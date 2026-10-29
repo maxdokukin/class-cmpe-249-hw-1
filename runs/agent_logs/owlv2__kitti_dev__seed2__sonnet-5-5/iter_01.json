@@ -1,0 +1,92 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicycle": 4,
+  "tram": 5,
+  "light rail train": 5
+ },
+ "rationale": "Drop delivery truck (vans flagged), try shorter cyclist/bicycle prompts to get boxes covering rider+bike.",
+ "mAP": 0.22367476418929058,
+ "per_class": {
+  "car": {
+   "AP": 0.3817348802856609,
+   "AP50": 0.7538557999712924,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3155214212601798,
+   "AP50": 0.5735770032943652,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1927195591858759,
+   "AP50": 0.4756147317768784,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0015278951737209658,
+   "AP50": 0.010688061616600792,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22687006504101526,
+   "AP50": 0.5502935484977683,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 12,
+   "false_pos": 1273
+  },
+  "car": {
+   "correct": 1329,
+   "false_pos": 3163
+  },
+  "cyclist": {
+   "correct": 17,
+   "false_pos": 101
+  },
+  "light rail train": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 123,
+   "false_pos": 240
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 345
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 32
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 163
+  },
+  "van": {
+   "correct": 114,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.012505500000000001
+}

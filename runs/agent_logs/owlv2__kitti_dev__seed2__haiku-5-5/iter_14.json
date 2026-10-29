@@ -1,0 +1,112 @@
+{
+ "iter": 14,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "minivan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "cargo truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "person": 3,
+  "cyclist": 4,
+  "rider on bicycle": 4,
+  "person on bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Truck is the other class with a small ground-truth count where a single extra synonym could move AP, so I'm adding \"cargo truck\" to the new best map and holding everything else fixed.",
+ "mAP": 0.22791530657592401,
+ "per_class": {
+  "car": {
+   "AP": 0.38560314186412303,
+   "AP50": 0.7585243479077013,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2905370530452079,
+   "AP50": 0.5411981494786549,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21216600646042594,
+   "AP50": 0.5014692948141605,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015063673387058682,
+   "AP50": 0.08170157915765897,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2362066581228046,
+   "AP50": 0.5334238168415117,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1285,
+   "false_pos": 3140
+  },
+  "cargo truck": {
+   "correct": 0,
+   "false_pos": 6
+  },
+  "cyclist": {
+   "correct": 13,
+   "false_pos": 462
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 11
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 174,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 142,
+   "false_pos": 265
+  },
+  "person": {
+   "correct": 53,
+   "false_pos": 75
+  },
+  "person on bicycle": {
+   "correct": 25,
+   "false_pos": 808
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 73
+  },
+  "rider on bicycle": {
+   "correct": 5,
+   "false_pos": 13
+  },
+  "suv": {
+   "correct": 70,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 150
+  },
+  "van": {
+   "correct": 108,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.013176775
+}

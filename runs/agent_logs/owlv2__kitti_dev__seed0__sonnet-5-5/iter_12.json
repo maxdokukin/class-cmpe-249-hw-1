@@ -1,0 +1,97 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "suv": 1,
+  "lorry": 2,
+  "delivery van": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "person on a bicycle": 4,
+  "tram": 5,
+  "streetcar": 5,
+  "light rail train": 5
+ },
+ "rationale": "Test whether dropping the noisy 'truck' prompt (194 false positives) in favour of 'lorry' plus 'delivery van' improves truck AP.",
+ "mAP": 0.21662670313936724,
+ "per_class": {
+  "car": {
+   "AP": 0.38645234575759724,
+   "AP50": 0.7496540106750562,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2554777562272534,
+   "AP50": 0.49349904086057395,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20015430940855342,
+   "AP50": 0.47447149845547903,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016960063027076554,
+   "AP50": 0.09201973470535209,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22408904127635576,
+   "AP50": 0.5428734597151169,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 19,
+   "false_pos": 52
+  },
+  "car": {
+   "correct": 1301,
+   "false_pos": 3208
+  },
+  "delivery van": {
+   "correct": 0,
+   "false_pos": 55
+  },
+  "light rail train": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "lorry": {
+   "correct": 44,
+   "false_pos": 99
+  },
+  "minivan": {
+   "correct": 242,
+   "false_pos": 29
+  },
+  "pedestrian": {
+   "correct": 181,
+   "false_pos": 318
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 78
+  },
+  "person on a bicycle": {
+   "correct": 21,
+   "false_pos": 825
+  },
+  "streetcar": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "suv": {
+   "correct": 75,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 3,
+   "false_pos": 29
+  }
+ },
+ "cost_usd_cum": 0.1863147
+}

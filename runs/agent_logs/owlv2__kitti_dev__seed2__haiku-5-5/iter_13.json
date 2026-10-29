@@ -1,0 +1,107 @@
+{
+ "iter": 13,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "minivan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "person": 3,
+  "cyclist": 4,
+  "rider on bicycle": 4,
+  "person on bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Car is the class with the most ground truth, so I'm adding \"minivan\" to the best map to test whether it recovers more of the large vans the detector currently misses, keeping all other classes fixed.",
+ "mAP": 0.2280578265017786,
+ "per_class": {
+  "car": {
+   "AP": 0.38560309257123904,
+   "AP50": 0.7585242374201786,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2912546860064786,
+   "AP50": 0.5390159304095065,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2121659519453414,
+   "AP50": 0.501468938129924,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015063673387058682,
+   "AP50": 0.08170157915765897,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2362017285987754,
+   "AP50": 0.5334136324081499,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1285,
+   "false_pos": 3140
+  },
+  "cyclist": {
+   "correct": 13,
+   "false_pos": 462
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 11
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 174,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 142,
+   "false_pos": 265
+  },
+  "person": {
+   "correct": 53,
+   "false_pos": 75
+  },
+  "person on bicycle": {
+   "correct": 25,
+   "false_pos": 808
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 73
+  },
+  "rider on bicycle": {
+   "correct": 5,
+   "false_pos": 13
+  },
+  "suv": {
+   "correct": 70,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 154
+  },
+  "van": {
+   "correct": 108,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.01177986
+}

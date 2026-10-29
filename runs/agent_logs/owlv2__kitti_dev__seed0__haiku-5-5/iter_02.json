@@ -1,0 +1,87 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "bicycle": 4,
+  "bike": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Since descriptive cyclist phrases have not helped, I'm testing short object nouns (\"bicycle\", \"bike\", \"bike rider\") to see whether the detector responds better to the bicycle itself.",
+ "mAP": 0.21771344675474616,
+ "per_class": {
+  "car": {
+   "AP": 0.37262033944392225,
+   "AP50": 0.7423134993415249,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2876229566007313,
+   "AP50": 0.532960235292846,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19067766252429763,
+   "AP50": 0.46913529975945595,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0015419273487952763,
+   "AP50": 0.010570045542421028,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23610434785598453,
+   "AP50": 0.5332308130671505,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 10,
+   "false_pos": 589
+  },
+  "bike": {
+   "correct": 3,
+   "false_pos": 829
+  },
+  "bike rider": {
+   "correct": 15,
+   "false_pos": 73
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3210
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 121,
+   "false_pos": 246
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 344
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.00139862
+}

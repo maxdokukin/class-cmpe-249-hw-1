@@ -1,0 +1,107 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "person": 3,
+  "cyclist": 4,
+  "rider on bicycle": 4,
+  "person on bicycle": 4,
+  "person riding a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Testing whether adding \"person riding a bicycle\" to the best cyclist set (cyclist, rider on bicycle, person on bicycle) raises cyclist recall, keeping every other class fixed so any change is attributable to cyclist.",
+ "mAP": 0.22652614487402103,
+ "per_class": {
+  "car": {
+   "AP": 0.3786205707284361,
+   "AP50": 0.74985645907028,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.29125740189193733,
+   "AP50": 0.5390185966403024,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21189255821941796,
+   "AP50": 0.5012631757184777,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014630766652119803,
+   "AP50": 0.08005074621239408,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23622942687819412,
+   "AP50": 0.5334713937091273,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1377,
+   "false_pos": 3171
+  },
+  "cyclist": {
+   "correct": 13,
+   "false_pos": 363
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 11
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 142,
+   "false_pos": 265
+  },
+  "person": {
+   "correct": 53,
+   "false_pos": 75
+  },
+  "person on bicycle": {
+   "correct": 21,
+   "false_pos": 598
+  },
+  "person riding a bicycle": {
+   "correct": 6,
+   "false_pos": 394
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 73
+  },
+  "rider on bicycle": {
+   "correct": 3,
+   "false_pos": 9
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 154
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.01041376
+}

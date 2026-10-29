@@ -1,0 +1,16 @@
+{
+ "car": 1,
+ "van": 1,
+ "suv": 1,
+ "minivan": 1,
+ "truck": 2,
+ "delivery truck": 2,
+ "lorry": 2,
+ "pedestrian": 3,
+ "person standing": 3,
+ "person": 3,
+ "cyclist": 4,
+ "rider on bicycle": 4,
+ "person on bicycle": 4,
+ "tram": 5
+}

@@ -1,0 +1,92 @@
+{
+ "iter": 7,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "suv": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "person riding a bicycle": 4,
+  "tram": 5,
+  "streetcar": 5
+ },
+ "rationale": "Try suv and lorry synonyms on best map.",
+ "mAP": 0.22558490679224358,
+ "per_class": {
+  "car": {
+   "AP": 0.3867519510909646,
+   "AP50": 0.7505643299786356,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.30844668246665863,
+   "AP50": 0.5628680803727261,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19796993613460892,
+   "AP50": 0.47286166238136157,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.013789337075934336,
+   "AP50": 0.07701645012083136,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22096662719305132,
+   "AP50": 0.5329111904870844,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 21,
+   "false_pos": 71
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3211
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 247,
+   "false_pos": 29
+  },
+  "pedestrian": {
+   "correct": 184,
+   "false_pos": 341
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 86
+  },
+  "person riding a bicycle": {
+   "correct": 15,
+   "false_pos": 959
+  },
+  "streetcar": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "suv": {
+   "correct": 73,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 30
+  },
+  "truck": {
+   "correct": 36,
+   "false_pos": 203
+  }
+ },
+ "cost_usd_cum": 0.0803163
+}

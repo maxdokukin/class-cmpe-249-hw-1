@@ -1,0 +1,87 @@
+{
+ "iter": 0,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person riding a bicycle": 4,
+  "cyclist": 4,
+  "tram": 5,
+  "light rail train": 5
+ },
+ "rationale": "Baseline with simple natural prompts for each class.",
+ "mAP": 0.21848815078939474,
+ "per_class": {
+  "car": {
+   "AP": 0.3726367381348097,
+   "AP50": 0.7423541178575584,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2876322045644346,
+   "AP50": 0.5329680723083651,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19300395390441863,
+   "AP50": 0.4755822103323001,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012313155203381203,
+   "AP50": 0.06981419842521917,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2268547021399299,
+   "AP50": 0.5502647738677894,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3206
+  },
+  "cyclist": {
+   "correct": 21,
+   "false_pos": 410
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "light rail train": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "pedestrian": {
+   "correct": 121,
+   "false_pos": 220
+  },
+  "person riding a bicycle": {
+   "correct": 14,
+   "false_pos": 723
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 291
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 32
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.003581
+}

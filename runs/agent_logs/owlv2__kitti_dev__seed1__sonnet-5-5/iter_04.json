@@ -1,0 +1,87 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "bicycle rider": 4,
+  "biker": 4,
+  "tram": 5,
+  "light rail train": 5
+ },
+ "rationale": "Try 'biker' and 'box truck' synonyms.",
+ "mAP": 0.22125144165088287,
+ "per_class": {
+  "car": {
+   "AP": 0.37268830231498395,
+   "AP50": 0.7423134422708214,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.30700478803632103,
+   "AP50": 0.5676592645309333,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1863724275210208,
+   "AP50": 0.45940401211493376,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01337161740468958,
+   "AP50": 0.07383327359132581,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22682007297739898,
+   "AP50": 0.5501769417797632,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 27,
+   "false_pos": 100
+  },
+  "biker": {
+   "correct": 1,
+   "false_pos": 191
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 19
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3213
+  },
+  "light rail train": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "pedestrian": {
+   "correct": 120,
+   "false_pos": 244
+  },
+  "person walking": {
+   "correct": 132,
+   "false_pos": 354
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 32
+  },
+  "truck": {
+   "correct": 43,
+   "false_pos": 155
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0402698
+}

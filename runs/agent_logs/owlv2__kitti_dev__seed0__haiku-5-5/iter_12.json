@@ -1,0 +1,97 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "walking pedestrian": 3,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Pedestrian has two free prompt slots and is the class with the most ground-truth boxes after car, so I'm adding \"walking pedestrian\" to the best map to test whether it recovers more pedestrian recall.",
+ "mAP": 0.2306790817537316,
+ "per_class": {
+  "car": {
+   "AP": 0.3868274824205316,
+   "AP50": 0.7595301249202799,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3155018522893268,
+   "AP50": 0.5735471638054579,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20258304315606912,
+   "AP50": 0.4841933596229887,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01237383722858935,
+   "AP50": 0.06445767028892867,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23610919367414093,
+   "AP50": 0.5332498642555973,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 18,
+   "false_pos": 77
+  },
+  "car": {
+   "correct": 1254,
+   "false_pos": 3140
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 174,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 190,
+   "false_pos": 392
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 92
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 70,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 163
+  },
+  "van": {
+   "correct": 109,
+   "false_pos": 64
+  },
+  "walking pedestrian": {
+   "correct": 1,
+   "false_pos": 28
+  }
+ },
+ "cost_usd_cum": 0.01052019
+}

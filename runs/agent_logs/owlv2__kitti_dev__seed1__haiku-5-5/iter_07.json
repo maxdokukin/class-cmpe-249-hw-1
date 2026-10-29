@@ -1,0 +1,122 @@
+{
+ "iter": 7,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person standing": 3,
+  "man": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "tram": 5,
+  "streetcar": 5,
+  "light rail train": 5
+ },
+ "rationale": "Tram AP is about 0.24 on 37 GT boxes, so I'm adding \"streetcar\" and \"light rail train\" to test whether tram-specific synonyms recover missed trams.",
+ "mAP": 0.22222562646231142,
+ "per_class": {
+  "car": {
+   "AP": 0.3798173066696826,
+   "AP50": 0.7508048574457001,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2904432733288126,
+   "AP50": 0.5420878135072275,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20473848800662942,
+   "AP50": 0.4977257094817792,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01182024012325217,
+   "AP50": 0.06569044706958836,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22430882418318043,
+   "AP50": 0.5434515259310722,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "box truck": {
+   "correct": 2,
+   "false_pos": 17
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3170
+  },
+  "cyclist": {
+   "correct": 18,
+   "false_pos": 409
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 8
+  },
+  "light rail train": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "man": {
+   "correct": 35,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 93,
+   "false_pos": 212
+  },
+  "person riding a bicycle": {
+   "correct": 14,
+   "false_pos": 724
+  },
+  "person standing": {
+   "correct": 32,
+   "false_pos": 47
+  },
+  "person walking": {
+   "correct": 99,
+   "false_pos": 263
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "streetcar": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 3,
+   "false_pos": 27
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 143
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.004666615
+}

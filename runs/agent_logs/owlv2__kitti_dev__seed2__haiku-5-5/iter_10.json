@@ -1,0 +1,102 @@
+{
+ "iter": 10,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "person": 3,
+  "cyclist": 4,
+  "rider on bicycle": 4,
+  "bicyclist riding": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist remains the weakest class, so I'm replacing \"person on bicycle\" (about 800 false positives for 25 hits) with \"bicyclist riding\", keeping \"cyclist\" and \"rider on bicycle\", and holding the other classes fixed.",
+ "mAP": 0.22524597272810526,
+ "per_class": {
+  "car": {
+   "AP": 0.3786008925853686,
+   "AP50": 0.7499305037332545,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2912489163881381,
+   "AP50": 0.5390079861299921,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21100598904136036,
+   "AP50": 0.5069147951549036,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.00922548918257505,
+   "AP50": 0.06238501806345529,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23614857644308415,
+   "AP50": 0.5332735961782306,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicyclist riding": {
+   "correct": 9,
+   "false_pos": 790
+  },
+  "car": {
+   "correct": 1377,
+   "false_pos": 3176
+  },
+  "cyclist": {
+   "correct": 15,
+   "false_pos": 174
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 11
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 148,
+   "false_pos": 352
+  },
+  "person": {
+   "correct": 55,
+   "false_pos": 92
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 77
+  },
+  "rider on bicycle": {
+   "correct": 4,
+   "false_pos": 18
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 154
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.0078892
+}

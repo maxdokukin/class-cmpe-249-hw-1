@@ -1,0 +1,87 @@
+{
+ "iter": 6,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "The streetcar and delivery-truck additions hurt tram and truck precision, so I'm removing them while keeping the car synonyms (sedan, suv) that raised car AP and the lorry prompt that gave truck recall with few false positives.",
+ "mAP": 0.22952863076576102,
+ "per_class": {
+  "car": {
+   "AP": 0.37984143949165977,
+   "AP50": 0.7511186018805052,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3155043866373819,
+   "AP50": 0.5735498300362538,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20387969945854714,
+   "AP50": 0.48896861901925875,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01236955086688458,
+   "AP50": 0.06444047938015414,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23604807737433173,
+   "AP50": 0.5330875481673867,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 18,
+   "false_pos": 77
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3168
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "pedestrian": {
+   "correct": 191,
+   "false_pos": 415
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 92
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 163
+  },
+  "van": {
+   "correct": 168,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.004038715
+}

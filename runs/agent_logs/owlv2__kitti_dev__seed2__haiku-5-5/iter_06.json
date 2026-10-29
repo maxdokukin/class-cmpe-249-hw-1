@@ -1,0 +1,107 @@
+{
+ "iter": 6,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "person": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "tram": 5,
+  "streetcar": 5,
+  "light rail train": 5
+ },
+ "rationale": "Combining the gains so far (suv, person standing, person, lorry, delivery truck) with the original cyclist prompts, and adding \"streetcar\" and \"light rail train\" to improve tram recall.",
+ "mAP": 0.22294661181366793,
+ "per_class": {
+  "car": {
+   "AP": 0.37861018707583766,
+   "AP50": 0.7498271635757315,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2912698094371661,
+   "AP50": 0.5390293535024788,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20986788410953144,
+   "AP50": 0.5012053037321407,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.010702910707553527,
+   "AP50": 0.06485029243177307,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2242822677382507,
+   "AP50": 0.5433709647685075,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1377,
+   "false_pos": 3174
+  },
+  "cyclist": {
+   "correct": 16,
+   "false_pos": 403
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 11
+  },
+  "light rail train": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 145,
+   "false_pos": 300
+  },
+  "person": {
+   "correct": 54,
+   "false_pos": 86
+  },
+  "person riding a bicycle": {
+   "correct": 16,
+   "false_pos": 752
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 75
+  },
+  "streetcar": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 3,
+   "false_pos": 27
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 154
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.004110185
+}

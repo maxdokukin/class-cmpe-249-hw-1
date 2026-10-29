@@ -1,0 +1,117 @@
+{
+ "iter": 10,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person standing": 3,
+  "man": 3,
+  "cyclist": 4,
+  "rider on a bicycle": 4,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist is still the weakest class, so I'm adding \"bike rider\" to the current best cyclist prompts (\"cyclist\", \"rider on a bicycle\") to test whether a short rider-plus-bike phrase recovers more cyclists without many extra false positives.",
+ "mAP": 0.22450708707435757,
+ "per_class": {
+  "car": {
+   "AP": 0.37980523214902345,
+   "AP50": 0.7508989841607357,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2904269106010412,
+   "AP50": 0.5420735493339107,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.203817686258617,
+   "AP50": 0.4944658187170356,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012244919528289534,
+   "AP50": 0.07034783871985886,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23624068683481667,
+   "AP50": 0.5334576344631018,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 17,
+   "false_pos": 64
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 17
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3176
+  },
+  "cyclist": {
+   "correct": 8,
+   "false_pos": 621
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 8
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "man": {
+   "correct": 34,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 94,
+   "false_pos": 231
+  },
+  "person standing": {
+   "correct": 32,
+   "false_pos": 47
+  },
+  "person walking": {
+   "correct": 99,
+   "false_pos": 323
+  },
+  "rider on a bicycle": {
+   "correct": 3,
+   "false_pos": 23
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 143
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.008721834999999999
+}

@@ -1,0 +1,92 @@
+{
+ "iter": 10,
+ "prompt_map": {
+  "hatchback": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "The generic \"car\" prompt generates the bulk of car false positives, so I'm replacing it with \"hatchback\" to test whether the other body-style prompts can carry car recall at higher precision.",
+ "mAP": 0.22785019462118347,
+ "per_class": {
+  "car": {
+   "AP": 0.3730485655671357,
+   "AP50": 0.7302839397886604,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31455800631067565,
+   "AP50": 0.57225200491369,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20376110783046555,
+   "AP50": 0.488721106477605,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012372182869147272,
+   "AP50": 0.0643752280289839,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23551111052849308,
+   "AP50": 0.5320237204925801,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 18,
+   "false_pos": 77
+  },
+  "hatchback": {
+   "correct": 71,
+   "false_pos": 41
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 425,
+   "false_pos": 72
+  },
+  "pedestrian": {
+   "correct": 191,
+   "false_pos": 424
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 93
+  },
+  "sedan": {
+   "correct": 607,
+   "false_pos": 289
+  },
+  "suv": {
+   "correct": 254,
+   "false_pos": 39
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 186
+  },
+  "van": {
+   "correct": 163,
+   "false_pos": 156
+  }
+ },
+ "cost_usd_cum": 0.00825998
+}

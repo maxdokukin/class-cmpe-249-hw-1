@@ -1,0 +1,107 @@
+{
+ "iter": 8,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person standing": 3,
+  "man": 3,
+  "cyclist": 4,
+  "tram": 5
+ },
+ "rationale": "\"person riding a bicycle\" contributes 724 false positives for only 14 correct boxes, so I'm removing it to test whether cyclist precision improves while keeping the best settings for the other classes.",
+ "mAP": 0.2247354030467363,
+ "per_class": {
+  "car": {
+   "AP": 0.37980444307200123,
+   "AP50": 0.750897004989808,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.29042538221724323,
+   "AP50": 0.5420711986836263,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20508296197567888,
+   "AP50": 0.5002196159451732,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01214996496839529,
+   "AP50": 0.06806998074716337,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2362142630003629,
+   "AP50": 0.5333957143613733,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "box truck": {
+   "correct": 2,
+   "false_pos": 17
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3176
+  },
+  "cyclist": {
+   "correct": 24,
+   "false_pos": 683
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 8
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "man": {
+   "correct": 35,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 95,
+   "false_pos": 234
+  },
+  "person standing": {
+   "correct": 32,
+   "false_pos": 47
+  },
+  "person walking": {
+   "correct": 99,
+   "false_pos": 327
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 143
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.00546273
+}

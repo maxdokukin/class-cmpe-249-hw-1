@@ -1,0 +1,93 @@
+{
+ "iter": 8,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "bicycle rider": 4,
+  "rider": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist is the weakest class, so I'm adding \"bicycle rider\" and \"rider\" to the best map to test whether more rider-focused synonyms raise cyclist recall without flooding false positives.",
+ "mAP": 0.2292181884554049,
+ "per_class": {
+  "car": {
+   "AP": 0.37984184443193597,
+   "AP50": 0.7511197244050395,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3155043866373819,
+   "AP50": 0.5735498300362538,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.1986180070812002,
+   "AP50": 0.4769278440240444,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01606590728978666,
+   "AP50": 0.08845292574844725,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23606079683671974,
+   "AP50": 0.5331223792313771,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 27,
+   "false_pos": 105
+  },
+  "bike rider": {
+   "correct": 1,
+   "false_pos": 11
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3168
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 409
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 163
+  },
+  "van": {
+   "correct": 168,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.005500505
+}

@@ -1,0 +1,97 @@
+{
+ "iter": 11,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "person": 3,
+  "cyclist": 4,
+  "rider on bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "\"person on bicycle\" produced about 800 false positives, so I'm dropping it and keeping only \"cyclist\" and \"rider on bicycle\" for cyclists, to see whether cutting that noise improves the cyclist AP.",
+ "mAP": 0.2258997591987386,
+ "per_class": {
+  "car": {
+   "AP": 0.37860578329960687,
+   "AP50": 0.7499312121279199,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2912466299337762,
+   "AP50": 0.5390053560204755,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.21099003634061977,
+   "AP50": 0.5068575901648015,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012513699681814634,
+   "AP50": 0.07459405212691546,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2361426467378754,
+   "AP50": 0.5332579041134536,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1377,
+   "false_pos": 3174
+  },
+  "cyclist": {
+   "correct": 21,
+   "false_pos": 650
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 11
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 148,
+   "false_pos": 352
+  },
+  "person": {
+   "correct": 55,
+   "false_pos": 92
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 77
+  },
+  "rider on bicycle": {
+   "correct": 6,
+   "false_pos": 27
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 154
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.00912545
+}

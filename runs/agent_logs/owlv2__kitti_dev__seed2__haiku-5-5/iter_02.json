@@ -1,0 +1,87 @@
+{
+ "iter": 2,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "man riding bicycle": 4,
+  "person on bike": 4,
+  "tram": 5
+ },
+ "rationale": "Bicycle-only prompts latch onto empty parked bikes, so I'm testing rider-centred phrases (\"man riding bicycle\", \"person on bike\") to tie the detection to a person plus bike, keeping everything else fixed.",
+ "mAP": 0.21965581453910207,
+ "per_class": {
+  "car": {
+   "AP": 0.3726431258956251,
+   "AP50": 0.7423888633317413,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2876221432954957,
+   "AP50": 0.5329576405755099,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19138085748949643,
+   "AP50": 0.46827447034501335,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.010535136742250826,
+   "AP50": 0.06648025527949968,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23609780927264243,
+   "AP50": 0.5332250429153996,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1447,
+   "false_pos": 3201
+  },
+  "cyclist": {
+   "correct": 11,
+   "false_pos": 167
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "man riding bicycle": {
+   "correct": 7,
+   "false_pos": 576
+  },
+  "pedestrian": {
+   "correct": 119,
+   "false_pos": 193
+  },
+  "person on bike": {
+   "correct": 23,
+   "false_pos": 707
+  },
+  "person walking": {
+   "correct": 133,
+   "false_pos": 272
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.00133388
+}

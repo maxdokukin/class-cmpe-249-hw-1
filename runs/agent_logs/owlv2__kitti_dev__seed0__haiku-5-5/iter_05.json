@@ -1,0 +1,102 @@
+{
+ "iter": 5,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "person walking": 3,
+  "bike rider": 4,
+  "tram": 5,
+  "streetcar": 5
+ },
+ "rationale": "Car, truck and tram are near their ceiling on the current prompts, so I'm adding class synonyms (sedan, suv, lorry, streetcar) to try to raise recall on vehicles the current wording misses, while keeping the pedestrian and cyclist prompts that worked.",
+ "mAP": 0.22006856085932056,
+ "per_class": {
+  "car": {
+   "AP": 0.37980569853597185,
+   "AP50": 0.7509028549983466,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.291255367529096,
+   "AP50": 0.5390106252006996,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19695334387288096,
+   "AP50": 0.48680822782049676,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.011285191472437507,
+   "AP50": 0.05880671882243061,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22104320288621668,
+   "AP50": 0.5330294298695736,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 17,
+   "false_pos": 72
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3173
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 11
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 92,
+   "false_pos": 227
+  },
+  "person": {
+   "correct": 59,
+   "false_pos": 86
+  },
+  "person walking": {
+   "correct": 113,
+   "false_pos": 353
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "streetcar": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 29
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 154
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.0033246749999999996
+}

@@ -1,0 +1,92 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "person": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Pruning the noisy \"white van\" and \"person walking\" prompts while keeping the precise \"suv\" and \"person standing\", and adding a plain \"person\" prompt for pedestrians, to raise precision and recall for pedestrians.",
+ "mAP": 0.2245825483270476,
+ "per_class": {
+  "car": {
+   "AP": 0.37861010223100655,
+   "AP50": 0.7498267144926999,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.28762543077959696,
+   "AP50": 0.5329628387909513,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2098676079138396,
+   "AP50": 0.5012042202343039,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.010702891230928204,
+   "AP50": 0.0648501947841899,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.236106709479867,
+   "AP50": 0.5332323667146398,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1377,
+   "false_pos": 3174
+  },
+  "cyclist": {
+   "correct": 16,
+   "false_pos": 403
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 145,
+   "false_pos": 300
+  },
+  "person": {
+   "correct": 54,
+   "false_pos": 86
+  },
+  "person riding a bicycle": {
+   "correct": 16,
+   "false_pos": 752
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 75
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.00264745
+}

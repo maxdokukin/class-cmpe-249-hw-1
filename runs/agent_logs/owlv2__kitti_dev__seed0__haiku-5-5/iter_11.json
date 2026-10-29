@@ -1,0 +1,97 @@
+{
+ "iter": 11,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Truck has room for more prompts and \"box truck\" matches the KITTI truck definition, so I'm adding it to the best map to test whether it recovers truck recall.",
+ "mAP": 0.23039687397891234,
+ "per_class": {
+  "car": {
+   "AP": 0.3867963280451561,
+   "AP50": 0.7592721006073363,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31281492355936746,
+   "AP50": 0.5764487602673457,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20387988513446748,
+   "AP50": 0.48896911993505054,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012369618597940727,
+   "AP50": 0.06444064774652296,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23612361455762998,
+   "AP50": 0.5332076738146674,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 18,
+   "false_pos": 77
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 18
+  },
+  "car": {
+   "correct": 1254,
+   "false_pos": 3140
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 174,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 191,
+   "false_pos": 415
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 92
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 70,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 34,
+   "false_pos": 148
+  },
+  "van": {
+   "correct": 108,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.009083775
+}

@@ -33,3 +33,43 @@ best_s2_haiku-4-5            delta mAP +0.0134  95% CI [+0.0119, +0.0150]  P(del
 oneshot_s2_opus-5-5          delta mAP -0.0008  95% CI [-0.0013, +0.0001]  P(delta<=0) 0.944
 best_s2_opus-5-5             delta mAP +0.0046  95% CI [+0.0027, +0.0063]  P(delta<=0) 0.000
 no agent logs for gdino_t; run hw1.agent first
+W1028 14:19:49.086000 21272 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+owlv2 arms: raw_names, ngdet_synonyms, oneshot_s0_haiku-4-5, best_s0_haiku-4-5, oneshot_s0_haiku-5-5, best_s0_haiku-5-5, oneshot_s0_opus-5-5, best_s0_opus-5-5, oneshot_s0_sonnet-5-5, best_s0_sonnet-5-5, oneshot_s1_haiku-4-5, best_s1_haiku-4-5, oneshot_s1_haiku-5-5, best_s1_haiku-5-5, oneshot_s1_opus-5-5, best_s1_opus-5-5, oneshot_s1_sonnet-5-5, best_s1_sonnet-5-5, oneshot_s2_haiku-4-5, best_s2_haiku-4-5, oneshot_s2_haiku-5-5, best_s2_haiku-5-5, oneshot_s2_opus-5-5, best_s2_opus-5-5, oneshot_s2_sonnet-5-5, best_s2_sonnet-5-5
+owlv2__kitti_test__arm-oneshot_s0_haiku-5-5   van-merge__cyc-prompt__pm-map_oneshot mAP 0.194  AP50 0.412  core3 0.237  -> owlv2__kitti_test__arm-oneshot_s0_haiku-5-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s0_haiku-5-5      van-merge__cyc-prompt__pm-map_best mAP 0.199  AP50 0.418  core3 0.244  -> owlv2__kitti_test__arm-best_s0_haiku-5-5__van-merge__cyc-prompt__pm-map_best.json
+owlv2__kitti_test__arm-oneshot_s0_sonnet-5-5  van-merge__cyc-prompt__pm-map_oneshot mAP 0.197  AP50 0.412  core3 0.238  -> owlv2__kitti_test__arm-oneshot_s0_sonnet-5-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s0_sonnet-5-5     van-merge__cyc-prompt__pm-map_best mAP 0.207  AP50 0.432  core3 0.243  -> owlv2__kitti_test__arm-best_s0_sonnet-5-5__van-merge__cyc-prompt__pm-map_best.json
+owlv2__kitti_test__arm-oneshot_s1_haiku-5-5   van-merge__cyc-prompt__pm-map_oneshot mAP 0.194  AP50 0.412  core3 0.237  -> owlv2__kitti_test__arm-oneshot_s1_haiku-5-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s1_haiku-5-5      van-merge__cyc-prompt__pm-map_best mAP 0.200  AP50 0.425  core3 0.247  -> owlv2__kitti_test__arm-best_s1_haiku-5-5__van-merge__cyc-prompt__pm-map_best.json
+owlv2__kitti_test__arm-oneshot_s1_sonnet-5-5  van-merge__cyc-prompt__pm-map_oneshot mAP 0.199  AP50 0.421  core3 0.237  -> owlv2__kitti_test__arm-oneshot_s1_sonnet-5-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s1_sonnet-5-5     van-merge__cyc-prompt__pm-map_best mAP 0.205  AP50 0.437  core3 0.245  -> owlv2__kitti_test__arm-best_s1_sonnet-5-5__van-merge__cyc-prompt__pm-map_best.json
+owlv2__kitti_test__arm-oneshot_s2_haiku-5-5   van-merge__cyc-prompt__pm-map_oneshot mAP 0.194  AP50 0.412  core3 0.237  -> owlv2__kitti_test__arm-oneshot_s2_haiku-5-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s2_haiku-5-5      van-merge__cyc-prompt__pm-map_best mAP 0.201  AP50 0.425  core3 0.247  -> owlv2__kitti_test__arm-best_s2_haiku-5-5__van-merge__cyc-prompt__pm-map_best.json
+owlv2__kitti_test__arm-oneshot_s2_sonnet-5-5  van-merge__cyc-prompt__pm-map_oneshot mAP 0.197  AP50 0.412  core3 0.238  -> owlv2__kitti_test__arm-oneshot_s2_sonnet-5-5__van-merge__cyc-prompt__pm-map_oneshot.json
+owlv2__kitti_test__arm-best_s2_sonnet-5-5     van-merge__cyc-prompt__pm-map_best mAP 0.204  AP50 0.433  core3 0.243  -> owlv2__kitti_test__arm-best_s2_sonnet-5-5__van-merge__cyc-prompt__pm-map_best.json
+ngdet_synonyms               delta mAP -0.0032  95% CI [-0.0045, -0.0024]  P(delta<=0) 1.000
+oneshot_s0_haiku-4-5         delta mAP -0.0027  95% CI [-0.0039, -0.0017]  P(delta<=0) 1.000
+best_s0_haiku-4-5            delta mAP +0.0046  95% CI [+0.0031, +0.0060]  P(delta<=0) 0.000
+oneshot_s0_haiku-5-5         delta mAP -0.0008  95% CI [-0.0013, +0.0003]  P(delta<=0) 0.897
+best_s0_haiku-5-5            delta mAP +0.0040  95% CI [+0.0019, +0.0056]  P(delta<=0) 0.000
+oneshot_s0_opus-5-5          delta mAP -0.0008  95% CI [-0.0013, +0.0001]  P(delta<=0) 0.944
+best_s0_opus-5-5             delta mAP +0.0017  95% CI [-0.0000, +0.0033]  P(delta<=0) 0.028
+oneshot_s0_sonnet-5-5        delta mAP +0.0026  95% CI [-0.0008, +0.0057]  P(delta<=0) 0.066
+best_s0_sonnet-5-5           delta mAP +0.0119  95% CI [+0.0082, +0.0152]  P(delta<=0) 0.000
+oneshot_s1_haiku-4-5         delta mAP -0.0027  95% CI [-0.0039, -0.0017]  P(delta<=0) 1.000
+best_s1_haiku-4-5            delta mAP +0.0100  95% CI [+0.0085, +0.0119]  P(delta<=0) 0.000
+oneshot_s1_haiku-5-5         delta mAP -0.0008  95% CI [-0.0013, +0.0003]  P(delta<=0) 0.897
+best_s1_haiku-5-5            delta mAP +0.0059  95% CI [+0.0050, +0.0071]  P(delta<=0) 0.000
+oneshot_s1_opus-5-5          delta mAP -0.0008  95% CI [-0.0013, +0.0001]  P(delta<=0) 0.944
+best_s1_opus-5-5             delta mAP +0.0061  95% CI [+0.0040, +0.0078]  P(delta<=0) 0.000
+oneshot_s1_sonnet-5-5        delta mAP +0.0041  95% CI [+0.0010, +0.0072]  P(delta<=0) 0.005
+best_s1_sonnet-5-5           delta mAP +0.0108  95% CI [+0.0073, +0.0138]  P(delta<=0) 0.000
+oneshot_s2_haiku-4-5         delta mAP -0.0063  95% CI [-0.0097, -0.0033]  P(delta<=0) 1.000
+best_s2_haiku-4-5            delta mAP +0.0134  95% CI [+0.0119, +0.0150]  P(delta<=0) 0.000
+oneshot_s2_haiku-5-5         delta mAP -0.0008  95% CI [-0.0013, +0.0003]  P(delta<=0) 0.897
+best_s2_haiku-5-5            delta mAP +0.0062  95% CI [+0.0051, +0.0074]  P(delta<=0) 0.000
+oneshot_s2_opus-5-5          delta mAP -0.0008  95% CI [-0.0013, +0.0001]  P(delta<=0) 0.944
+best_s2_opus-5-5             delta mAP +0.0046  95% CI [+0.0027, +0.0063]  P(delta<=0) 0.000
+oneshot_s2_sonnet-5-5        delta mAP +0.0026  95% CI [-0.0008, +0.0057]  P(delta<=0) 0.066
+best_s2_sonnet-5-5           delta mAP +0.0099  95% CI [+0.0062, +0.0129]  P(delta<=0) 0.000
+no agent logs for gdino_t; run hw1.agent first

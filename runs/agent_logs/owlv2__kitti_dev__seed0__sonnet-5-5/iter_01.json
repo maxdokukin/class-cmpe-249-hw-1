@@ -1,0 +1,97 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "minivan": 1,
+  "truck": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicycle rider": 4,
+  "bicycle": 4,
+  "tram": 5,
+  "light rail train": 5
+ },
+ "rationale": "Fix cyclist with shorter prompts including bicycle; add minivan, box truck.",
+ "mAP": 0.22083722006417977,
+ "per_class": {
+  "car": {
+   "AP": 0.38170291239044934,
+   "AP50": 0.7536569911355839,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.30701416158116224,
+   "AP50": 0.5676712478586856,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.18639355350685333,
+   "AP50": 0.45916506784414346,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.002225374803699406,
+   "AP50": 0.014577498391927584,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22685009803873463,
+   "AP50": 0.5502786054495484,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle": {
+   "correct": 12,
+   "false_pos": 1265
+  },
+  "bicycle rider": {
+   "correct": 20,
+   "false_pos": 96
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 19
+  },
+  "car": {
+   "correct": 1329,
+   "false_pos": 3164
+  },
+  "cyclist": {
+   "correct": 3,
+   "false_pos": 63
+  },
+  "light rail train": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "minivan": {
+   "correct": 196,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 120,
+   "false_pos": 236
+  },
+  "person walking": {
+   "correct": 132,
+   "false_pos": 338
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 32
+  },
+  "truck": {
+   "correct": 43,
+   "false_pos": 155
+  },
+  "van": {
+   "correct": 113,
+   "false_pos": 64
+  }
+ },
+ "cost_usd_cum": 0.01592
+}

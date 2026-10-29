@@ -1,0 +1,102 @@
+{
+ "iter": 14,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "tram": 5,
+  "light rail train": 5,
+  "yellow tram": 5
+ },
+ "rationale": "Keep best map and add 'sedan' to car as the single change.",
+ "mAP": 0.22993709917651003,
+ "per_class": {
+  "car": {
+   "AP": 0.3868279814492387,
+   "AP50": 0.7595323809122692,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.31557444727805706,
+   "AP50": 0.5736565499218395,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19861728697974443,
+   "AP50": 0.47692571653382304,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.016637430162179025,
+   "AP50": 0.09072430757499571,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23202835001333083,
+   "AP50": 0.5774043095467887,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 29,
+   "false_pos": 122
+  },
+  "car": {
+   "correct": 1254,
+   "false_pos": 3140
+  },
+  "light rail train": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 174,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 409
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 70,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 3,
+   "false_pos": 24
+  },
+  "truck": {
+   "correct": 35,
+   "false_pos": 162
+  },
+  "van": {
+   "correct": 109,
+   "false_pos": 64
+  },
+  "yellow tram": {
+   "correct": 3,
+   "false_pos": 11
+  }
+ },
+ "cost_usd_cum": 0.21939609999999998
+}

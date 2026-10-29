@@ -1,0 +1,107 @@
+{
+ "iter": 13,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "man": 3,
+  "cyclist": 4,
+  "bicycle rider": 4,
+  "tram": 5
+ },
+ "rationale": "\"Rider on a bicycle\" gave very few correct cyclist boxes, so I'm testing \"bicycle rider\" in its place as a final cyclist wording check, keeping all other classes at their best settings.",
+ "mAP": 0.2262294764021645,
+ "per_class": {
+  "car": {
+   "AP": 0.37980730219509573,
+   "AP50": 0.750900855011559,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2904256314518611,
+   "AP50": 0.5420711986836263,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20932855426280517,
+   "AP50": 0.4928603920455354,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.01539776107656045,
+   "AP50": 0.09187641693188507,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23618813302450023,
+   "AP50": 0.5333405048976179,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 24,
+   "false_pos": 94
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 17
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3171
+  },
+  "cyclist": {
+   "correct": 11,
+   "false_pos": 636
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 8
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "man": {
+   "correct": 34,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 159,
+   "false_pos": 377
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 81
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 143
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.012639105
+}

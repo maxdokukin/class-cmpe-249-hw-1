@@ -1,0 +1,97 @@
+{
+ "iter": 3,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "white van": 1,
+  "suv": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person standing": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Car and pedestrian have the most ground truth and room to improve, so I'm adding vehicle synonyms (white van, suv) and a standing-person prompt, while restoring the original cyclist prompts to isolate the effect on car and pedestrian.",
+ "mAP": 0.22253381034158004,
+ "per_class": {
+  "car": {
+   "AP": 0.3783272515299117,
+   "AP50": 0.749605477662811,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.28784957135815903,
+   "AP50": 0.5333983323972126,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19806866655208122,
+   "AP50": 0.48588735409534445,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012297156823288306,
+   "AP50": 0.06974002974958514,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2361264054444597,
+   "AP50": 0.5332771062914553,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "car": {
+   "correct": 1376,
+   "false_pos": 3156
+  },
+  "cyclist": {
+   "correct": 21,
+   "false_pos": 409
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 101,
+   "false_pos": 213
+  },
+  "person riding a bicycle": {
+   "correct": 14,
+   "false_pos": 723
+  },
+  "person standing": {
+   "correct": 57,
+   "false_pos": 49
+  },
+  "person walking": {
+   "correct": 101,
+   "false_pos": 264
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 156
+  },
+  "van": {
+   "correct": 160,
+   "false_pos": 55
+  },
+  "white van": {
+   "correct": 9,
+   "false_pos": 28
+  }
+ },
+ "cost_usd_cum": 0.00198147
+}

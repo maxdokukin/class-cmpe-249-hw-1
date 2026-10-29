@@ -1,0 +1,112 @@
+{
+ "iter": 12,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "man": 3,
+  "woman": 3,
+  "cyclist": 4,
+  "rider on a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "\"Man\" was precise for pedestrians, so I'm adding \"woman\" to test whether another short person noun recovers more pedestrians without many extra false positives, keeping the rest of the best map unchanged.",
+ "mAP": 0.22671210717835436,
+ "per_class": {
+  "car": {
+   "AP": 0.37980968428627737,
+   "AP50": 0.7508988802836545,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.29042410703467714,
+   "AP50": 0.5420688555674774,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2131183291604655,
+   "AP50": 0.5049717755145052,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014016795840659556,
+   "AP50": 0.08149529030595351,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23619161956969215,
+   "AP50": 0.533346108710314,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "box truck": {
+   "correct": 2,
+   "false_pos": 17
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3172
+  },
+  "cyclist": {
+   "correct": 25,
+   "false_pos": 666
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 8
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "man": {
+   "correct": 37,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 160,
+   "false_pos": 385
+  },
+  "person standing": {
+   "correct": 61,
+   "false_pos": 81
+  },
+  "rider on a bicycle": {
+   "correct": 5,
+   "false_pos": 26
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 143
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  },
+  "woman": {
+   "correct": 1,
+   "false_pos": 1
+  }
+ },
+ "cost_usd_cum": 0.01126406
+}

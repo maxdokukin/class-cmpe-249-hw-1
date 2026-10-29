@@ -1,0 +1,102 @@
+{
+ "iter": 14,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "suv": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "person on a bicycle": 4,
+  "cyclist wearing a helmet": 4,
+  "tram": 5,
+  "streetcar": 5,
+  "light rail train": 5
+ },
+ "rationale": "Final attempt: add a rider-centric cyclist phrase ('cyclist wearing a helmet') to the best map.",
+ "mAP": 0.22700558592275347,
+ "per_class": {
+  "car": {
+   "AP": 0.38678475339743473,
+   "AP50": 0.7508705189736271,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.308451429300176,
+   "AP50": 0.5628752395868962,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20004759856743862,
+   "AP50": 0.4731494856831853,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.015528279190869184,
+   "AP50": 0.08434971486286086,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22421586915784875,
+   "AP50": 0.5432424096966485,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 19,
+   "false_pos": 52
+  },
+  "car": {
+   "correct": 1298,
+   "false_pos": 3207
+  },
+  "cyclist wearing a helmet": {
+   "correct": 0,
+   "false_pos": 137
+  },
+  "light rail train": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "minivan": {
+   "correct": 247,
+   "false_pos": 29
+  },
+  "pedestrian": {
+   "correct": 181,
+   "false_pos": 317
+  },
+  "person": {
+   "correct": 65,
+   "false_pos": 77
+  },
+  "person on a bicycle": {
+   "correct": 20,
+   "false_pos": 785
+  },
+  "streetcar": {
+   "correct": 9,
+   "false_pos": 6
+  },
+  "suv": {
+   "correct": 73,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 3,
+   "false_pos": 28
+  },
+  "truck": {
+   "correct": 36,
+   "false_pos": 203
+  }
+ },
+ "cost_usd_cum": 0.23410449999999997
+}

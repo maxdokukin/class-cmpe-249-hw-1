@@ -1,0 +1,87 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicycle with rider": 4,
+  "person on a bike": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist AP is near zero, so I'm swapping the cyclist-only prompts for \"bicycle with rider\" and \"person on a bike\" (keeping \"cyclist\") to see whether bicycle-centred wording matches the rider-plus-bike boxes better, leaving other classes unchanged.",
+ "mAP": 0.22040726200126165,
+ "per_class": {
+  "car": {
+   "AP": 0.3726282845515463,
+   "AP50": 0.7423515949117043,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.28762189047135184,
+   "AP50": 0.5329576405755099,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19100607630634087,
+   "AP50": 0.466266990377881,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.014675426201087192,
+   "AP50": 0.0849859648464566,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23610463247598207,
+   "AP50": 0.5332488088873205,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle with rider": {
+   "correct": 5,
+   "false_pos": 344
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3206
+  },
+  "cyclist": {
+   "correct": 16,
+   "false_pos": 327
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 119,
+   "false_pos": 211
+  },
+  "person on a bike": {
+   "correct": 21,
+   "false_pos": 606
+  },
+  "person walking": {
+   "correct": 134,
+   "false_pos": 289
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0007190249999999999
+}

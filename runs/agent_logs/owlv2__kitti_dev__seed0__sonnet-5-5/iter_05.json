@@ -1,0 +1,92 @@
+{
+ "iter": 5,
+ "prompt_map": {
+  "car": 1,
+  "minivan": 1,
+  "truck": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bicycle rider": 4,
+  "bicycle with rider": 4,
+  "cyclist on a bike": 4,
+  "tram": 5,
+  "streetcar": 5
+ },
+ "rationale": "Try cyclist phrases emphasizing bike plus rider as one object.",
+ "mAP": 0.22200839940659467,
+ "per_class": {
+  "car": {
+   "AP": 0.3826818005875509,
+   "AP50": 0.7462506232074371,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.30007214459608433,
+   "AP50": 0.5568654223502097,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19864933704031354,
+   "AP50": 0.47656439745294465,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.007725963371731602,
+   "AP50": 0.048736801613560275,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.22091275143729264,
+   "AP50": 0.5327059052102509,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle rider": {
+   "correct": 22,
+   "false_pos": 81
+  },
+  "bicycle with rider": {
+   "correct": 2,
+   "false_pos": 58
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 19
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3246
+  },
+  "cyclist on a bike": {
+   "correct": 9,
+   "false_pos": 916
+  },
+  "minivan": {
+   "correct": 275,
+   "false_pos": 29
+  },
+  "pedestrian": {
+   "correct": 187,
+   "false_pos": 399
+  },
+  "person": {
+   "correct": 66,
+   "false_pos": 90
+  },
+  "streetcar": {
+   "correct": 16,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 5,
+   "false_pos": 30
+  },
+  "truck": {
+   "correct": 44,
+   "false_pos": 193
+  }
+ },
+ "cost_usd_cum": 0.058033999999999995
+}

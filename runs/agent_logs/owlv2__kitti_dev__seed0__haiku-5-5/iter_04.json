@@ -1,0 +1,82 @@
+{
+ "iter": 4,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "pedestrian on sidewalk": 3,
+  "bike rider": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist text variants have plateaued near zero, so I'm trimming cyclist to \"bike rider\" and testing whether plain \"person\" and \"pedestrian on sidewalk\" improve pedestrian recall over \"person walking\".",
+ "mAP": 0.22232936047900503,
+ "per_class": {
+  "car": {
+   "AP": 0.37258866861378714,
+   "AP50": 0.7423192161878809,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.2876101241847127,
+   "AP50": 0.5329473486313698,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2030712451788085,
+   "AP50": 0.4861184890852813,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.012345783504475944,
+   "AP50": 0.06440192642992755,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23603098091324096,
+   "AP50": 0.5330541382042767,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 18,
+   "false_pos": 77
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3209
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "pedestrian": {
+   "correct": 190,
+   "false_pos": 350
+  },
+  "pedestrian on sidewalk": {
+   "correct": 2,
+   "false_pos": 98
+  },
+  "person": {
+   "correct": 67,
+   "false_pos": 91
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0026320949999999997
+}

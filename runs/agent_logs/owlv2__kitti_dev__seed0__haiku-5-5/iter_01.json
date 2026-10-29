@@ -1,0 +1,87 @@
+{
+ "iter": 1,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "cyclist": 4,
+  "bicycle with rider": 4,
+  "man on bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist AP is near zero, so I'm swapping the cyclist-specific prompts for ones that describe the rider and bicycle as one object (\"bicycle with rider\", \"man on bicycle\") and keeping everything else fixed to isolate the effect.",
+ "mAP": 0.22010889963996175,
+ "per_class": {
+  "car": {
+   "AP": 0.3726193184942533,
+   "AP50": 0.7423312944933026,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.28761842159598383,
+   "AP50": 0.532955054594596,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.19256297699582034,
+   "AP50": 0.4747896032572956,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.011655303950298325,
+   "AP50": 0.06955587897057791,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23608847716345321,
+   "AP50": 0.5331979405594136,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicycle with rider": {
+   "correct": 4,
+   "false_pos": 290
+  },
+  "car": {
+   "correct": 1447,
+   "false_pos": 3210
+  },
+  "cyclist": {
+   "correct": 19,
+   "false_pos": 357
+  },
+  "delivery truck": {
+   "correct": 3,
+   "false_pos": 11
+  },
+  "man on bicycle": {
+   "correct": 11,
+   "false_pos": 303
+  },
+  "pedestrian": {
+   "correct": 123,
+   "false_pos": 238
+  },
+  "person walking": {
+   "correct": 137,
+   "false_pos": 342
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 41,
+   "false_pos": 160
+  },
+  "van": {
+   "correct": 192,
+   "false_pos": 69
+  }
+ },
+ "cost_usd_cum": 0.0008678749999999999
+}

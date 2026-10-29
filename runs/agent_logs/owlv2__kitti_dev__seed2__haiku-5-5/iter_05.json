@@ -1,0 +1,102 @@
+{
+ "iter": 5,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person standing": 3,
+  "person": 3,
+  "bicyclist": 4,
+  "bike with rider": 4,
+  "tram": 5
+ },
+ "rationale": "Cyclist AP is still about 0.01, so I'm trying \"bicyclist\" and \"bike with rider\" in place of the earlier cyclist prompts, and adding \"lorry\" and \"box truck\" to see whether truck recall improves.",
+ "mAP": 0.22409391604351303,
+ "per_class": {
+  "car": {
+   "AP": 0.3785831722777464,
+   "AP50": 0.7497505229183534,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.29042819373538464,
+   "AP50": 0.5420759075547275,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.2129685329890421,
+   "AP50": 0.5089916410601318,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.0022902666202385866,
+   "AP50": 0.017668752603065222,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23619941459515337,
+   "AP50": 0.5333668060459463,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bicyclist": {
+   "correct": 19,
+   "false_pos": 1127
+  },
+  "bike with rider": {
+   "correct": 1,
+   "false_pos": 51
+  },
+  "box truck": {
+   "correct": 2,
+   "false_pos": 17
+  },
+  "car": {
+   "correct": 1377,
+   "false_pos": 3180
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 8
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 147,
+   "false_pos": 348
+  },
+  "person": {
+   "correct": 57,
+   "false_pos": 97
+  },
+  "person standing": {
+   "correct": 62,
+   "false_pos": 76
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 143
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.0033522
+}

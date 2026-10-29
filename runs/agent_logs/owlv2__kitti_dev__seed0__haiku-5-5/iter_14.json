@@ -1,0 +1,97 @@
+{
+ "iter": 14,
+ "prompt_map": {
+  "car": 1,
+  "delivery van": 1,
+  "sedan": 1,
+  "suv": 1,
+  "minivan": 1,
+  "truck": 2,
+  "lorry": 2,
+  "pedestrian": 3,
+  "person": 3,
+  "bike rider": 4,
+  "rider on bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "The \"van\" prompt produces many car false positives, so I'm replacing it with \"delivery van\" as a final test of whether a more specific van phrase keeps the recall with fewer false positives.",
+ "mAP": 0.23239945777018,
+ "per_class": {
+  "car": {
+   "AP": 0.39276215285165755,
+   "AP50": 0.7588236724121098,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.3163558318480721,
+   "AP50": 0.5783736308574494,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20376371304712051,
+   "AP50": 0.48898783956459446,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.013140536972525391,
+   "AP50": 0.06882895221399472,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.2359750541315246,
+   "AP50": 0.532920312532706,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "bike rider": {
+   "correct": 16,
+   "false_pos": 68
+  },
+  "car": {
+   "correct": 1267,
+   "false_pos": 3188
+  },
+  "delivery van": {
+   "correct": 22,
+   "false_pos": 11
+  },
+  "lorry": {
+   "correct": 9,
+   "false_pos": 4
+  },
+  "minivan": {
+   "correct": 238,
+   "false_pos": 28
+  },
+  "pedestrian": {
+   "correct": 191,
+   "false_pos": 412
+  },
+  "person": {
+   "correct": 68,
+   "false_pos": 92
+  },
+  "rider on bicycle": {
+   "correct": 6,
+   "false_pos": 53
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 73,
+   "false_pos": 5
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 37
+  },
+  "truck": {
+   "correct": 36,
+   "false_pos": 185
+  }
+ },
+ "cost_usd_cum": 0.013469265000000001
+}

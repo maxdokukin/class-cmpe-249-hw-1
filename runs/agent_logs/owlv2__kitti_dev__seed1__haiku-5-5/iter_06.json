@@ -1,0 +1,112 @@
+{
+ "iter": 6,
+ "prompt_map": {
+  "car": 1,
+  "van": 1,
+  "suv": 1,
+  "sedan": 1,
+  "truck": 2,
+  "delivery truck": 2,
+  "lorry": 2,
+  "box truck": 2,
+  "pedestrian": 3,
+  "person walking": 3,
+  "person standing": 3,
+  "man": 3,
+  "cyclist": 4,
+  "person riding a bicycle": 4,
+  "tram": 5
+ },
+ "rationale": "Truck AP is about 0.29 with only 55 GT boxes, so I'm adding \"lorry\" and \"box truck\" to test whether truck recall improves without many new false positives, keeping the cyclist prompts at their best setting.",
+ "mAP": 0.22461716037929644,
+ "per_class": {
+  "car": {
+   "AP": 0.3798172245054171,
+   "AP50": 0.7508045195037664,
+   "n_gt": 1957
+  },
+  "truck": {
+   "AP": 0.29042786170489343,
+   "AP50": 0.5420735493339107,
+   "n_gt": 55
+  },
+  "pedestrian": {
+   "AP": 0.20473847900511374,
+   "AP50": 0.4977257094817792,
+   "n_gt": 387
+  },
+  "cyclist": {
+   "AP": 0.011820219615744873,
+   "AP50": 0.0656903685760756,
+   "n_gt": 130
+  },
+  "tram": {
+   "AP": 0.23628201706531304,
+   "AP50": 0.5335569539335434,
+   "n_gt": 37
+  }
+ },
+ "per_prompt": {
+  "box truck": {
+   "correct": 2,
+   "false_pos": 17
+  },
+  "car": {
+   "correct": 1346,
+   "false_pos": 3170
+  },
+  "cyclist": {
+   "correct": 18,
+   "false_pos": 409
+  },
+  "delivery truck": {
+   "correct": 2,
+   "false_pos": 8
+  },
+  "lorry": {
+   "correct": 8,
+   "false_pos": 4
+  },
+  "man": {
+   "correct": 35,
+   "false_pos": 4
+  },
+  "pedestrian": {
+   "correct": 93,
+   "false_pos": 212
+  },
+  "person riding a bicycle": {
+   "correct": 14,
+   "false_pos": 724
+  },
+  "person standing": {
+   "correct": 32,
+   "false_pos": 47
+  },
+  "person walking": {
+   "correct": 99,
+   "false_pos": 263
+  },
+  "sedan": {
+   "correct": 31,
+   "false_pos": 2
+  },
+  "suv": {
+   "correct": 93,
+   "false_pos": 7
+  },
+  "tram": {
+   "correct": 21,
+   "false_pos": 36
+  },
+  "truck": {
+   "correct": 33,
+   "false_pos": 143
+  },
+  "van": {
+   "correct": 167,
+   "false_pos": 68
+  }
+ },
+ "cost_usd_cum": 0.00395493
+}
