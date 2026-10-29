@@ -1,0 +1,5 @@
+Agent model,runs,evaluations (total),cost per run USD (mean ± sd),output tokens per run (mean),best dev mAP (mean),"best map test Δ vs raw (mean [min, max])",best maps significant (of 3),"one-shot test Δ (mean [min, max])",mean |dev step|,worst single-step dev drop
+Haiku 4.5*,3,45,0.070 ± 0.001,4694,0.2318,"+0.0093 [+0.0046, +0.0134]",3 of 3,"-0.0039 [-0.0063, -0.0027]",0.0070,-0.0514
+Haiku 5.5,3,44,0.017 ± 0.006,13499,0.2291,"+0.0054 [+0.0040, +0.0062]",3 of 3,"-0.0008 [-0.0008, -0.0008]",0.0017,-0.0031
+Sonnet 5.5,3,45,0.209 ± 0.031,8593,0.2285,"+0.0109 [+0.0099, +0.0119]",3 of 3,"+0.0031 [+0.0026, +0.0041]",0.0022,-0.0115
+Opus 5.5,3,45,0.323 ± 0.025,8030,0.2329,"+0.0041 [+0.0017, +0.0061]",2 of 3,"-0.0008 [-0.0008, -0.0008]",0.0014,-0.0024

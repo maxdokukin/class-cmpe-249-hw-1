@@ -36,7 +36,7 @@ MAG, MAG2 = "#e87ba4", "#a62c63"
 MODELS = [
     dict(key="yolo11m", name="YOLO11m", family="one-stage CNN", model="yolo11m", tag="", coco="coco_val",
          color=BLUE, marker="o", hatch=""),
-    dict(key="yolo26m", name="YOLO26m", family="one-stage CNN", model="yolo26m", tag="", coco="coco_val",
+    dict(key="yolo26m", name="YOLO26m (NMS-free)", family="one-stage CNN", model="yolo26m", tag="", coco="coco_val",
          color=BLUE2, marker="s", hatch="///"),
     dict(key="frcnn_v2", name="Faster R-CNN v2", family="two-stage", model="frcnn_v2", tag="", coco="coco_val",
          color=ORANGE, marker="^", hatch=""),
@@ -49,7 +49,7 @@ MODELS = [
 ]
 # extra configs: used in F1 and tables only
 EXTRA = [
-    dict(key="yolo26m_nms", name="YOLO26m (NMS head)", family="one-stage CNN", model="yolo26m", tag="nms",
+    dict(key="yolo26m_nms", name="YOLO26m (NMS)", family="one-stage CNN", model="yolo26m", tag="nms",
          coco="coco_val", color=BLUE2, marker="s", hatch="///", hollow=True),
     dict(key="yolo11m_1280", name="YOLO11m @1280", family="one-stage CNN", model="yolo11m", tag="img1280",
          coco=None, color=BLUE, marker="h", hatch=""),
@@ -143,11 +143,12 @@ def cm(d, key):
 
 
 # ---------------------------------------------------------------- output helpers
-def save_fig(fig, out: Path, name: str):
+def save_fig(fig, out: Path, name: str, dpi=300, pdf=True):
     out.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out / f"{name}.png", dpi=300, bbox_inches="tight", pad_inches=0.06, metadata={"Software": None})
-    fig.savefig(out / f"{name}.pdf", bbox_inches="tight", pad_inches=0.06,
-                metadata={"CreationDate": None, "Creator": "hw1.figures", "Producer": "matplotlib"})
+    fig.savefig(out / f"{name}.png", dpi=dpi, bbox_inches="tight", pad_inches=0.06, metadata={"Software": None})
+    if pdf:
+        fig.savefig(out / f"{name}.pdf", bbox_inches="tight", pad_inches=0.06,
+                    metadata={"CreationDate": None, "Creator": "hw1.figures", "Producer": "matplotlib"})
     plt.close(fig)
     print(f"  figure {name}")
 
@@ -220,10 +221,10 @@ def fig_f1(R: Runs, out: Path, notes):
                  va="bottom", fontsize=6.3, color="#52514e")
     fig.subplots_adjust(wspace=0.28)
     cpu_h = Line2D([], [], marker="X", color=MAG2, markerfacecolor="white", linestyle="", markersize=5.5,
-                   label="hollow = CPU run / NMS head")
+                   label="hollow = CPU run / NMS")
     leg = model_legend(fig, MODELS + EXTRA[:1] + EXTRA[1:], ncol=4, kind="line", y=-0.01)
     footnote(fig, CAV_CPU + " " + CAV_SUBSET + " Latency is batch 1 including pre/post-processing; the x range is shared. "
-             "Hollow markers: YOLO26m with an NMS head, and the CPU-measured Grounding DINO-T.", y=-0.2)
+             "Hollow markers: YOLO26m with the NMS head (Ultralytics default; the solid YOLO26m run used the opt-in NMS-free head), and the CPU-measured Grounding DINO-T.", y=-0.2)
     save_fig(fig, out, "F1_speed_accuracy")
     notes["F1_speed_accuracy"] = ("Speed-accuracy trade-off. Sustained median latency per image at batch 1 (pre + forward + post) against "
                                   "mAP@[.5:.95], on COCO val2017 (left) and KITTI val-3769 (right). " + CAV_CPU + " " + CAV_SUBSET + " " + CAV_KMAP)
@@ -412,72 +413,277 @@ def fig_f6(R: Runs, out: Path, notes):
     notes["F6_difficulty"] = ("KITTI-style AP by difficulty (easy, moderate, hard) for Car at IoU 0.7 and Pedestrian at IoU 0.5. " + CAV_AP)
 
 
-def agent_data(R: Runs):
+# ---------------------------------------------------------------- agent study (F7, T6)
+# agent models get their own colour set (validated: gold, red, violet, green), distinct from the detector palette.
+AGENTS = [
+    dict(key="haiku-4-5", name="Haiku 4.5", color="#b8860b", marker="o"),
+    dict(key="haiku-5-5", name="Haiku 5.5", color="#b3262e", marker="s"),
+    dict(key="sonnet-5-5", name="Sonnet 5.5", color="#7b4fc4", marker="^"),
+    dict(key="opus-5-5", name="Opus 5.5", color="#4d8f2a", marker="D"),
+]
+SEEDS = (0, 1, 2)
+NGDET_C = "#52514e"
+SEED_LS = {0: "-", 1: (0, (5, 1.5)), 2: (0, (1, 1.2))}
+
+
+def _transcript_tokens(d: Path):
+    """Output tokens summed over a run's transcript turns (used when summary.json has no token block)."""
+    t = d / "transcript.jsonl"
+    if not t.exists():
+        return None
+    tot = 0
+    for line in t.read_text().splitlines():
+        if line.strip():
+            tot += (json.loads(line).get("usage") or {}).get("output_tokens", 0) or 0
+    return tot
+
+
+def agent_study(R: Runs):
+    """{agent key: {seed: dict(traj, best_iter, best_dev, oneshot_dev, cost, out_tokens, evals, raw, ngdet)}}"""
     logs = R.root / "agent_logs"
-    traj = {}
-    for d in sorted(logs.glob("*__kitti_dev__seed*")):
-        its = sorted(d.glob("iter_*.json"))
-        if not its:
-            continue
-        ys = [json.loads(p.read_text())["mAP"] for p in its]
-        det, seed = d.name.split("__")[0], d.name.rsplit("seed", 1)[1]
-        base = json.loads((d / "baselines.json").read_text()) if (d / "baselines.json").exists() else {}
-        traj[(det, seed)] = (ys, {k: v["mAP"] for k, v in base.items() if isinstance(v, dict) and "mAP" in v})
-    arms = {}
-    for p in sorted(R.metrics.glob("*__arm-*.json")):
-        det = p.name.split("__")[0]
+    study = {}
+    for a in AGENTS:
+        for s in SEEDS:
+            d = logs / f"owlv2__kitti_dev__seed{s}__{a['key']}"
+            if not (d / "summary.json").exists():
+                continue
+            sm = json.loads((d / "summary.json").read_text())
+            bl = json.loads((d / "baselines.json").read_text())
+            tok = sm.get("tokens")
+            study.setdefault(a["key"], {})[s] = dict(
+                traj=sm["trajectory"], best_iter=sm["best_iter"], best_dev=sm["best_dev_mAP"],
+                oneshot_dev=sm["oneshot_dev_mAP"], cost=sm["cost_usd"], evals=sm["evaluations"],
+                out_tokens=tok["output"] if tok else _transcript_tokens(d), tok_from_summary=bool(tok),
+                raw=bl["raw_names"]["mAP"], ngdet=bl["ngdet_synonyms"]["mAP"])
+    return study
+
+
+def agent_test(R: Runs):
+    """({arm: test mAP}, {arm: dict(delta, lo, hi)}) for the owlv2 prompt arms on kitti_test."""
+    maps = {}
+    for p in sorted(R.metrics.glob("owlv2__kitti_test__arm-*.json")):
         arm = p.name.split("__arm-")[1].split("__")[0]
-        d = json.loads(p.read_text())
-        b = d.get("bootstrap", {}).get("mAP", {})
-        arms[(det, arm)] = (d["coco"]["mAP"], b.get("lo"), b.get("hi"))
-    return traj, arms
+        maps[arm] = json.loads(p.read_text())["coco"]["mAP"]
+    pp = R.metrics / "owlv2__kitti_test__paired_vs_raw_names.json"
+    paired = json.loads(pp.read_text()) if pp.exists() else {}
+    return maps, paired
 
 
 def fig_f7(R: Runs, out: Path, notes):
-    traj, arms = agent_data(R)
-    if not traj and not arms:
-        print("  F7 skipped (no agent iteration logs or arm metrics yet)")
+    study = agent_study(R)
+    maps, paired = agent_test(R)
+    if not study:
+        print("  F7 skipped (no agent logs)")
         return
-    det_style = {"owlv2": (MAG, "OWLv2", "P"), "gdino_t": (MAG2, "Grounding DINO-T", "X")}
-    ncol = int(bool(traj)) + int(bool(arms))
-    fig, axes = plt.subplots(1, ncol, figsize=(7.0, 3.0), squeeze=False)
-    axes = list(axes[0])
-    if traj:
-        ax = axes.pop(0)
-        seeds = sorted({s for _, s in traj})
-        ls = {s: ["-", "--", ":", "-."][i % 4] for i, s in enumerate(seeds)}
-        base_drawn = set()
-        for (det, seed), (ys, base) in traj.items():
-            c, nm, mk = det_style.get(det, ("#444444", det, "o"))
-            ax.plot(range(len(ys)), ys, color=c, marker=mk, ms=4, ls=ls[seed], label=f"{nm}, seed {seed}")
-            for bk, bl in (("raw_names", "raw names"), ("ngdet_synonyms", "ngdet synonyms")):
-                if bk in base and (det, bk) not in base_drawn:
-                    base_drawn.add((det, bk))
-                    ax.axhline(base[bk], color=c, lw=0.9, ls=(0, (1, 1.5)) if bk == "raw_names" else (0, (4, 2)), alpha=0.9)
-                    ax.text(0.0, base[bk], f" {nm.split()[0]} {bl}", fontsize=5.8, va="bottom", color="#52514e")
-        ax.set_xlabel("agent evaluation (iteration)")
-        ax.set_ylabel("dev mAP@[.5:.95] (kitti_dev, 500 imgs)")
-        ax.set_title("Agent trajectory (dev)")
-        ax.legend(frameon=False, loc="lower right")
-    if arms:
-        ax = axes.pop(0)
-        order = ["raw_names", "ngdet_synonyms", "oneshot", "best"]
-        rows = sorted(arms, key=lambda k: (k[0], next((i for i, o in enumerate(order) if k[1].startswith(o)), 9), k[1]))
-        for i, k in enumerate(rows):
-            v, lo, hi = arms[k]
-            c, nm, mk = det_style.get(k[0], ("#444444", k[0], "o"))
-            ax.errorbar(v, i, xerr=None if lo is None else [[v - lo], [hi - v]], fmt=mk, color=c, capsize=2, ms=5)
-        ax.set_yticks(range(len(rows)), [f"{det_style.get(d, (0, d))[1]}: {a}" for d, a in rows])
-        ax.invert_yaxis()
-        ax.set_xlabel("kitti_test mAP@[.5:.95] (95% CI)")
-        ax.set_title("Test-split arms")
-        ax.grid(axis="y", visible=False)
-    if ncol == 2:
-        fig.subplots_adjust(wspace=0.85)
-    footnote(fig, "Prompt maps are chosen on kitti_dev only; the selected map is run once on kitti_test. " + CAV_KMAP, y=-0.02)
+    raw = next(iter(next(iter(study.values())).values()))["raw"]
+    ngd = next(iter(next(iter(study.values())).values()))["ngdet"]
+    fig = plt.figure(figsize=(7.0, 6.3))
+    gs = fig.add_gridspec(2, 4, height_ratios=[1.0, 1.05], hspace=0.5, wspace=0.07)
+    axs = [fig.add_subplot(gs[0, 0])]
+    axs += [fig.add_subplot(gs[0, i], sharey=axs[0]) for i in range(1, 4)]
+    for ax, a in zip(axs, AGENTS):
+        ax.axhline(raw, color=NGDET_C, lw=0.9, ls=(0, (1, 1.5)), zorder=1)
+        ax.axhline(ngd, color=NGDET_C, lw=0.9, ls=(0, (4, 2)), zorder=1)
+        for s, r in sorted(study.get(a["key"], {}).items()):
+            ys = r["traj"]
+            ax.plot(range(len(ys)), ys, color=a["color"], lw=1.0, ls=SEED_LS[s], zorder=2)
+            ax.scatter([r["best_iter"]], [ys[r["best_iter"]]], s=22, color=a["color"], marker=a["marker"],
+                       edgecolor="white", linewidth=0.6, zorder=4)
+        ax.set_title(a["name"], fontsize=8)
+        ax.set_xlim(-0.5, 14.5)
+        ax.set_xticks([0, 5, 10, 14])
+        ax.tick_params(length=2.5, width=0.6)
+        ax.grid(axis="x", visible=False)
+        if ax is not axs[0]:
+            plt.setp(ax.get_yticklabels(), visible=False)
+    axs[0].set_ylabel("dev mAP@[.5:.95]\n(kitti_dev, 500 images)")
+    ymin, ymax = axs[0].get_ylim()
+    fig.canvas.draw()
+    y0 = axs[0].get_position().y0
+    fig.text(0.5, y0 - 0.045, "agent evaluation (0 = one-shot map)", ha="center", va="top", fontsize=8, color="#0b0b0b")
+    fig.text(0.0, 0.93, "(a) Dev-set trajectory, 3 runs per agent model", fontsize=8.5, fontweight="bold", ha="left")
+    # --- panel (b)
+    ax = fig.add_subplot(gs[1, :])
+    groups = [("ngdet\nsynonyms", None)] + [(a["name"], a) for a in AGENTS]
+    pitch, w = 1.0, 0.12
+    ticks = []
+    for gi, (lab, a) in enumerate(groups):
+        if a is None:
+            q = paired.get("ngdet_synonyms")
+            if q:
+                ax.errorbar(gi, q["delta"], yerr=[[q["delta"] - q["lo"]], [q["hi"] - q["delta"]]], fmt="o", color=NGDET_C,
+                            ms=4.5, capsize=2, elinewidth=1.0, zorder=3)
+            ticks.append(gi)
+            continue
+        pos = 0
+        for kind in ("best", "oneshot"):
+            for s in SEEDS:
+                q = paired.get(f"{kind}_s{s}_{a['key']}")
+                x = gi + (pos - 2.5 - (0.25 if pos >= 3 else -0.25)) * w
+                pos += 1
+                if not q:
+                    continue
+                ax.errorbar(x, q["delta"], yerr=[[q["delta"] - q["lo"]], [q["hi"] - q["delta"]]], fmt=a["marker"],
+                            color=a["color"], ms=4.6, capsize=1.8, elinewidth=1.0, capthick=0.8,
+                            markerfacecolor=a["color"] if kind == "best" else "white", markeredgewidth=1.0, zorder=3)
+        ticks.append(gi)
+    ax.axhline(0, color="#0b0b0b", lw=0.9, zorder=1)
+    ax.set_xticks(ticks, [g[0] for g in groups])
+    ax.set_xlim(-0.5, len(groups) - 0.5)
+    ax.set_ylabel("Δ test mAP vs raw names\n(paired 95% CI)")
+    ax.grid(axis="x", visible=False)
+    ax.tick_params(axis="x", length=0)
+    ax.text(0.995, 0.97, f"raw names test mAP = {maps.get('raw_names', float('nan')):.3f}", transform=ax.transAxes, ha="right",
+            va="top", fontsize=6.5, color="#52514e")
+    ax.set_title("(b) kitti_test, prompt map selected on dev, vs the raw class names", loc="left", x=-0.07, fontsize=8.5, pad=8)
+    leg = [Line2D([], [], color=NGDET_C, lw=0.9, ls=(0, (1, 1.5)), label="raw names (dev)"),
+           Line2D([], [], color=NGDET_C, lw=0.9, ls=(0, (4, 2)), label="ngdet synonyms (dev)"),
+           Line2D([], [], color="#52514e", lw=1.0, ls=SEED_LS[0], label="seed 0"),
+           Line2D([], [], color="#52514e", lw=1.0, ls=SEED_LS[1], label="seed 1"),
+           Line2D([], [], color="#52514e", lw=1.0, ls=SEED_LS[2], label="seed 2"),
+           Line2D([], [], marker="o", color="#52514e", ls="", ms=4.5, label="best map (filled)"),
+           Line2D([], [], marker="o", color="#52514e", ls="", ms=4.5, markerfacecolor="white", label="one-shot map (hollow)")]
+    fig.legend(handles=leg, loc="upper center", ncol=4, frameon=False, bbox_to_anchor=(0.5, 0.045), columnspacing=1.0,
+               handlelength=2.0, fontsize=6.6)
+    footnote(fig, "(a) Larger marker = the evaluation the agent kept as its best map. (b) Within each model: best maps of seeds 0, 1, 2, then one-shot maps of "
+             "seeds 0, 1, 2. Bars are paired bootstrap CIs (1000 image resamples of kitti_test) and reflect image sampling only, not run-to-run variance of the "
+             "agent. 3 runs per model. Haiku 4.5 ran without the effort setting (not accepted); the other three ran at effort medium. " + CAV_KMAP, y=-0.045)
     save_fig(fig, out, "F7_agent")
-    notes["F7_agent"] = ("Agent experiment: dev mAP per evaluation with the human baselines as horizontal lines, and kitti_test mAP with 95% CIs per prompt arm. "
-                         + CAV_KMAP)
+    notes["F7_agent"] = ("Agent prompt-tuning study (OWLv2, 12 runs = 4 agent models x 3 seeds). (a) Dev mAP per evaluation, one small panel per model, "
+                         "against the raw-names and ngdet-synonym dev baselines. (b) kitti_test mAP minus raw names for every selected map, with paired 95% bootstrap CIs. "
+                         "Caveats: paired CIs cover image resampling only, not run-to-run variance of the agent; 3 runs per model; Haiku 4.5 runs without the "
+                         "effort setting (it does not accept it) while the other three run at effort medium; Haiku 4.5's one-shot and best maps are selected on the "
+                         "same 500 dev images that define the dev curve. " + CAV_KMAP)
+
+
+# ---------------------------------------------------------------- failure analysis (F8, F9, F10, T8)
+ERR = ["Cls", "Loc", "Both", "Dupe", "Bkg", "Missed"]
+ERR_LABEL = {"Cls": "Cls\n(wrong class)", "Loc": "Loc\n(poor box)", "Both": "Both\n(box + class)", "Dupe": "Dupe\n(duplicate)",
+             "Bkg": "Bkg\n(background)", "Missed": "Missed\n(no detection)"}
+
+
+def analysis(R: Runs, m):
+    return R._load(R.root / "analysis" / f"{R.pred_name(m, 'kitti_test')}.json")
+
+
+def fig_f8(R: Runs, out: Path, notes):
+    ms = [m for m in MODELS if analysis(R, m)]
+    if not ms:
+        print("  F8 skipped (no runs/analysis)")
+        return
+    fig, axes = plt.subplots(2, 1, figsize=(7.0, 5.4), gridspec_kw=dict(height_ratios=[1, 1], hspace=0.5))
+    n = len(ms)
+    w = 0.13
+    off = (np.arange(n) - (n - 1) / 2) * w
+    for ax, (getter, title, ylab) in zip(axes, (
+            (lambda a, e: a["dAP50"][e], "(a) All five classes", "ΔAP50 if this error\nwere fixed"),
+            (lambda a, e: a["dAP50_per_class"][e]["cyclist"], "(b) Cyclist only", "Cyclist ΔAP50"))):
+        for i, m in enumerate(ms):
+            a = analysis(R, m)
+            vals = [getter(a, e) for e in ERR]
+            ax.bar(np.arange(len(ERR)) + off[i], vals, width=w * 0.92, **bar_kw(m))
+            if ax is axes[1]:
+                for j, v in enumerate(vals):
+                    if v >= 0.3:
+                        ax.text(j + off[i], v + 0.008, f"{v:.3f}", ha="center", va="bottom", fontsize=6.5, fontweight="bold")
+        ax.set_xticks(range(len(ERR)), [ERR_LABEL[e] for e in ERR])
+        ax.set_title(title)
+        ax.set_ylabel(ylab)
+        ax.grid(axis="x", visible=False)
+        ax.tick_params(axis="x", length=0)
+    axes[1].set_ylim(0, 0.42)
+    a_owl = analysis(R, BY_KEY["owlv2"])
+    axes[1].annotate("OWLv2 cyclist boxes land on the\nright object with the wrong extent",
+                     xy=(1 + off[ms.index(BY_KEY["owlv2"])], a_owl["dAP50_per_class"]["Loc"]["cyclist"]),
+                     xytext=(2.1, 0.30), fontsize=6.5, color="#0b0b0b", va="center",
+                     arrowprops=dict(arrowstyle="-", color="#52514e", lw=0.7))
+    model_legend(fig, ms, ncol=6, y=0.02)
+    footnote(fig, "TIDE-style oracle: each bar is AP50 gained (IoU 0.5, kitti_test, 3769 images) when only that error type is fixed, one oracle at a time; bigger = "
+             "that error costs more. Loc = box overlaps a same-class object at IoU 0.1-0.5; Missed = ground truth never matched. Headline runs only "
+             "(YOLO11m @1280 and YOLO26m (NMS) variants are in table T8). Closed-set models use the Cyclist merge; open-vocabulary models prompt Cyclist directly. "
+             + CAV_AP.replace("KITTI-style AP", "AP50 here"), y=-0.06)
+    save_fig(fig, out, "F8_failure_tide")
+    notes["F8_failure_tide"] = ("TIDE-style error analysis on kitti_test at IoU 0.5: ΔAP50 from fixing one error type at a time (Cls, Loc, Both, Dupe, Bkg, Missed), "
+                                "over all classes (a) and for Cyclist only (b). OWLv2's Cyclist Loc ΔAP50 is 0.341, the largest single bar: its cyclist boxes sit on the right "
+                                "object with the wrong extent. Oracles are applied one at a time, so the bars do not sum to the AP gap. One image set, one run per model, "
+                                "so no confidence intervals. Headline runs only; img1280 / YOLO26m (NMS) variants are in T8.")
+
+
+def _recall_pool(a, cls, dim, key):
+    b = a["recall100"][cls][dim][key]
+    return b["recall"], b["n"]
+
+
+def fig_f9(R: Runs, out: Path, notes):
+    ms = [m for m in MODELS if analysis(R, m)]
+    if not ms:
+        print("  F9 skipped (no runs/analysis)")
+        return
+    occ = [("0", "0\nfully\nvisible"), ("1", "1\npartly\noccluded"), ("2", "2\nlargely\noccluded"), ("3", "3\nunknown")]
+    hts = [("<25", "< 25 px"), ("25-40", "25-40 px"), ("40-80", "40-80 px"), (">=80", ">= 80 px")]
+    fig, axes = plt.subplots(2, 2, figsize=(7.0, 5.0), sharey=True, gridspec_kw=dict(hspace=0.62, wspace=0.08))
+    for r, (cls, cl) in enumerate((("all", "All classes"), ("cyclist", "Cyclist"))):
+        for c, (dim, bins, t) in enumerate((("occlusion", occ, "KITTI occlusion level"), ("height", hts, "Box height"))):
+            ax = axes[r, c]
+            ref = analysis(R, ms[0])
+            for m in ms:
+                a = analysis(R, m)
+                ys = [a["recall100"][cls][dim][k]["recall"] for k, _ in bins]
+                ax.plot(range(4), [nz(y) for y in ys], color=m["color"], marker=m["marker"], ms=4.6, lw=1.2,
+                        ls="--" if m["hatch"] else "-", zorder=3)
+            labs = [f"{lab}\nn={ref['recall100'][cls][dim][k]['n']}" for k, lab in bins]
+            ax.set_xticks(range(4), labs, fontsize=6.3)
+            ax.set_xlim(-0.3, 3.3)
+            ax.set_ylim(0, 1.02)
+            ax.set_title(f"{cl}: by {t.lower()}", fontsize=7.8)
+            ax.grid(axis="x", visible=False)
+            ax.tick_params(length=2.5, width=0.6)
+    for r in range(2):
+        axes[r, 0].set_ylabel("recall@100 (IoU 0.5)")
+    model_legend(fig, ms, ncol=6, kind="line", y=-0.035)
+    footnote(fig, "Recall = share of ground-truth boxes matched at IoU 0.5 by a detection of the right class, any score, at most 100 detections per image and class. "
+             "n = ground-truth boxes in the bin (identical for every model). Occlusion 3 is KITTI's 'unknown'. Dashed = second model of a family. Cyclist is the "
+             "person+bicycle union box for closed-set models; the smallest cyclist height bin holds only 81 boxes, so that point is noisy. " + CAV_KMAP,
+             y=-0.115, width=130)
+    save_fig(fig, out, "F9_recall_bins")
+    notes["F9_recall_bins"] = ("Recall@100 at IoU 0.5 by KITTI occlusion level (left) and by box height (right), pooled over all five classes (top) and for Cyclist only "
+                               "(bottom), per model. Ground-truth counts are shown under each bin; small bins (cyclist < 25 px: 81 boxes) are noisy and there are "
+                               "no confidence intervals on these points. Single run per model.")
+
+
+GAL = Path("analysis") / "gallery"
+
+
+def fig_f10(R: Runs, out: Path, notes):
+    from PIL import Image
+    an = R.root / "analysis"
+    picks = [
+        ("owlv2__kitti_test__1.jpg", "(a) OWLv2, image 2666: 9 ground-truth objects >= 40 px missed (mostly pedestrians, tagged MISS) and one confident unmatched box (red, truck 0.59)"),
+        ("shared_miss__2.jpg", "(b) Faster R-CNN v2, same image 2666: 5 ground-truth objects >= 40 px that every closed-set model misses (magenta)"),
+        ("shared_miss__1.jpg", "(c) Faster R-CNN v2, image 4343: 6 ground-truth objects >= 40 px missed by every closed-set model (trams, a pedestrian); a confident cyclist box (red) does not match the annotated one"),
+    ]
+    picks = [(f, c) for f, c in picks if (an / "gallery" / f).exists()]
+    if not picks:
+        print("  F10 skipped (no gallery)")
+        return
+    import textwrap
+    imh, tth = 7.0 * 370 / 1224, 0.58  # image height at full width, title band (inches)
+    H = len(picks) * (imh + tth)
+    fig = plt.figure(figsize=(7.0, H))
+    for i, (f, cap) in enumerate(picks):
+        top = 1 - i * (imh + tth) / H
+        ax = fig.add_axes([0, top - (imh + tth) / H, 1, imh / H])
+        ax.imshow(Image.open(an / "gallery" / f), aspect="auto")
+        ax.axis("off")
+        fig.text(0.0, top - 0.06 / H, "\n".join(textwrap.wrap(cap, 118)), fontsize=6.6, va="top", ha="left")
+    footnote(fig, "Green = ground truth (thick, tagged MISS when no detection matched), orange = detections with score >= 0.3 that matched, red = unmatched (false "
+             "positive), magenta = missed ground truth in the shared-miss images. Images come from runs/analysis/gallery, chosen by most high-confidence errors "
+             "(a) and ground truth >= 40 px missed by every closed-set model (b, c). No OWLv2 cyclist-localisation image appears among the auto-selected "
+             "gallery images, so the cyclist Loc finding is supported by F8, not by a picture.", y=-0.005, width=135)
+    save_fig(fig, out, "F10_gallery", dpi=125, pdf=False)
+    notes["F10_gallery"] = ("Failure gallery on kitti_test: (a) OWLv2 on image 2666, where a crowd of pedestrians is missed; (b) the same image seen by the closed-set "
+                            "shared-miss set (detections from Faster R-CNN v2); (c) image 4343 with large objects missed by all closed-set models. Illustrative single "
+                            "images selected by an automatic ranking, not representative samples.")
 
 
 # ---------------------------------------------------------------- tables
@@ -558,7 +764,8 @@ def table_t1(R: Runs, out: Path):
     ]
     notes = ["Burst = median of the first 200 timed images; sustained = median over the whole run (after 10 warm-up images). FPS = 1000 / median ms.",
              "* " + CAV_CPU + " Its memory is process RSS, not an allocator peak.",
-             CAV_SUBSET + " They also trained on Visual Genome, which overlaps COCO, so COCO is not clean zero-shot for them (KITTI is).",
+             CAV_SUBSET + " "
+             "OWLv2's ensemble checkpoint was fine-tuned on LVIS, whose images are COCO images, and Grounding DINO's GoldG grounding data includes Visual Genome, whose images come from COCO, so neither model's COCO score is strictly zero-shot; KITTI is.",
              CAV_MEM,
              "Peak MPS memory differs a lot between runs of the same model (for example YOLO11m 1156 MB on COCO, 162 MB on KITTI at 640, 1146 MB on KITTI at 1280); "
              "it tracks input size: Ultralytics letterboxes the wide KITTI frames to about 640x192 at imgsz 640, versus 640x640 "
@@ -664,10 +871,10 @@ def table_t5(R: Runs, out: Path):
         split = parts[1] if len(parts) > 1 else m.get("split", "")
         tag = "__".join(parts[2:])
         key = next((x["name"] for x in MODELS + EXTRA if x["model"] == parts[0] and x["tag"] == tag), None)
-        disp = next((x["name"] for x in MODELS if x["model"] == parts[0]), parts[0])
+        disp = next((x["name"] for x in MODELS + EXTRA if x["model"] == parts[0] and x["tag"] == tag), None) or next((x["name"] for x in MODELS if x["model"] == parts[0]), parts[0])
         rows.append([disp, split, tag, m["n_images"], c.get("device", ""), m.get("env", {}).get("host", ""), v.get("torch", ""),
                      v.get("torchvision", ""), v.get("ultralytics", ""), v.get("transformers", ""), m.get("command", ""),
-                     f"{m['wall_s']:.1f}", m.get("src_hash", "")])
+                     (f"{m['wall_s']:.1f}" if m.get('wall_s') is not None else ""), m.get("src_hash", "")])
     order = {x["model"]: i for i, x in enumerate(MODELS)}
     rows.sort(key=lambda r: (order.get(next((x["model"] for x in MODELS if x["name"] == r[0]), ""), 99), r[1], r[2]))
     notes = ["One row per prediction run in runs/preds (dev-VM sanity runs and the MPS/CPU parity checks are excluded). Every run is deterministic given the command: fixed seeds for subsets, batch size 1.",
@@ -675,6 +882,100 @@ def table_t5(R: Runs, out: Path):
              CAV_SUBSET + " " + CAV_CPU,
              "Full command history: runs/COMMANDS.md."]
     write_table(out, "T5_reproducibility", h, rows, notes=notes)
+
+
+# ---------------------------------------------------------------- new tables (T6, T7, T8)
+def table_t6(R: Runs, out: Path):
+    study = agent_study(R)
+    maps, paired = agent_test(R)
+    if not study:
+        print("  T6 skipped (no agent logs)")
+        return
+    h = ["Agent model", "runs", "evaluations (total)", "cost per run USD (mean ± sd)", "output tokens per run (mean)",
+         "best dev mAP (mean)", "best map test Δ vs raw (mean [min, max])", "best maps significant (of 3)",
+         "one-shot test Δ (mean [min, max])", "mean |dev step|", "worst single-step dev drop"]
+    rows = []
+    for a in AGENTS:
+        rs = study.get(a["key"], {})
+        if not rs:
+            continue
+        cost = np.array([r["cost"] for r in rs.values()])
+        toks = [r["out_tokens"] for r in rs.values() if r["out_tokens"] is not None]
+        steps = [np.diff(r["traj"]) for r in rs.values()]
+        allsteps = np.concatenate(steps)
+        bd = [paired.get(f"best_s{s}_{a['key']}") for s in rs]
+        od = [paired.get(f"oneshot_s{s}_{a['key']}") for s in rs]
+        bd, od = [q for q in bd if q], [q for q in od if q]
+        sig = sum(1 for q in bd if q["lo"] > 0 or q["hi"] < 0)
+        fmt = lambda qs: (f"{np.mean([q['delta'] for q in qs]):+.4f} [{min(q['delta'] for q in qs):+.4f}, {max(q['delta'] for q in qs):+.4f}]"
+                          if qs else "")
+        rows.append([a["name"] + ("*" if a["key"] == "haiku-4-5" else ""), len(rs), sum(r["evals"] for r in rs.values()),
+                     f"{cost.mean():.3f} ± {cost.std(ddof=1):.3f}", f"{np.mean(toks):.0f}" if toks else "",
+                     f"{np.mean([r['best_dev'] for r in rs.values()]):.4f}", fmt(bd), f"{sig} of {len(bd)}", fmt(od),
+                     f"{np.mean(np.abs(allsteps)):.4f}", f"{allsteps.min():+.4f}"])
+    p = PRICES_NOTE()
+    notes = [f"Dev baselines (kitti_dev, 500 images): raw names {next(iter(next(iter(study.values())).values()))['raw']:.4f}, ngdet synonyms "
+             f"{next(iter(next(iter(study.values())).values()))['ngdet']:.4f}. Test mAP of raw names {maps.get('raw_names', float('nan')):.4f}. "
+             f"ngdet synonyms test Δ vs raw names: {paired['ngdet_synonyms']['delta']:+.4f} [{paired['ngdet_synonyms']['lo']:+.4f}, {paired['ngdet_synonyms']['hi']:+.4f}].",
+             "Test Δ = kitti_test mAP of the selected prompt map minus raw names (OWLv2). 'Significant' = the paired-bootstrap 95% CI (1000 image resamples) excludes 0; "
+             "it covers image resampling only, not run-to-run variance of the agent. 3 runs per model, so mean [min, max] over 3 seeds.",
+             "Evaluations: dev evaluations the agent used (budget 15; one Haiku 5.5 run stopped at 14). Dev step = change in dev mAP between consecutive evaluations within a run; "
+             "the 'worst drop' is the most negative single step over all runs of that model.",
+             "Cost per run = (input x p_in + output x p_out + cache_read x p_read + cache_write x p_write) / 1e6 from the usage the API reported, with USD per million "
+             "tokens from PRICES in src/hw1/agent.py: " + p + ". Cost covers agent tokens only, not OWLv2 compute.",
+             "* Haiku 4.5 ran without the effort setting (it does not accept it); the others ran at effort medium. Its summary.json has no token block, so its output tokens "
+             "are summed from the per-turn usage in transcript.jsonl."]
+    write_table(out, "T6_agent_study", h, rows, notes=notes)
+
+
+def PRICES_NOTE():
+    src = (ROOT / "src" / "hw1" / "agent.py").read_text()
+    blk = re.search(r"PRICES = \{(.*?)\n\}", src, re.S).group(1)
+    items = re.findall(r'"(claude-[\w-]+)":\s*\(([^)]*)\)', blk)
+    return "; ".join(f"{k}: in/out/read/write = " + "/".join(x.strip() for x in v.split(",")) for k, v in items)
+
+
+def table_t7(R: Runs, out: Path):
+    keys = [("mAP", "mAP"), ("AP50", "AP50"), ("AP_small", "APs"), ("AP_medium", "APm"), ("AP_large", "APl")]
+    h = ["Model", "1k: n images"] + [f"1k {lab}" for _, lab in keys] + ["5000: mAP", "5000: AP50", "Δ mAP (1k - 5000)"]
+    rows = []
+    for m in MODELS:
+        if m.get("open_vocab"):
+            d1 = R._load(R.metrics / f"{m['model']}__coco_val1k__default.json")
+            d5 = None
+        else:
+            d1 = R._load(R.metrics / f"{m['model']}__coco_val__default__sub-coco_val1k.json")
+            d5 = R.coco(m)
+        if d1 is None:
+            continue
+        r = [m["name"], d1["n_images"]] + [f3(cm(d1, k)) for k, _ in keys]
+        r += [f3(cm(d5, "mAP")) if d5 else "n/a", f3(cm(d5, "AP50")) if d5 else "n/a",
+              f"{cm(d1, 'mAP') - cm(d5, 'mAP'):+.3f}" if d5 else "n/a"]
+        rows.append(r)
+    notes = ["All six models scored on the same seeded 1000-image COCO val2017 subset (the closed-set models were re-scored on it from their full-val predictions). "
+             "5000 = the full val2017 numbers of T1; OWLv2 and Grounding DINO-T were run only on the 1k subset.",
+             "Δ mAP shows how much the 1k subset shifts each closed-set model's mAP from the full set; compare models within the 1k columns, not across 1k and 5000.",
+             "OWLv2's ensemble checkpoint was fine-tuned on LVIS, whose images are COCO images, and Grounding DINO's GoldG grounding data includes Visual Genome, whose images come from COCO, so neither model's COCO score is strictly zero-shot; KITTI is. COCO mAP is over 80 classes; "
+             "one subset, one run each, no confidence intervals."]
+    write_table(out, "T7_coco_same_subset", h, rows, notes=notes)
+
+
+def table_t8(R: Runs, out: Path):
+    h = ["Model", "AP50"] + [f"{e} ΔAP50" for e in ERR] + ["Cyclist AP50"] + [f"Cyclist {e} ΔAP50" for e in ERR]
+    rows = []
+    for m in TABLE_MODELS:
+        a = analysis(R, m)
+        if a is None:
+            continue
+        rows.append([m["name"], f3(a["AP50"])] + [f3(a["dAP50"][e]) for e in ERR] + [f3(a["AP50_per_class"]["cyclist"])]
+                    + [f3(a["dAP50_per_class"][e]["cyclist"]) for e in ERR])
+    notes = ["TIDE-style oracles at IoU 0.5 on kitti_test (3769 images): ΔAP50 = AP50 after fixing only that error type minus AP50 (definitions in the docstring of "
+             "src/hw1/failure.py). Overall = mean over the five KITTI classes. Oracles are applied one at a time, so columns do not add up to the AP gap.",
+             "Cls = box matches an object of another class; Loc = poor localisation of the right class (IoU 0.1-0.5); Both = poor box and wrong class; Dupe = duplicate; "
+             "Bkg = background; Missed = ground truth never detected.",
+             "OWLv2 Cyclist Loc ΔAP50 = 0.341: its cyclist boxes sit on the right object with the wrong extent.",
+             "One run per model; no confidence intervals. YOLO11m @1280 and YOLO26m (NMS) are the extra configurations of T1. " + CAV_AP]
+    write_table(out, "T8_tide", h, rows, notes=notes)
 
 
 # ---------------------------------------------------------------- captions
@@ -696,10 +997,12 @@ def main(argv=None):
     only = {s.strip().upper() for s in a.only.split(",") if s.strip()}
     want = lambda k: not only or k in only
     notes = {}
-    for k, fn in (("F1", fig_f1), ("F2", fig_f2), ("F3", fig_f3), ("F4", fig_f4), ("F5", fig_f5), ("F6", fig_f6), ("F7", fig_f7)):
+    for k, fn in (("F1", fig_f1), ("F2", fig_f2), ("F3", fig_f3), ("F4", fig_f4), ("F5", fig_f5), ("F6", fig_f6), ("F7", fig_f7),
+                   ("F8", fig_f8), ("F9", fig_f9), ("F10", fig_f10)):
         if want(k):
             fn(R, figs, notes)
-    for k, fn in (("T1", table_t1), ("T2", table_t2), ("T3", table_t3), ("T4", table_t4), ("T5", table_t5)):
+    for k, fn in (("T1", table_t1), ("T2", table_t2), ("T3", table_t3), ("T4", table_t4), ("T5", table_t5), ("T6", table_t6),
+                   ("T7", table_t7), ("T8", table_t8)):
         if want(k):
             fn(R, tabs)
     if not only:

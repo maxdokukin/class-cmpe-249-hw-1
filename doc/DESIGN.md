@@ -11,7 +11,7 @@ touching any weights?*
 | # | Config | Family | Source | Why it's here |
 |---|---|---|---|---|
 | M1 | YOLO11m | one-stage CNN, anchor-free, NMS | `ultralytics` `yolo11m.pt` | modern real-time baseline |
-| M2 | YOLO26m | one-stage CNN, NMS-free head | `ultralytics` `yolo26m.pt` | NMS vs NMS-free within one family |
+| M2 | YOLO26m | one-stage CNN; default one-to-many head with NMS, optional one-to-one head with `nms=False` (both run) | `ultralytics` `yolo26m.pt` | NMS vs NMS-free within one family |
 | M3 | Faster R-CNN R50-FPN v2 | two-stage, anchor-based | `torchvision` `COCO_V1` | classic reference |
 | M4 | RT-DETR R50 | DETR, query-based, NMS-free | HF `PekingU/rtdetr_r50vd` | transformer vs CNN |
 | M5 | OWLv2-B/16 | open-vocab, ViT | HF `google/owlv2-base-patch16-ensemble` | agent target (prompt-independent image features → cheap loop) |

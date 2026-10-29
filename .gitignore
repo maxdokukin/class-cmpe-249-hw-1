@@ -6,3 +6,4 @@ runs/smoke/
 runs/preds/*.jsonl.gz
 *.pt
 *.tgz
+dist/
