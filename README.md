@@ -1,6 +1,6 @@
-# hw_1
+# class-cmpe-249-hw-1
 
-CMPE249 Homework 1, Track A. This folder runs six COCO-pretrained detectors on COCO val2017 and, without retraining,
+CMPE249 Homework 1, Track A. This repository runs six COCO-pretrained detectors on COCO val2017 and, without retraining,
 on the KITTI 2D validation split, scores them, and writes the report in `report/report.pdf`. It also contains the
 prompt-tuning experiment, in which Claude models choose the text prompts of the OWLv2 open-vocabulary detector.
 

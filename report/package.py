@@ -21,7 +21,7 @@ with zipfile.ZipFile(dist / "hw1_code_and_results.zip", "w", zipfile.ZIP_DEFLATE
         for f in files:
             if any(s in str(f) for s in SKIP):
                 continue
-            z.write(f, Path("hw_1") / f.relative_to(ROOT)); n += 1
+            z.write(f, Path("class-cmpe-249-hw-1") / f.relative_to(ROOT)); n += 1
     for f in sorted((ROOT / "runs/preds").glob("*.meta.json")):
-        z.write(f, Path("hw_1") / f.relative_to(ROOT)); n += 1
+        z.write(f, Path("class-cmpe-249-hw-1") / f.relative_to(ROOT)); n += 1
 print(f"{n} files -> {dist / 'hw1_code_and_results.zip'} ({(dist / 'hw1_code_and_results.zip').stat().st_size / 1e6:.1f} MB)")

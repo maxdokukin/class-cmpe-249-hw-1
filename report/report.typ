@@ -22,7 +22,7 @@
   #v(0.3em)
   #text(size: 10pt)[CMPE249 Homework 1, Track A (experimental) · Max Dokukin · San José State University · October 2026]
   #v(0.2em)
-  #text(size: 9pt)[Code, configurations and command log: #link("https://github.com/maxdokukin/class-cmpe-249/tree/main/hw_1")[`github.com/maxdokukin/class-cmpe-249/tree/main/hw_1`]]
+  #text(size: 9pt)[Code, configurations and command log: #link("https://github.com/maxdokukin/class-cmpe-249-hw-1")[`github.com/maxdokukin/class-cmpe-249-hw-1`]]
 ]
 
 #block(inset: (x: 1.2em))[
@@ -47,7 +47,7 @@ three parts. How much accuracy do COCO-pretrained detectors lose on a driving da
 loss come from: class, object size, occlusion, label taxonomy or input resolution? And can an LLM agent recover the part
 of the loss that comes from vocabulary, without changing any weights?
 
-We built a small evaluation harness of our own (`hw_1/src/hw1/`) instead of running the course's `ngdet` harness @ngdet
+We built a small evaluation harness of our own (`src/hw1/` in the repository) instead of running the course's `ngdet` harness @ngdet
 directly. Four of its defaults would bias the numbers that we wanted: a 0.3 score threshold before scoring, dropped KITTI
 DontCare regions, bicycle boxes scored as cyclists, and a 120-image evaluation. §5.3 measures the effect of the first.
 We reused its structure, and its hand-written prompt synonyms serve as a baseline.
@@ -327,14 +327,14 @@ box extent for cyclists, is beyond what prompts can change and would need fine-t
 
 *Use of AI tools.* Claude Code (Anthropic) wrote most of the harness, the analysis scripts and a first draft of this
 report under our direction; Claude models are also the subject of §6. Every number in this report comes from logged runs
-in `hw_1/runs/`, and we checked the claims about other work against the cited papers and documentation.
+in `runs/` of the repository, and we checked the claims about other work against the cited papers and documentation.
 
 #bibliography("refs.yml", style: "ieee", title: "References")
 
 = Appendix: commands and per-run details <app>
 
 #text(size: 8.5pt)[
-Setup and full pipeline on the M4: `git clone …; cd hw_1; ./setup.sh; ./run.sh`. Stages are resumable:
+Setup and full pipeline on the M4: `git clone https://github.com/maxdokukin/class-cmpe-249-hw-1; cd class-cmpe-249-hw-1; ./setup.sh; ./run.sh`. Stages are resumable:
 `parity e1 cache agent arms score analyze publish`. Agent runs: `AGENT_MODEL=claude-haiku-4-5 | claude-haiku-5-5 |
 claude-sonnet-5-5 | claude-opus-5-5 ./run.sh agent`, each `python -m hw1.agent --detector owlv2 --seed {0,1,2} --model …`
 with budget 15 and effort medium. Scoring: `python -m hw1.score_all` (bootstrap 500), `python -m hw1.arms --detector
