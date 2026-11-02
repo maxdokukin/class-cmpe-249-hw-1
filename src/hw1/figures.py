@@ -547,12 +547,12 @@ def fig_f7(R: Runs, out: Path, notes):
                handlelength=2.0, fontsize=6.6)
     footnote(fig, "(a) Larger marker = the evaluation the agent kept as its best map. (b) Within each model: best maps of seeds 0, 1, 2, then one-shot maps of "
              "seeds 0, 1, 2. Bars are paired bootstrap CIs (1000 image resamples of kitti_test) and reflect image sampling only, not run-to-run variance of the "
-             "agent. 3 runs per model. Haiku 4.5 ran without the effort setting (not accepted); the other three ran at effort medium. " + CAV_KMAP, y=-0.045)
+             "agent. 3 runs per model. Haiku 4.5 ran without the effort setting; the other three ran at effort medium. " + CAV_KMAP, y=-0.045)
     save_fig(fig, out, "F7_agent")
     notes["F7_agent"] = ("Agent prompt-tuning study (OWLv2, 12 runs = 4 agent models x 3 seeds). (a) Dev mAP per evaluation, one small panel per model, "
                          "against the raw-names and ngdet-synonym dev baselines. (b) kitti_test mAP minus raw names for every selected map, with paired 95% bootstrap CIs. "
                          "Caveats: paired CIs cover image resampling only, not run-to-run variance of the agent; 3 runs per model; Haiku 4.5 runs without the "
-                         "effort setting (it does not accept it) while the other three run at effort medium; Haiku 4.5's one-shot and best maps are selected on the "
+                         "effort setting while the other three run at effort medium; Haiku 4.5's one-shot and best maps are selected on the "
                          "same 500 dev images that define the dev curve. " + CAV_KMAP)
 
 
@@ -923,7 +923,7 @@ def table_t6(R: Runs, out: Path):
              "the 'worst drop' is the most negative single step over all runs of that model.",
              "Cost per run = (input x p_in + output x p_out + cache_read x p_read + cache_write x p_write) / 1e6 from the usage the API reported, with USD per million "
              "tokens from PRICES in src/hw1/agent.py: " + p + ". Cost covers agent tokens only, not OWLv2 compute.",
-             "* Haiku 4.5 ran without the effort setting (it does not accept it); the others ran at effort medium. Its summary.json has no token block, so its output tokens "
+             "* Haiku 4.5 ran without the effort setting; the others ran at effort medium. Its summary.json has no token block, so its output tokens "
              "are summed from the per-turn usage in transcript.jsonl."]
     write_table(out, "T6_agent_study", h, rows, notes=notes)
 

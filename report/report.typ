@@ -20,20 +20,20 @@
 #align(center)[
   #text(size: 15pt, weight: "bold")[Zero-shot 2D detection under domain shift,\ and an LLM agent that tunes open-vocabulary prompts]
   #v(0.3em)
-  #text(size: 10pt)[CMPE249 Homework 1, Track A (experimental) · Max Dokukin · San José State University · October 2026]
+  #text(size: 10pt)[CMPE249 Homework 1, Track A (experimental) · Maxim Dokukin · San José State University · October 2026]
   #v(0.2em)
   #text(size: 9pt)[Code, configurations and command log: #link("https://github.com/maxdokukin/class-cmpe-249-hw-1")[`github.com/maxdokukin/class-cmpe-249-hw-1`]]
 ]
 
 #block(inset: (x: 1.2em))[
 #set text(size: 9pt)
-*Abstract.* We ran six COCO-pretrained detectors from five families (YOLO11, YOLO26, Faster R-CNN, RT-DETR,
+*Abstract.* I ran six COCO-pretrained detectors from five families (YOLO11, YOLO26, Faster R-CNN, RT-DETR,
 OWLv2 and Grounding DINO; eight configurations in total) on COCO val2017 and, without retraining, on the 3,769-image KITTI validation split, all on a
 fanless Apple M4 laptop. On COCO the models span 0.47 to 0.53 mAP; on KITTI they collapse to 0.20 to 0.24, and the ranking
 changes. The drop is not uniform: car AP barely moves, while truck AP falls from about 0.44 to 0.13 and person to pedestrian
 from about 0.62 to 0.25. Input resolution shifts the KITTI ranking as much as architecture: YOLO11m at 1280 px matches
 Faster R-CNN. Error decomposition shows that missed objects cost the closed-set models the most AP, and that the
-open-vocabulary OWLv2 finds cyclists but draws boxes of the wrong extent. Finally, we let LLM agents (Claude Haiku 4.5, Haiku 5.5, Sonnet 5.5
+open-vocabulary OWLv2 finds cyclists but draws boxes of the wrong extent. Finally, I let LLM agents (Claude Haiku 4.5, Haiku 5.5, Sonnet 5.5
 and Opus 5.5) tune OWLv2's text prompts on a disjoint KITTI split. On the held-out test split, all 12 agent runs improved
 on the plain class names, by 0.2 to 1.3 mAP points, and 11 of the 12 gains are significant in a paired bootstrap. The
 runs cost \$1.86 in total. The largest model was not the best optimizer, and no prompt fixed the cyclist class.
@@ -42,25 +42,26 @@ runs cost \$1.86 in total. The largest model was not the best optimizer, and no 
 
 = Question and setup
 
-The homework asks whether we can design, reproduce and critically analyse a detection experiment. Our question has
+The homework asks whether I can design, reproduce and critically analyse a detection experiment. My question has
 three parts. How much accuracy do COCO-pretrained detectors lose on a driving dataset without retraining? Where does the
 loss come from: class, object size, occlusion, label taxonomy or input resolution? And can an LLM agent recover the part
 of the loss that comes from vocabulary, without changing any weights?
 
-We built a small evaluation harness of our own (`src/hw1/` in the repository) instead of running the course's `ngdet` harness @ngdet
-directly. Four of its defaults would bias the numbers that we wanted: a 0.3 score threshold before scoring, dropped KITTI
+I built a small evaluation harness of my own (`src/hw1/` in the repository) instead of running the course's `ngdet` harness @ngdet
+directly. Four of its defaults would bias the numbers that I wanted: a 0.3 score threshold before scoring, dropped KITTI
 DontCare regions, bicycle boxes scored as cyclists, and a 120-image evaluation. §5.3 measures the effect of the first.
-We reused its structure, and its hand-written prompt synonyms serve as a baseline.
+I reused its structure, and its hand-written prompt synonyms serve as a baseline.
 
 == Models
 
-@tab:models lists the configurations. We chose them to cover five families and the distinctions that the rubric asks about:
+@tab:models lists the configurations. I chose them to cover five families and the distinctions that the rubric asks about:
 anchor-based two-stage (Faster R-CNN v2 @ren2015faster @lin2017fpn @li2021benchmarking), anchor-free one-stage CNNs descended from YOLO @redmon2016yolo (YOLO11m @ultralytics with NMS, and YOLO26m @yolo26, which ships a one-to-many head used
-with NMS by default and an optional one-to-one head that needs no NMS; we ran both), a real-time DETR @carion2020detr
+with NMS by default and an optional one-to-one head that needs no NMS; I ran both), a real-time DETR @carion2020detr
 with set prediction and no NMS (RT-DETR R50 @zhao2024rtdetr), and two open-vocabulary detectors: OWLv2 @minderer2023owlv2,
 which scores image patches against text embeddings, and Grounding DINO-T @liu2023gdino, which fuses text into a DETR
 decoder. All weights are public COCO-trained checkpoints from Ultralytics, torchvision @torchvision and Hugging Face
-transformers @hftransformers. We used the tiny Grounding DINO, because the base checkpoint was trained on COCO.
+transformers @hfrtdetr @hfgdino @hfowlv2. I used the tiny Grounding DINO, pre-trained on Objects365, GoldG and Cap4M,
+which is the configuration that its paper evaluates zero-shot on COCO (48.4 AP) @liu2023gdino.
 
 #figure(
   table(columns: 7, align: (left, left, left, left, center, center, left),
@@ -82,18 +83,18 @@ transformers @hftransformers. We used the tiny Grounding DINO, because the base 
 == Datasets, splits and label mapping
 
 *COCO val2017* @lin2014coco (5,000 images, 80 classes) is the source domain. OWLv2 and Grounding DINO take 0.8 to 2.6 s
-per image on our hardware, so we ran them on a seeded 1,000-image subset and also re-scored the closed-set models on
-those same images for a fair comparison (@tab:main). *KITTI 2D object* @geiger2012kitti is the target domain. We use the
+per image on my hardware, so I ran them on a seeded 1,000-image subset and also re-scored the closed-set models on
+those same images for a fair comparison (@tab:main). *KITTI 2D object* @geiger2012kitti is the target domain. I use the
 standard 3DOP split @chen2015_3dop (3,712 train / 3,769 val images, sequences disjoint) as published by OpenPCDet
-@openpcdet: the 3,769 val images are our test set, and a seeded 500-image subset of the train half is the development
-set that only the agent sees (§6). KITTI and COCO label objects differently, so we converted KITTI to COCO-format ground
+@openpcdet: the 3,769 val images are my test set, and a seeded 500-image subset of the train half is the development
+set that only the agent sees (§6). KITTI and COCO label objects differently, so I converted KITTI to COCO-format ground
 truth with explicit rules (`taxonomy.py`):
 
-- *Car and Van* → car. A COCO model has no van class; as an ablation we made Van an ignore region instead (§5.3).
+- *Car and Van* → car. A COCO model has no van class; as an ablation I made Van an ignore region instead (§5.3).
 - *Truck* → truck, *Pedestrian* → person, *Tram* → train (open-vocabulary models are asked for "tram" directly).
 - *DontCare* (far or unlabeled objects) becomes an ignore region (`iscrowd=1`) for every class, so a detection inside it
   is neither rewarded nor penalised. *Misc* is an ignore region for car and truck, and *Person_sitting* for pedestrian.
-- *Cyclist* is one box around rider and bicycle, while a COCO model outputs a person box and a bicycle box. We pair each
+- *Cyclist* is one box around rider and bicycle, while a COCO model outputs a person box and a bicycle box. I pair each
   predicted bicycle with the predicted person that overlaps it from above and output their union box with the geometric
   mean score. Cyclist boxes are also ignore regions for pedestrian, so a rider found as "person" is not a false positive.
 
@@ -101,12 +102,12 @@ The KITTI test split then has 16,002 car, 606 truck, 2,280 pedestrian, 893 cycli
 
 == Metrics, hardware and reproducibility
 
-We score every run with pycocotools @cocoapi: mAP@[.5:.95], AP50, AP75, AP for small/medium/large boxes, AR\@1/10/100 and
-per-class AP. On KITTI we add the KITTI difficulty views (easy/moderate/hard via the benchmark's height, occlusion and
+I score every run with pycocotools @cocoapi: mAP@[.5:.95], AP50, AP75, AP for small/medium/large boxes, AR\@1/10/100 and
+per-class AP. On KITTI I add the KITTI difficulty views (easy/moderate/hard via the benchmark's height, occlusion and
 truncation limits, applied as ignore regions) and KITTI-style AP at IoU 0.7 for cars and 0.5 for pedestrians and
 cyclists; these use COCO's 101-point interpolation and are not comparable with the KITTI leaderboard. Confidence
 intervals are 95% bootstrap intervals over test images @efron1993bootstrap (500 resamples on KITTI, 200 on COCO); a test
-reproduces pycocotools' AP exactly from the same per-image match tables. We measured latency at batch size 1 including
+reproduces pycocotools' AP exactly from the same per-image match tables. I measured latency at batch size 1 including
 pre- and post-processing, with device synchronisation, and report the median of the first 200 timed images (*burst*)
 and of the whole run (*sustained*), because the fanless laptop throttles. Memory is the peak of
 `torch.mps.driver_allocated_memory()`, a unified-memory figure that is not comparable with CUDA memory.
@@ -114,7 +115,7 @@ and of the whole run (*sustained*), because the fanless laptop throttles. Memory
 All runs used a MacBook Air M4 (24 GB unified memory, macOS 15.7.7) with Python 3.12.15, PyTorch 2.14.1, torchvision
 0.29.1, Ultralytics 8.4.190 and transformers 5.21.0, pinned by `uv.lock`. Before the main runs, each model ran on 20 COCO
 images on both the CPU and the MPS GPU; five of six gave identical mAP to four decimals. Grounding DINO's check was
-interrupted by hand, our pipeline then defaulted it to the CPU, and its latency is therefore a CPU number (marked in all
+interrupted by hand, my pipeline then defaulted it to the CPU, and its latency is therefore a CPU number (marked in all
 tables). Each experiment is one command (@tab:cmds in the appendix); `run.sh` runs the whole pipeline and every executed
 command is appended to `runs/COMMANDS.md` with host, device and wall time. Each run also writes a metadata file with the
 model configuration, library versions, a hash of the source code, latency and memory.
@@ -140,7 +141,7 @@ model configuration, library versions, a hash of the source code, latency and me
 
 @tab:main and @fig:f1 summarise the main runs. On COCO, the closed-set models lead: on the shared 1,000 images RT-DETR
 (0.559), YOLO26m (0.551) and YOLO11m (0.544) beat Grounding DINO (0.509) and OWLv2 (0.498), close to the published
-full-set results that we reproduce within 1 point (RT-DETR 0.529 against 53.1 AP @zhao2024rtdetr, YOLO11m 0.505 against
+full-set results that I reproduce within 1 point (RT-DETR 0.529 against 53.1 AP @zhao2024rtdetr, YOLO11m 0.505 against
 51.5 @ultralytics, Faster R-CNN v2 0.469 against 46.7 @torchvision). On KITTI every model
 falls by more than half, and the spread between models shrinks from 6.0 to 4.6 points. The one-stage YOLOs run at 20 ms per image, RT-DETR
 at 187 ms, Faster R-CNN at 337 ms and OWLv2 at 866 ms on the M4 GPU.
@@ -187,7 +188,7 @@ design (2015, here with FPN and 2021 training recipes), scores 0.239, ahead of Y
 observation @ngdet, but resolution explains much of it: Faster R-CNN's resize rule upsamples KITTI frames to 1333×402,
 while YOLO's letterbox at 640 shrinks them to 640×192. Running the same YOLO11m at 1280 (1280×384) raises it to 0.237,
 within the confidence interval of Faster R-CNN, at 64 ms instead of 337 ms per image. The gain comes from medium objects
-(APm 0.208 → 0.242) and cyclists (0.059 → 0.108), not from small ones (APs 0.146 → 0.144). We tested resolution on one
+(APm 0.208 → 0.242) and cyclists (0.059 → 0.108), not from small ones (APs 0.146 → 0.144). I tested resolution on one
 model only. RT-DETR reaches the best KITTI mAP even though its resize rule squashes the wide frame to 640×640, which changes
 aspect ratios by a factor of 3.3.
 
@@ -215,11 +216,11 @@ Peak MPS memory follows input size rather than parameter count: YOLO11m used 0.1
   (Cls = right box, wrong class; Loc = right class, IoU 0.1–0.5; Both; Dupe = duplicate; Bkg = background; Missed = no
   detection). Right: the same for the cyclist class only.]) <fig:f8>
 
-We adapted TIDE @bolya2020tide to KITTI's ignore regions (`failure.py`). For the closed-set models, missed objects cost the most
+I adapted TIDE @bolya2020tide to KITTI's ignore regions (`failure.py`). For the closed-set models, missed objects cost the most
 (0.15–0.27 AP50), then class confusion (0.07–0.12) and localisation (0.07–0.09). OWLv2's largest error is localisation
 (0.172). Grounding DINO's largest error is class
 confusion (0.125), which fits a label space defined by text. For the cyclist class the picture splits by model type
-(@fig:f8, right): the closed-set models mostly miss cyclists even with our pairing rule (Missed 0.21–0.42), while OWLv2's
+(@fig:f8, right): the closed-set models mostly miss cyclists even with my pairing rule (Missed 0.21–0.42), while OWLv2's
 cyclist loss is almost all localisation (Loc 0.341): it finds the cyclists but draws a box around only the rider or only
 the bicycle. This explains the result of §6 that no prompt fixed the cyclist class.
 
@@ -230,7 +231,7 @@ the bicycle. This explains the result of §6 that no prompt fixed the cyclist cl
 Three choices change the numbers by more than the gaps between models (full table: `runs/tables/T3_ablations.md`). A 0.3 score threshold before scoring,
 the default in the course harness, costs 1.1 to 3.5 points on KITTI and 1.6 to 8.2 points on COCO (YOLO26m: 0.520 →
 0.438), because it truncates the precision-recall curve; models with low-scoring outputs lose most. Mapping only bicycle
-boxes to Cyclist gives cyclist AP of 0.000–0.001, the same as dropping the class, while our pairing rule gives 0.06–0.11
+boxes to Cyclist gives cyclist AP of 0.000–0.001, the same as dropping the class, while my pairing rule gives 0.06–0.11
 and adds 1.2–2.1 points of mAP. Treating Van as an ignore region instead of a car adds 0.4–0.6 points to every model and
 changes no ranking.
 
@@ -239,16 +240,16 @@ changes no ranking.
 With plain class names as prompts, OWLv2 is the weakest model on KITTI (0.195) and Grounding DINO ties YOLO26m (0.232).
 Grounding DINO keeps a larger share of its COCO accuracy (46% against 40% for YOLO11m on the shared COCO subset), but
 both open-vocabulary models are poor at pedestrians (0.12–0.15 AP) and cyclists. An open-vocabulary detector's only
-adaptation knob is its vocabulary, so we asked whether an LLM agent could choose a better one.
+adaptation knob is its vocabulary, so I asked whether an LLM agent could choose a better one.
 
 *Protocol.* The agent proposes a prompt map: up to 5 prompts per class and 30 in total, each assigned to a KITTI class.
 Its only tool, `evaluate_prompt_map`, runs OWLv2 on the 500-image development split and returns per-class AP, true and
 false detections per prompt, and six image crops of the worst false positives and misses. It has 15 evaluations. The
 code, not the agent, keeps the map with the best development mAP, and that map is scored once on the 3,769-image test
-split, which the tool cannot reach. OWLv2's image features do not depend on the text, so we cached them once and each
-evaluation takes about a second; the cached path reproduces the full model exactly (raw names: 0.195 both ways). We ran
-four Claude models @anthropicmodels three times each. Haiku 4.5 does not accept the `effort` setting and ran without
-extended thinking; the others ran at `effort: medium`. We compare against the plain names, `ngdet`'s hand-written
+split, which the tool cannot reach. OWLv2's image features do not depend on the text, so I cached them once and each
+evaluation takes about a second; the cached path reproduces the full model exactly (raw names: 0.195 both ways). I ran
+four Claude models @anthropicmodels three times each. Haiku 4.5 ran without the `effort` setting and without
+extended thinking; the others ran at `effort: medium`. I compare against the plain names, `ngdet`'s hand-written
 synonyms @ngdet, and the agent's first proposal before any feedback (*one-shot*). Significance is a paired bootstrap of
 test mAP minus the plain-names mAP over the same 1,000 image resamples.
 
@@ -275,7 +276,7 @@ by 0.17 to 1.34 points. `ngdet`'s synonyms are significantly worse than the plai
 detects only the bicycle and KITTI's cyclist box includes the rider. The feedback loop matters: one-shot proposals are no
 better than the plain names, except Sonnet's (+0.26 to +0.41 points, significant in one of three runs), and the maps
 improve during the run. Test gains are not systematically
-smaller than development gains (for example Sonnet: +0.1 to +0.4 points on development, +1.0 to +1.2 on test), so we see
+smaller than development gains (for example Sonnet: +0.1 to +0.4 points on development, +1.0 to +1.2 on test), so I see
 no sign of overfitting the 500-image development split, whose estimates are noisy. The gains come from three sources: pose words for pedestrians
 ("standing person", "walking person"; test pedestrian AP 0.120 → up to 0.159), car subtypes ("minivan", "SUV", "dark
 car"; car AP up to 0.410), and, only in Sonnet's runs, tram synonyms ("light rail train", "streetcar"; tram AP 0.240 →
@@ -289,7 +290,7 @@ gave half of Sonnet's gain for 2 cents per run. The models also searched differe
 change in development mAP of 0.005–0.010 per step). Replacing "truck" with "truck or van" cut development mAP by 5
 points, and another run twice lost 1.6 points by replacing "truck" with "delivery truck" or "box truck"; each time it
 restored "truck" within one or two steps, and it reached the highest single test gain. The 5.x models made small, safe edits (0.001–0.003 per step, worst drop 0.011). With three runs per model, and
-gains of about one point, we do not rank the models beyond this; the paired intervals do not capture variation between
+gains of about one point, I do not rank the models beyond this; the paired intervals do not capture variation between
 runs.
 
 = Failure analysis
@@ -310,8 +311,9 @@ carriage section, while a COCO model outputs one "train" box over the whole tram
 is a group of partly occluded pedestrians, plus pedestrians cut off at the image edge (62% and 82% truncated).
 
 *Threats to validity.* Grounding DINO's latency was measured on the CPU. OWLv2's ensemble checkpoint was fine-tuned on LVIS
-@minderer2023owlv2, whose images are COCO images, and Grounding DINO's grounding data includes Visual Genome
-@krishna2017vg, whose images come from COCO, so neither model's COCO score is strictly zero-shot; KITTI is. KITTI-style AP is computed with COCO's interpolation and is not leaderboard-comparable. The agent study uses 3
+@minderer2023owlv2, whose images are COCO images, and its pseudo-labels came from an annotator trained on Objects365
+and Visual Genome. Grounding DINO's pre-training data include GoldG @liu2023gdino, the grounding annotations collected
+by MDETR @kamath2021mdetr, which include Visual Genome, whose images come from COCO @krishna2017vg, so neither model's COCO score is strictly zero-shot; KITTI is. KITTI-style AP is computed with COCO's interpolation and is not leaderboard-comparable. The agent study uses 3
 runs per model and one detector; Grounding DINO was too slow for 15 evaluations per run.
 
 = Conclusions
@@ -326,8 +328,8 @@ OWLv2 on held-out data in all 12 runs for under \$2 in total, with a mid-size mo
 box extent for cyclists, is beyond what prompts can change and would need fine-tuning on KITTI boxes.
 
 *Use of AI tools.* Claude Code (Anthropic) wrote most of the harness, the analysis scripts and a first draft of this
-report under our direction; Claude models are also the subject of §6. Every number in this report comes from logged runs
-in `runs/` of the repository, and we checked the claims about other work against the cited papers and documentation.
+report under my direction; Claude models are also the subject of §6. Every number in this report comes from logged runs
+in `runs/` of the repository, and I checked the claims about other work against the cited papers and documentation.
 
 #bibliography("refs.yml", style: "ieee", title: "References")
 

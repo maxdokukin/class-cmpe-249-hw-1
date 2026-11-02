@@ -29,6 +29,7 @@ li2021benchmarking:
     title: arXiv
   serial-number:
     arxiv: "2111.11429"
+  url: https://arxiv.org/abs/2111.11429
 redmon2016yolo:
   type: article
   title: "You only look once: Unified, real-time object detection"
@@ -42,13 +43,14 @@ redmon2016yolo:
 yolo26:
   type: article
   title: "Ultralytics YOLO26: Unified real-time end-to-end vision models"
-  author: ["Jocher, Glenn", "Qiu, Jing", "Liu, M.", "Lyu, S.", "Akyon, Fatih Cagatay", "Kalfaoglu, M. E."]
+  author: ["Jocher, Glenn", "Qiu, Jing", "Liu, Mengyu", "Lyu, Shuai", "Akyon, Fatih Cagatay", "Kalfaoglu, Muhammet Esat"]
   date: 2026-06
   parent:
     type: repository
     title: arXiv
   serial-number:
     arxiv: "2606.03748"
+  url: https://arxiv.org/abs/2606.03748
 carion2020detr:
   type: article
   title: End-to-end object detection with transformers
@@ -132,11 +134,14 @@ bolya2020tide:
 krishna2017vg:
   type: article
   title: "Visual Genome: Connecting language and vision using crowdsourced dense image annotations"
-  author: ["Krishna, Ranjay", "others"]
+  author: ["Krishna, Ranjay", "Zhu, Yuke", "Groth, Oliver", "Johnson, Justin", "Hata, Kenji", "Kravitz, Joshua", "Chen, Stephanie", "Kalantidis, Yannis", "Li, Li-Jia", "Shamma, David A.", "Bernstein, Michael S.", "Fei-Fei, Li"]
   date: 2017
+  page-range: 32-73
   parent:
     type: periodical
     title: International Journal of Computer Vision
+    volume: 123
+    issue: 1
   serial-number:
     arxiv: "1602.07332"
 efron1993bootstrap:
@@ -151,35 +156,74 @@ ultralytics:
   title: "Ultralytics YOLO11 (software and documentation)"
   author: ["Jocher, Glenn", "Qiu, Jing"]
   date: 2024
-  url: https://docs.ultralytics.com/models/yolo11/
+  url:
+    value: https://docs.ultralytics.com/models/yolo11/
+    date: 2026-10-28
 torchvision:
   type: web
   title: "torchvision: fasterrcnn_resnet50_fpn_v2 (COCO_V1 weights, box mAP 46.7)"
   author: PyTorch
-  url: https://docs.pytorch.org/vision/main/models/generated/torchvision.models.detection.fasterrcnn_resnet50_fpn_v2.html
-hftransformers:
+  url:
+    value: https://docs.pytorch.org/vision/main/models/generated/torchvision.models.detection.fasterrcnn_resnet50_fpn_v2.html
+    date: 2026-10-28
+hfrtdetr:
   type: web
-  title: "Hugging Face Transformers documentation: RT-DETR, Grounding DINO, OWLv2"
+  title: "Hugging Face Transformers documentation: RT-DETR"
   author: Hugging Face
-  url: https://huggingface.co/docs/transformers/model_doc/rt_detr
+  url:
+    value: https://huggingface.co/docs/transformers/model_doc/rt_detr
+    date: 2026-10-28
+hfgdino:
+  type: web
+  title: "Hugging Face Transformers documentation: Grounding DINO"
+  author: Hugging Face
+  url:
+    value: https://huggingface.co/docs/transformers/model_doc/grounding-dino
+    date: 2026-10-28
+hfowlv2:
+  type: web
+  title: "Hugging Face Transformers documentation: OWLv2"
+  author: Hugging Face
+  url:
+    value: https://huggingface.co/docs/transformers/model_doc/owlv2
+    date: 2026-10-28
 cocoapi:
   type: repository
   title: "cocodataset/cocoapi (pycocotools)"
   author: COCO Consortium
-  url: https://github.com/cocodataset/cocoapi
+  url:
+    value: https://github.com/cocodataset/cocoapi
+    date: 2026-10-28
 openpcdet:
   type: repository
   title: "OpenPCDet: data/kitti/ImageSets (train 3712, val 3769)"
   author: OpenMMLab
-  url: https://github.com/open-mmlab/OpenPCDet/tree/master/data/kitti/ImageSets
+  url:
+    value: https://github.com/open-mmlab/OpenPCDet/tree/master/data/kitti/ImageSets
+    date: 2026-10-28
 ngdet:
   type: repository
   title: "ngdet tutorial: zero-shot 2D detection across datasets (DeepDataMiningLearning)"
   author: lkk688
-  url: https://github.com/lkk688/DeepDataMiningLearning/blob/main/DeepDataMiningLearning/ngdet/TUTORIAL.md
+  url:
+    value: https://github.com/lkk688/DeepDataMiningLearning/blob/main/DeepDataMiningLearning/ngdet/TUTORIAL.md
+    date: 2026-10-28
 anthropicmodels:
   type: web
   title: "Claude API: Models overview"
   author: Anthropic
   date: 2026
-  url: https://platform.claude.com/docs/en/models/overview
+  url:
+    value: https://platform.claude.com/docs/en/models/overview
+    date: 2026-10-28
+kamath2021mdetr:
+  type: article
+  title: "MDETR: Modulated detection for end-to-end multi-modal understanding"
+  author: ["Kamath, Aishwarya", "Singh, Mannat", "LeCun, Yann", "Synnaeve, Gabriel", "Misra, Ishan", "Carion, Nicolas"]
+  date: 2021
+  parent:
+    type: repository
+    title: arXiv
+  serial-number:
+    arxiv: "2104.12763"
+  url: https://arxiv.org/abs/2104.12763
